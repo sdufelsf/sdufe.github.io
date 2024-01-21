@@ -178,7 +178,61 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h1 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么"></a>Markdown是什么</h1><p>Markdown是一个Web上使用的文本到HTML的转换工具，可以通过简单、易读易写的文本格式生成结构化的HTML文档。（支持范围较广）</p>
+<hr>
+<h1 id="Markdown基础语法"><a href="#Markdown基础语法" class="headerlink" title="Markdown基础语法"></a>Markdown基础语法</h1><hr>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>使用*或-三个以上，中间可穿插空格</p>
+<hr>
+<h2 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.内容前为4空格/一个制表位(基本弃用)</span><br><span class="line">2.```+enter写入代码块</span><br></pre></td></tr></table></figure>
+<p>单句代码块使用&#96;内单引，成块使用三内单引</p>
+<hr>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ul>
+<li>无序列表(使用*或+或-实现)</li>
+<li>有序列表(使用数字和小数点)</li>
+</ul>
+<hr>
+<h2 id="自动转换"><a href="#自动转换" class="headerlink" title="自动转换"></a>自动转换</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Markdown能够自动将html中的实例转换为对应的符号</span><br><span class="line">&amp;lt =&gt; &lt;</span><br><span class="line">&amp;amp; =&gt; &amp;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="缩进分区"><a href="#缩进分区" class="headerlink" title="缩进分区"></a>缩进分区</h2><h3 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h3><pre><code>&amp;emsp;(大缩进)
+&amp;ensp;(小缩进)
+</code></pre>
+<h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><pre><code>&lt;p&gt;...&lt;p/&gt;(段落)
+&lt;br&gt;(换行)
+</code></pre>
+<hr>
+<h2 id="类Setext形式标题"><a href="#类Setext形式标题" class="headerlink" title="类Setext形式标题"></a>类Setext形式标题</h2><ul>
+<li>在文本下添加任意数量&#x3D;为最高阶标题</li>
+<li>在文本下添加任意数量-为第二阶标题</li>
+</ul>
+<hr>
+<h2 id="类Atx形式标题"><a href="#类Atx形式标题" class="headerlink" title="类Atx形式标题"></a>类Atx形式标题</h2><ul>
+<li><p># ：h1大标题</p></li>
+<li><p>## ：h2</p>......</li>
+<li><p>###### ：h6小标题</p></li>
+</ul>
+<hr>
+<h2 id="强调字体"><a href="#强调字体" class="headerlink" title="强调字体"></a>强调字体</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">斜体:*abcdefg*(相当于em标签)</span><br><span class="line">加粗:**abcdefg**(相当于strong标签)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>网址超链接：<br><a target="_blank" rel="noopener" href="http://baidu.com/" title="百度一下你就知道">百度</a> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[百度](http://baidu.com &quot;百度一下你就知道&quot;) </span><br></pre></td></tr></table></figure>
+<p>图片超链接<br><img src="http://www.baidu.com/img/bd_logo1.png" alt="111" title="示例"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![111](http://www.baidu.com/img/bd_logo1.png &quot;示例&quot;)</span><br></pre></td></tr></table></figure>
+<p>111为图片显示不出来的时候会显示的字</p>
+<hr>
+<h2 id="引用符号："><a href="#引用符号：" class="headerlink" title="引用符号：&gt;"></a>引用符号：&gt;</h2><p>>文本内容</p>
+<p>在引用的文本内容里，依然可以使用##等符号，来控制文字内容的和换行</p>
+<p>多行引用会合并成一个引用</p>
+
+<blockquote>
+<h4 id="洛神赋"><a href="#洛神赋" class="headerlink" title="洛神赋"></a>洛神赋</h4><p>其形也，翩若惊鸿，婉若游龙，荣曜(yào)秋菊，华茂春松。</p>
+<blockquote>
+<p>髣髴(fǎngfú)兮若轻云之蔽月，飘飖(yáo)兮若流风之回雪。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><p>使字符不以Markdown语法展示：\字符</p>
+ 
       <!-- reward -->
       
     </div>
