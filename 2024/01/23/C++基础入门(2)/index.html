@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">201</span>
+            <span class="post-count">491</span>
         </span>
     </span>
 
@@ -126,9 +126,27 @@
 <li>可以获取数组在内存中的首地址<code>cout &lt;&lt; arr;</code><br><strong>数组名是一个常量</strong></li>
 </ul>
 </li>
+<li><p>冒泡排序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(升序从小到大举例)</span><br><span class="line">for( i = 0; i &lt; n - 1; i ++)</span><br><span class="line">    for( j = i+1; j &lt; n; j ++)&#123;</span><br><span class="line">        int t;</span><br><span class="line">        if(a[i]&gt;a[j])&#123;</span><br><span class="line">            t = a[i];</span><br><span class="line">            a[i] = a[j];</span><br><span class="line">            a[j] = t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><ul>
+<li>二维数组定义方式<ul>
+<li><code>数据类型 数组名[行数][列数];</code></li>
+<li><code>数据类型 数组名[行数][列数] = &#123;&#123;值1, 值2&#125; , &#123;值3, 值4&#125;&#125;;</code></li>
+<li><code>数据类型 数组名[行数][列数] = &#123;值1, 值2, 值3, 值4&#125;;</code></li>
+<li><code>数据类型 数组名[][列数] = &#123;值1, 值2, 值3, 值4&#125;;</code><br><strong>建议</strong>：第二种方法更加直观，提高代码的可读性</li>
+</ul>
+</li>
+<li>二维数组名称的用途<ul>
+<li>查看二维数组所占的内存空间<code>sizeof(arr)</code></li>
+<li>可以获取二位数组首地址<code>cout &lt;&lt; arr;</code><br><strong>数组名是一个常量</strong></li>
+</ul>
+</li>
 </ul>
 <hr>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><hr>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p><strong>作用</strong>：将一段经常使用的代码封装起来，减少重复的代码<br>一个较大的程序一般分为若干个程序块，每个模块实现特定的功能</p>
+<h3 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">返回值类型 函数名(参数列表)&#123;</span><br><span class="line">  函数体语句</span><br><span class="line">  return表达式</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h3><hr>
 <h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><hr>
 <h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2> 
       <!-- reward -->
