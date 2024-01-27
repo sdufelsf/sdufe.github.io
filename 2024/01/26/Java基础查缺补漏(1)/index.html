@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>“Java基础查缺补漏” |  Liu</title>
+      <title>Java基础查缺补漏 |  Liu</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -55,7 +55,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Java基础查缺补漏"
+  id="post-Java基础查缺补漏(1)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -66,7 +66,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  “Java基础查缺补漏”
+  Java基础查缺补漏
 </h1>
  
 
@@ -74,7 +74,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/01/26/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/" class="article-date">
+      <a href="/2024/01/26/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(1)/" class="article-date">
   <time datetime="2024-01-26T04:17:18.000Z" itemprop="datePublished">2024-01-26</time>
 </a>   
 <div class="word_count">
@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">993</span>
+            <span class="post-count">1.5k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -107,6 +107,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h2 id="Java的重要特点"><a href="#Java的重要特点" class="headerlink" title="Java的重要特点"></a>Java的重要特点</h2><p>1.Java语言是面向对象的(oop)<br>2.Java语言是健壮的。Java的强类型机制(明确的数据类型)、异常处理、垃圾的自动收集等是Java程序健壮性的重要保证<br>3.Java语言具有跨平台性(靠JVM实现)<br>4.Java语言是解释型的，解释型语言编译后的代码需要解释器才能执行，编译性语言编译后可以直接运行(C&#x2F;C++)</p>
+<span id="more"></span>
 <h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>配置Path的作用是为了在dos的任意目录可以使用java和javac<br>配置用户变量仅对单一用户生效，系统变量适用于所有用户</p>
 <h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h2><p>JDK &#x3D; JRE + java的开发工具(java,javac,javadoc,javap等)<br>JRE &#x3D; JVM + Java SE标准类库(java核心类库)<br>.java文件通过javac生成.class文件，运行.class文件只需要JRE</p>
 <hr>
@@ -159,6 +160,43 @@
 <li>char -&gt; int -&gt; long -&gt; float -&gt; double</li>
 <li>byte -&gt; short -&gt; int -&gt; long -&gt; float -&gt; double<br><strong>(byte, short)和char之间不会相互自动转换</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">byte a = 10;</span><br><span class="line">char b = a;//会报错，因为byte不能自动转换成char</span><br></pre></td></tr></table></figure>
 <strong>byte,short和char三者可以计算，计算时首先转换为int型</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">byte a = 1;</span><br><span class="line">short b = 1;</span><br><span class="line">short c = a + b;//会报错，因为结果为int型</span><br><span class="line">//就算是byte + byte结果也是int！！！</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h2 id="String和基本类型转换"><a href="#String和基本类型转换" class="headerlink" title="String和基本类型转换"></a>String和基本类型转换</h2><h3 id="基本类型转String类型"><a href="#基本类型转String类型" class="headerlink" title="基本类型转String类型"></a>基本类型转String类型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 1;</span><br><span class="line">String str = a + &quot;&quot;;</span><br></pre></td></tr></table></figure>
+<h3 id="String类型转基本数据类型"><a href="#String类型转基本数据类型" class="headerlink" title="String类型转基本数据类型"></a>String类型转基本数据类型</h3><p>基本数据类型的包装类调用parseXX方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String str = &quot;123&quot;;</span><br><span class="line">byte num2 = Byte.parseByte(str);</span><br><span class="line">short num3 = Short.parseShort(str);</span><br><span class="line">int num1 = Integer.parseInt(str);</span><br><span class="line">long num4 = Long.parseLong(str);</span><br><span class="line">float num5 = Float.parseFloat(str);</span><br><span class="line">double num6 = Double.parseDouble(str);</span><br><span class="line">boolean b = Boolean.parseBoolean(&quot;true&quot;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><p><strong>取模的实质即为</strong>：<code>a % b = a - a / b * b</code><br>如：<code>-10%3= -10 - (-10)/3 *3 = -10+9 = -1</code><br>如果a或b有小数a&#x2F;b*b的每个数要强制类型转换为int<br><strong>面试题1</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int i = 1;</span><br><span class="line">i = i++;</span><br><span class="line">System.out.println(i)//结果为多少？为什么</span><br></pre></td></tr></table></figure>
+<ol>
+<li>一个临时变量保存原来的i <code>temp = i;</code></li>
+<li>执行自增操作 <code>i = i + 1;</code></li>
+<li>把临时变量赋给i <code>i = temp;</code><br><em>所以答案为1</em></li>
+</ol>
+<p><strong>面试题2</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int i = 1;</span><br><span class="line">i = ++i;</span><br><span class="line">System.out.println(i)//结果为多少？为什么</span><br></pre></td></tr></table></figure>
+<ol>
+<li>执行自增操作 <code>i = i + 1;</code></li>
+<li>一个临时变量保存i <code>temp = i;</code></li>
+<li>把临时变量赋给i <code>i = temp;</code><br><em>所以答案为2</em></li>
+</ol>
+<hr>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><ul>
+<li>&amp;&amp;(短路与)和&amp;(逻辑与)的判断条件相同，但是短路与高效，第一个条件false后不再判断，逻辑与全都会判断</li>
+<li>||(短路或)和|(逻辑或)同理，基本使用<strong>短路</strong><br><strong>逻辑运算一定要注意赋值号和相等于！！！</strong></li>
+</ul>
+<hr>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><p><strong>复合赋值运算符会进行类型转换</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">byte b = 3;</span><br><span class="line">b += 2;//等价于b = (byte)(b + 2);不会报错</span><br><span class="line">b++;//同样不会报错</span><br><span class="line">b = b + 2;//会报错</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p>Java标识符组成有字母、数字、_和$</p>
+<ol>
+<li>包名：多单词组成时所有字母小写，如aaa.bbb.ccc</li>
+<li>类名、接口名：多单词组成所有首字母大写，如XxxYyyZzz</li>
+<li>变量名、方法名：多单词组合第一个单词首字母小写，，第二个单词开始首字母大写，如xxxYyyZzz</li>
+<li>常量名：所有字母大写，多单词时下划线连接，如XXX_YYY_ZZZ</li>
 </ol>
  
       <!-- reward -->
@@ -230,7 +268,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/01/26/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/01/26/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(1)/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -240,6 +278,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2024/01/27/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(2)/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Java基础查缺补漏(2)
+          
+        </div>
+      </a>
     
     
       <a href="/2024/01/23/C++%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8(2)/" class="article-nav-link">

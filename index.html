@@ -151,7 +151,7 @@
     
     
     <article
-  id="post-Java基础查缺补漏"
+  id="post-Java基础查缺补漏(2)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -162,8 +162,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2024/01/26/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/"
-    >“Java基础查缺补漏”</a> 
+  <a class="article-title" href="/2024/01/27/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(2)/"
+    >Java基础查缺补漏(2)</a> 
 </h2>
  
 
@@ -171,68 +171,91 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/01/26/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F/" class="article-date">
+      <a href="/2024/01/27/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(2)/" class="article-date">
+  <time datetime="2024-01-27T09:50:38.000Z" itemprop="datePublished">2024-01-27</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="原码-反码-补码"><a href="#原码-反码-补码" class="headerlink" title="原码 反码 补码"></a>原码 反码 补码</h2><ol>
+<li>二进制最高位是符号位，0表示正数，1表示负数</li>
+<li>整数的原码、反码和补码都一样</li>
+<li>负数的反码 &#x3D; 原码符号位不变，其他位取反</li>
+<li>负数的补码 &#x3D; 反码 + 1</li>
+<li>0的反码和补码都是0</li>
+<li>java所有的数都是有符号的</li>
+<li>计算机运算时是<strong>以补码的方式运算</strong>的</li>
+<li>运算结果看的是原码</li>
+</ol>
+<h2 id="位运算符-补码运算"><a href="#位运算符-补码运算" class="headerlink" title="位运算符 (补码运算)"></a>位运算符 (补码运算)</h2><ol>
+<li>按位与&amp;：两位全1则为1，否则为0</li>
+<li>按位或|：两位有一个1则为1，否则为0</li>
+<li>按位异或^：两位不同则为1，否则为0</li>
+<li>按位取反~</li>
+<li>算术右移&gt;&gt;：符号位不变，低位溢出并用符号位补溢出的高位 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 1&gt;&gt;2; //本质相当于 1/2/2 = 0</span><br><span class="line">int b = 1&lt;&lt;2; //本质相当于 1*2*2 = 4</span><br></pre></td></tr></table></figure></li>
+<li>算术左移&lt;&lt;：符号不变，低位补0</li>
+<li>逻辑右移也叫无符号右移&gt;&gt;&gt;：低位溢出，高位补0</li>
+</ol>
+<h2 id="分支控制if-else语句"><a href="#分支控制if-else语句" class="headerlink" title="分支控制if-else语句"></a>分支控制if-else语句</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">boolean b = true;</span><br><span class="line">if(b = false) System.out.println(&quot;1234&quot;);</span><br><span class="line">else System.out.println(&quot;5678&quot;);</span><br><span class="line">//会输出5678！！！！C++也一样</span><br></pre></td></tr></table></figure>
+<p><strong>if括号里如果是关系运算符的话，就会判断整个表达式是true还是false，但是如果括号里是一个赋值语句的话，就比如说a&#x3D;4;那么if(a&#x3D;4)就等价于if(a)，这个a就是赋完值的a。但是在C&#x2F;C++里，只有0是假，其他都为真，Java里只有true为真，java的boolean类型只有true和false，没有其他结果</strong></p>
+<hr>
+<h2 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h2><ul>
+<li>switch(表达式)中表达式的返回值必须是byte,short,int,char,enum[枚举],String</li>
+<li>casez字句中的值必须是常量或常量表达式，不能是变量</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Java基础查缺补漏(1)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/01/26/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(1)/"
+    >Java基础查缺补漏</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/01/26/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(1)/" class="article-date">
   <time datetime="2024-01-26T04:17:18.000Z" itemprop="datePublished">2024-01-26</time>
 </a>    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="Java的重要特点"><a href="#Java的重要特点" class="headerlink" title="Java的重要特点"></a>Java的重要特点</h2><p>1.Java语言是面向对象的(oop)<br>2.Java语言是健壮的。Java的强类型机制(明确的数据类型)、异常处理、垃圾的自动收集等是Java程序健壮性的重要保证<br>3.Java语言具有跨平台性(靠JVM实现)<br>4.Java语言是解释型的，解释型语言编译后的代码需要解释器才能执行，编译性语言编译后可以直接运行(C&#x2F;C++)</p>
-<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>配置Path的作用是为了在dos的任意目录可以使用java和javac<br>配置用户变量仅对单一用户生效，系统变量适用于所有用户</p>
-<h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h2><p>JDK &#x3D; JRE + java的开发工具(java,javac,javadoc,javap等)<br>JRE &#x3D; JVM + Java SE标准类库(java核心类库)<br>.java文件通过javac生成.class文件，运行.class文件只需要JRE</p>
-<hr>
-<h2 id="注意事项和细节"><a href="#注意事项和细节" class="headerlink" title="注意事项和细节"></a>注意事项和细节</h2><p>Java应用程序的执行入口main()方法格式<br><code>public static void main(String[] args)&#123;...&#125;</code><br>一个源文件最多只有一个public类，其他类不限<br>编译后每一个类都对应一个字节码文件<br>如果源文件包含了一个public类，文件名必须按该类命名<br>main方法可以写在非public类然后指定运行非public类</p>
-<h2 id="Java代码书写规范"><a href="#Java代码书写规范" class="headerlink" title="Java代码书写规范"></a>Java代码书写规范</h2><h3 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释"></a>文档注释</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * javadoc标签</span><br><span class="line"> * @author 小明</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
-<p>使用<code>javadoc -d 文件名 -xx -yy Demo.java</code>可以在文件名中生成一套以网页文件形式体现的程序说明文档，一般写在类<br><strong>源码文件使用utf-8编码</strong></p>
-<h2 id="DOS指令"><a href="#DOS指令" class="headerlink" title="DOS指令"></a>DOS指令</h2><ol>
-<li>dir，查看当前路径的文件，可以跟具体路径</li>
-<li>cd 路径，切换目录，</li>
-<li>cd .. 返回上级目录</li>
-<li>cd \ 直达根目录 </li>
-<li>tree，查看当前路径的文件，可以跟具体路径</li>
-<li>cls清屏，exit退出</li>
-</ol>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量在同一作用域内不能重名</p>
-<hr>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
-<li><p>数值型</p>
-<ol>
-<li>byte[1], short[2], int[4], long[8]<br><strong>整型常量默认int型，声明long型要加l或者L</strong></li>
-<li>float[4], double[8]<br><strong>浮点数在机器中的存放形式,浮点数&#x3D;符号位+指数位+尾数位</strong><br><em>0.125 等价于 .125</em><br><strong>浮点型常量默认double型,声明float型要加f或者F</strong><br>8.1&#x2F;3 结果不是2.7，而是一个接近2.7的小数<br>要比较两数的话可以使用差值的绝对值在某精度范围内判断<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(Math.abs(num1 - num2) &lt; 0.000001)&#123;</span><br><span class="line">    System.out.println(&quot;相等&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p>字符型 char[2]</p>
-</li>
-<li><p>布尔型 boolean[1]<br><strong>布尔类型的值只有false和true</strong></p>
-</li>
-</ul>
-<h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><ul>
-<li>类 class</li>
-<li>接口 interface</li>
-<li>数组 []<br><strong>String是一个类</strong></li>
-</ul>
-<hr>
-<h2 id="Java-API-文档"><a href="#Java-API-文档" class="headerlink" title="Java API 文档"></a>Java API 文档</h2><p>在线API文档：<a target="_blank" rel="noopener" href="http://www.matools.com/api/java8">http://www.matools.com/api/java8</a><br>使用方法：</p>
-<ol>
-<li>按包 -&gt; 类 -&gt; 方法的顺序查找  </li>
-<li>直接索引名称</li>
-</ol>
-<hr>
-<h2 id="常用编码"><a href="#常用编码" class="headerlink" title="常用编码"></a>常用编码</h2><ol>
-<li>ASCII码：美国指定的一套字符编码(1字节)，规定了英语字符和二进制之间的关系，最前面一位统一规定0，只用后七位表示了128个字符</li>
-<li>Unicode：一种编码包含世界上所有的符号，每个符号都有独一无二的编码，所以不会乱码，一个英文字母和汉字都是2字节，浪费空间</li>
-<li>UTF-8：是互联网上使用最广的一种Unicode实现方式，可以使用1-6个字节表示一个符号，根据不同符号变化字节长度，字母占1个字节，汉字占3个字节</li>
-<li>gbk：字母1字节，汉字2字节，表示的汉字比gbk2312多</li>
-<li>big5：表示繁体中文</li>
-</ol>
-<hr>
-<h2 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h2><ol>
-<li>char -&gt; int -&gt; long -&gt; float -&gt; double</li>
-<li>byte -&gt; short -&gt; int -&gt; long -&gt; float -&gt; double<br><strong>(byte, short)和char之间不会相互自动转换</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">byte a = 10;</span><br><span class="line">char b = a;//会报错，因为byte不能自动转换成char</span><br></pre></td></tr></table></figure>
-<strong>byte,short和char三者可以计算，计算时首先转换为int型</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">byte a = 1;</span><br><span class="line">short b = 1;</span><br><span class="line">short c = a + b;//会报错，因为结果为int型</span><br><span class="line">//就算是byte + byte结果也是int！！！</span><br></pre></td></tr></table></figure></li>
-</ol>
- 
+  <h2 id="Java的重要特点"><a href="#Java的重要特点" class="headerlink" title="Java的重要特点"></a>Java的重要特点</h2><p>1.Java语言是面向对象的(oop)<br>2.Java语言是健壮的。Java的强类型机制(明确的数据类型)、异常处理、垃圾的自动收集等是Java程序健壮性的重要保证<br>3.Java语言具有跨平台性(靠JVM实现)<br>4.Java语言是解释型的，解释型语言编译后的代码需要解释器才能执行，编译性语言编译后可以直接运行(C&#x2F;C++)</p> 
+      <a class="article-more-link" href="/2024/01/26/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(1)/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -283,53 +306,11 @@
 <h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>数组就是一个集合，里面存放着相同类型的数据元素</p>
 <ul>
 <li>数组的每个数据元素都是相同的数据类型</li>
-<li>数组是由连续的内存位置组成的</li>
-</ul>
-<h3 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h3><ul>
-<li><p>一维数组定义方式</p>
-<ul>
-<li><code>数据类型 数组名[数组长度];</code></li>
-<li><code>数据类型 数组名[数组长度] = &#123;值1, 值2  ...&#125;;</code></li>
-<li><code>数据类型 数组名[] = &#123;值1, 值2 ...&#125;;</code><br><strong>数组名命名规范与变量名一致，不要和变量重名，数组下标从0开始索引</strong></li>
-</ul>
-</li>
-<li><p>一维数组名称的用途</p>
-<ul>
-<li>统计整个数组在内存中的长度<code>sizeof(arr)</code></li>
-<li>可以获取数组在内存中的首地址<code>cout &lt;&lt; arr;</code><br><strong>数组名是一个常量</strong></li>
-</ul>
-</li>
-<li><p>冒泡排序</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(升序从小到大举例)</span><br><span class="line">for( i = 0; i &lt; n - 1; i ++)</span><br><span class="line">    for( j = i+1; j &lt; n; j ++)&#123;</span><br><span class="line">        int t;</span><br><span class="line">        if(a[i]&gt;a[j])&#123;</span><br><span class="line">            t = a[i];</span><br><span class="line">            a[i] = a[j];</span><br><span class="line">            a[j] = t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><ul>
-<li>二维数组定义方式<ul>
-<li><code>数据类型 数组名[行数][列数];</code></li>
-<li><code>数据类型 数组名[行数][列数] = &#123;&#123;值1, 值2&#125; , &#123;值3, 值4&#125;&#125;;</code></li>
-<li><code>数据类型 数组名[行数][列数] = &#123;值1, 值2, 值3, 值4&#125;;</code></li>
-<li><code>数据类型 数组名[][列数] = &#123;值1, 值2, 值3, 值4&#125;;</code><br><strong>建议</strong>：第二种方法更加直观，提高代码的可读性</li>
-</ul>
-</li>
-<li>二维数组名称的用途<ul>
-<li>查看二维数组所占的内存空间<code>sizeof(arr)</code></li>
-<li>可以获取二位数组首地址<code>cout &lt;&lt; arr;</code><br><strong>数组名是一个常量</strong></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p><strong>作用</strong>：将一段经常使用的代码封装起来，减少重复的代码<br>一个较大的程序一般分为若干个程序块，每个模块实现特定的功能</p>
-<h3 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">返回值类型 函数名(参数列表)&#123;</span><br><span class="line">  函数体语句</span><br><span class="line">  return表达式</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h3><p>函数定义小括号内的参数为<em>形参</em>，函数调用时出传入的参数为<em>实参</em></p>
-<h3 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h3><p>函数调用时将实参传递给形参，<strong>如果形参发生变化并不会影响实参</strong></p>
-<h3 id="函数的常用样式"><a href="#函数的常用样式" class="headerlink" title="函数的常用样式"></a>函数的常用样式</h3><ul>
-<li>无参无返</li>
-<li>有参无返</li>
-<li>无参有返</li>
-<li>有参有返</li>
-</ul>
-<h3 id="函数的声明"><a href="#函数的声明" class="headerlink" title="函数的声明"></a>函数的声明</h3><p><strong>作用</strong>：告诉编译器函数名称及如何调用函数，函数的实际主体可以单独定义<br><em>函数的<strong>声明可以多次</strong>，但是函数的<strong>定义只能有一次</strong></em></p>
-<h3 id="函数的分文件编写"><a href="#函数的分文件编写" class="headerlink" title="函数的分文件编写"></a>函数的分文件编写</h3><p>1.创建后缀名为.h的头文件<br>2.创建后缀名为.cpp的源文件<br>3.在头文件中写函数的声明<br>4.在源文件中写函数的定义</p>
- 
+<li>数组是由连续的内存位置组成的 
+      <a class="article-more-link" href="/2024/01/23/C++%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8(2)/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -377,263 +358,11 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="C-基础入门"><a href="#C-基础入门" class="headerlink" title="C++基础入门"></a>C++基础入门</h1><hr>
-<h2 id="基础入门"><a href="#基础入门" class="headerlink" title="基础入门"></a>基础入门</h2><h3 id="基础框架"><a href="#基础框架" class="headerlink" title="基础框架"></a>基础框架</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">    //cout &lt;&lt; &quot;hello world&quot; &lt;&lt; endl;</span><br><span class="line">    system(&quot;pause&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">单行注释： //描述内容</span><br><span class="line">多行注释： /*注释内容*/</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>作用</strong>：给一段指定的内存空间起名，方便操作这段内存<br><strong>语法</strong>：<code>数据类型 变量名 = 初始值;</code></p>
-<hr>
-<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p><strong>作用</strong>：记录程序中不可更改的数据</p>
-<ul>
-<li><strong>#define</strong>宏常量:<code>#define 常量名 常量值</code>定义在上方</li>
-<li><strong>const</strong>修饰:<code>const 数据类型 常量名 = 常量值;</code></li>
-</ul>
-<hr>
-<h3 id="C-关键字"><a href="#C-关键字" class="headerlink" title="C++关键字"></a>C++关键字</h3><table>
-<thead>
-<tr>
-<th align="center">1</th>
-<th align="center">2</th>
-<th align="center">3</th>
-<th align="center">4</th>
-<th align="center">5</th>
-<th align="center">6</th>
-<th align="center">7</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">asm</td>
-<td align="center">auto</td>
-<td align="center">bool</td>
-<td align="center">break</td>
-<td align="center">case</td>
-<td align="center">catch</td>
-<td align="center">char</td>
-</tr>
-<tr>
-<td align="center">class</td>
-<td align="center">const</td>
-<td align="center">const_cast</td>
-<td align="center">continue</td>
-<td align="center">default</td>
-<td align="center">delete</td>
-<td align="center">do</td>
-</tr>
-<tr>
-<td align="center">double</td>
-<td align="center">dynamic_cast</td>
-<td align="center">else</td>
-<td align="center">enum</td>
-<td align="center">explicit</td>
-<td align="center">export</td>
-<td align="center">extern</td>
-</tr>
-<tr>
-<td align="center">false</td>
-<td align="center">float</td>
-<td align="center">for</td>
-<td align="center">friend</td>
-<td align="center">goto</td>
-<td align="center">if</td>
-<td align="center">inline</td>
-</tr>
-<tr>
-<td align="center">int</td>
-<td align="center">long</td>
-<td align="center">mutable</td>
-<td align="center">namespace</td>
-<td align="center">new</td>
-<td align="center">operator</td>
-<td align="center">private</td>
-</tr>
-<tr>
-<td align="center">protected</td>
-<td align="center">public</td>
-<td align="center">register</td>
-<td align="center">reinterpret_cast</td>
-<td align="center">return</td>
-<td align="center">short</td>
-<td align="center">signed</td>
-</tr>
-<tr>
-<td align="center">sizeof</td>
-<td align="center">static</td>
-<td align="center">static_cast</td>
-<td align="center">struct</td>
-<td align="center">switch</td>
-<td align="center">template</td>
-<td align="center">this</td>
-</tr>
-<tr>
-<td align="center">throw</td>
-<td align="center">true</td>
-<td align="center">try</td>
-<td align="center">typedef</td>
-<td align="center">typeid</td>
-<td align="center">typename</td>
-<td align="center">union</td>
-</tr>
-<tr>
-<td align="center">unsigned</td>
-<td align="center">using</td>
-<td align="center">virtual</td>
-<td align="center">void</td>
-<td align="center">volatile</td>
-<td align="center">wchar_t</td>
-<td align="center">while</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="标识符命名规则"><a href="#标识符命名规则" class="headerlink" title="标识符命名规则"></a>标识符命名规则</h3><ul>
-<li>标识符不能是关键字</li>
-<li>标识符只能含有字母(区分大小)、数字和下划线</li>
-<li>首字符不能为数字</li>
-<li>尽量做到见名知意</li>
-</ul>
-<hr>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>用于给变量分配合适的内存空间</p>
-<h3 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h3><table>
-<thead>
-<tr>
-<th align="left">数据类型</th>
-<th align="left">占用空间</th>
-<th align="left">取值范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">short(短整型)</td>
-<td align="left">2字节</td>
-<td align="left">(-2^15 ~ 2^15-1)</td>
-</tr>
-<tr>
-<td align="left">int(整型)</td>
-<td align="left">4字节</td>
-<td align="left">(-2^31 ~ 2^31-1)</td>
-</tr>
-<tr>
-<td align="left">long(长整型)</td>
-<td align="left">Windows为4字节,Linux为4字节(32位),8字节(64位)</td>
-<td align="left">(-2^31 ~ 2^31-1)</td>
-</tr>
-<tr>
-<td align="left">long long(长长整型)</td>
-<td align="left">8字节</td>
-<td align="left">(-2^63 ~ 2^63-1)</td>
-</tr>
-</tbody></table>
-<p><em>占用空间大小可以用<code>sizeof(int)</code>或者<code>sizeof(a)</code>形式输出</em></p>
-<hr>
-<h3 id="实型-浮点型"><a href="#实型-浮点型" class="headerlink" title="实型(浮点型)"></a>实型(浮点型)</h3><table>
-<thead>
-<tr>
-<th align="left">数据类型</th>
-<th align="left">占用空间</th>
-<th align="left">有效数字范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">单精度float</td>
-<td align="left">4字节</td>
-<td align="left">7位有效数字</td>
-</tr>
-<tr>
-<td align="left">双精度double</td>
-<td align="left">8字节</td>
-<td align="left">15~16位有效数字</td>
-</tr>
-</tbody></table>
-<p><em>有效数字：不止小数点后，小数点前面的也算位数；默认情况下输出有效数字位数为6位</em><br><em>定义float类型时最好末尾加f，因为小数默认是double类型，定义的时候会多一步转化</em></p>
-<hr>
-<h3 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h3><p>字符型变量用于显示单个字符，用单引号括起来<br>如<code>char ch = &#39;a&#39;;</code>，单引号内只能有一个字符，不能是字符串<br>字符型变量只占有1字节<br>字符型变量本质存储的不是字符，而是将对应的ASCII编码放入存储单元</p>
-<h4 id="ASCII码组成"><a href="#ASCII码组成" class="headerlink" title="ASCII码组成"></a>ASCII码组成</h4><ul>
-<li>ASCII非打印控制字符：0-31和127用于控制打印机等外围设备</li>
-<li>ASCII打印字符：32-126分配给了能在键盘上找到的字符<br>32-space，65-A，97-a</li>
-</ul>
-<hr>
-<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p><strong>作用</strong>：用于表示一些不能显示的ASCII字符，常用的有</p>
-<table>
-<thead>
-<tr>
-<th align="left">转义字符</th>
-<th align="left">含义</th>
-<th align="left">ASCII码值(十进制)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">\b</td>
-<td align="left">退格(BS),将当前位置移到前一列</td>
-<td align="left">008</td>
-</tr>
-<tr>
-<td align="left">\n</td>
-<td align="left">换行(LF),将当前位置移到下一行开头</td>
-<td align="left">010</td>
-</tr>
-<tr>
-<td align="left">\r</td>
-<td align="left">回车(CR),将当前位置移到本行开头</td>
-<td align="left">013</td>
-</tr>
-<tr>
-<td align="left">\t</td>
-<td align="left">水平制表(HT),跳到下一个TAB位置</td>
-<td align="left">009</td>
-</tr>
-<tr>
-<td align="left">\ \</td>
-<td align="left">代表一个反斜线符号”\“</td>
-<td align="left">092</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="字符串型"><a href="#字符串型" class="headerlink" title="字符串型"></a>字符串型</h3><ul>
-<li>延用C风格的字符串：<code>char str1[] = &quot;abcd&quot;;</code></li>
-<li>C++风格的字符串：<code>string str2 = &quot;abcd&quot;</code></li>
-<li>输出直接为<code>cout &lt;&lt; strn;</code></li>
-</ul>
-<hr>
-<h3 id="布尔类型-bool"><a href="#布尔类型-bool" class="headerlink" title="布尔类型 bool"></a>布尔类型 bool</h3><p>所占内存为1字节,非0即为真。<br>true-真(本质为1)，false-假(本质为0)。</p>
-<hr>
-<h3 id="数据的输入"><a href="#数据的输入" class="headerlink" title="数据的输入"></a>数据的输入</h3><p><code>cin &gt;&gt; 变量;</code></p>
-<hr>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p><strong>作用</strong>：用于执行代码的运算</p>
-<h3 id="算术运算符-用于处理四则运算"><a href="#算术运算符-用于处理四则运算" class="headerlink" title="算术运算符(用于处理四则运算)"></a>算术运算符(用于处理四则运算)</h3><p>正号(+)、负号(-)、加(+)、减(-)、乘(*)、除(&#x2F;)、取模或取余(%)、前置或后置递增(++)、前置或后置递减(–)<br><em>除法和取模运行算除数不能为0，两个小数不可以进行取模运算</em></p>
-<h3 id="赋值运算符-将表达式的值赋给变量"><a href="#赋值运算符-将表达式的值赋给变量" class="headerlink" title="赋值运算符(将表达式的值赋给变量)"></a>赋值运算符(将表达式的值赋给变量)</h3><p>赋值(&#x3D;)、加等于(+&#x3D;)、减等于(-&#x3D;)、乘等于(*&#x3D;)、除等于(&#x2F;&#x3D;)、模等于(%&#x3D;)</p>
-<h3 id="比较运算符-用于表达式的比较并返回一个真值或假值"><a href="#比较运算符-用于表达式的比较并返回一个真值或假值" class="headerlink" title="比较运算符(用于表达式的比较并返回一个真值或假值)"></a>比较运算符(用于表达式的比较并返回一个真值或假值)</h3><p>相等于(&#x3D;&#x3D;)、不等于(!&#x3D;)、小于(&lt;)、大于(&gt;)、小于等于(&lt;&#x3D;)、大于等于(&gt;+)</p>
-<h3 id="逻辑运算符-根据表达式的值返回真值或假值"><a href="#逻辑运算符-根据表达式的值返回真值或假值" class="headerlink" title="逻辑运算符(根据表达式的值返回真值或假值)"></a>逻辑运算符(根据表达式的值返回真值或假值)</h3><p>非(!)、与(&amp;&amp;)、或(||)</p>
-<hr>
-<h2 id="程序流程结构"><a href="#程序流程结构" class="headerlink" title="程序流程结构"></a>程序流程结构</h2><p><em>三种程序运行结构：顺序结构、选择结构、循环结构</em></p>
-<h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><p><strong>作用</strong>：执行满足条件的语句</p>
-<ul>
-<li>单行格式if语句<code>if(条件)&#123;条件满足执行的语句&#125;</code></li>
-<li>多行格式if语句<code>if(条件)&#123;条件满足执行的语句&#125;else&#123;条件不满足执行的语句&#125;</code></li>
-<li>多条件的if语句<code>if(条件1)&#123;条件1满足执行的语句&#125;else if(条件2)&#123;条件2满足执行的语句&#125;...else&#123;都不满足执行的语句&#125;</code></li>
-<li>嵌套if语句</li>
-</ul>
-<h4 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h4><p>如果为真执行2，否则3：<code>表达式1 ？ 表达式2 ： 表达式3</code><br>比较三个数大小<code>max = a&gt;b ? ( a&gt;c ? a : c ) : ( b&gt;c ? b : c )</code></p>
-<h4 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h4><p><strong>执行多条件分支语句</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">switch()&#123;</span><br><span class="line">    case 结果1: 执行语句; break;</span><br><span class="line">    case 结果2: 执行语句; break;</span><br><span class="line">    ...</span><br><span class="line">    default: 执行语句; break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>switch的优点在于结构清晰，执行效率高<br>case语句中没有break的话程序会一直向下执行。<br>判断的时候只能是整型或字符型，不能判断区间，约束性较高。</p>
-<hr>
-<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><p><strong>作用</strong>：满足循环条件，执行循环语句。</p>
-<h4 id="while循环语句"><a href="#while循环语句" class="headerlink" title="while循环语句"></a>while循环语句</h4><p>只要循环条件为真就执行循环语句<code>while(循环条件)&#123; 循环语句 &#125;</code><br>循环一定要避免死循环的出现</p>
-<h4 id="do…while循环语句"><a href="#do…while循环语句" class="headerlink" title="do…while循环语句"></a>do…while循环语句</h4><p>先执行一次循环语句再判断循环条件<code>do&#123; 循环语句 &#125; while(循环条件)</code></p>
-<h4 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h4><p>满足条件执行循环语句：<code>for(起始表达式; 条件表达式; 末尾循环体)&#123; 循环语句; &#125;</code><br>for循环结构清晰，比较常用</p>
-<h4 id="嵌套循环"><a href="#嵌套循环" class="headerlink" title="嵌套循环"></a>嵌套循环</h4><p>打印乘法口诀表例题</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 1; i &lt;= 9; i++)&#123;</span><br><span class="line">        for (int j = 1; j &lt;= i; j++)&#123;</span><br><span class="line">            cout &lt;&lt; j &lt;&lt; &quot;x&quot; &lt;&lt; i &lt;&lt; &quot;=&quot; &lt;&lt; j + i &lt;&lt; &quot;\t&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="跳转语句"><a href="#跳转语句" class="headerlink" title="跳转语句"></a>跳转语句</h3><h4 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h4><p><strong>作用</strong>：用于跳出选择结构或循环结构</p>
-<ul>
-<li>出现在switch条件语句中，作用是终止case并跳出switch</li>
-<li>出现在循环语句中，作用是跳出当前的循环语句</li>
-<li>出现在嵌套循环中，跳出<em>最近的内层循环语句</em></li>
-</ul>
-<h4 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h4><p><strong>作用</strong>：在循环语句中，跳过<em>本次循环</em>中余下尚未执行的语句，继续执行下一次循环</p>
-<h4 id="goto语句"><a href="#goto语句" class="headerlink" title="goto语句"></a>goto语句</h4><p><strong>作用</strong>：若标记名称存在，执行到goto语句时，会无条件跳转到标记位置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">语句1; 语句2;</span><br><span class="line">goto FLAG: 语句3; 语句4; 语句5;</span><br><span class="line">FLAG: 语句6; 语句7;</span><br></pre></td></tr></table></figure>
-<p>如上，程序只会运行语句1267；<br>不建议在程序中使用goto语句，以免造成程序流程的混乱。</p>
- 
+<h2 id="基础入门"><a href="#基础入门" class="headerlink" title="基础入门"></a>基础入门</h2><h3 id="基础框架"><a href="#基础框架" class="headerlink" title="基础框架"></a>基础框架</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">    //cout &lt;&lt; &quot;hello world&quot; &lt;&lt; endl;</span><br><span class="line">    system(&quot;pause&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2024/01/22/C++%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8(1)/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -680,65 +409,11 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么"></a>Markdown是什么</h1><p>Markdown是一个Web上使用的文本到HTML的转换工具，可以通过简单、易读易写的文本格式生成结构化的HTML文档。（支持范围较广）</p>
-<hr>
-<h1 id="Markdown基础语法"><a href="#Markdown基础语法" class="headerlink" title="Markdown基础语法"></a>Markdown基础语法</h1><hr>
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>使用*或-三个以上，中间可穿插空格</p>
-<hr>
-<h2 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.内容前为4空格/一个制表位(基本弃用)</span><br><span class="line">2.```+enter写入代码块</span><br></pre></td></tr></table></figure>
-<p>单句代码块使用&#96;内单引，成块使用三内单引</p>
-<hr>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ul>
-<li>无序列表(使用*或+或-实现)</li>
-<li>有序列表(使用数字和小数点)</li>
-</ul>
-<hr>
-<h2 id="自动转换"><a href="#自动转换" class="headerlink" title="自动转换"></a>自动转换</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Markdown能够自动将html中的实例转换为对应的符号</span><br><span class="line">&amp;lt =&gt; &lt;</span><br><span class="line">&amp;amp; =&gt; &amp;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="缩进分区"><a href="#缩进分区" class="headerlink" title="缩进分区"></a>缩进分区</h2><h3 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h3><pre><code>&amp;emsp;(大缩进)
-&amp;ensp;(小缩进)
-</code></pre>
-<h3 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h3><pre><code>&lt;p&gt;...&lt;p/&gt;(段落)
-&lt;br&gt;(换行)
-</code></pre>
-<hr>
-<h2 id="类Setext形式标题"><a href="#类Setext形式标题" class="headerlink" title="类Setext形式标题"></a>类Setext形式标题</h2><ul>
-<li>在文本下添加任意数量&#x3D;为最高阶标题</li>
-<li>在文本下添加任意数量-为第二阶标题</li>
-</ul>
-<hr>
-<h2 id="类Atx形式标题"><a href="#类Atx形式标题" class="headerlink" title="类Atx形式标题"></a>类Atx形式标题</h2><ul>
-<li><p># ：h1大标题</p></li>
-<li><p>## ：h2</p>......</li>
-<li><p>###### ：h6小标题</p></li>
-</ul>
-<hr>
-<h2 id="强调字体"><a href="#强调字体" class="headerlink" title="强调字体"></a>强调字体</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">斜体:*abcdefg*(相当于em标签)</span><br><span class="line">加粗:**abcdefg**(相当于strong标签)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>网址超链接：<br><a target="_blank" rel="noopener" href="http://baidu.com/" title="百度一下你就知道">百度</a> </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[百度](http://baidu.com &quot;百度一下你就知道&quot;) </span><br></pre></td></tr></table></figure>
-<p>图片超链接<br><img src="http://www.baidu.com/img/bd_logo1.png" alt="111" title="示例"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![111](http://www.baidu.com/img/bd_logo1.png &quot;示例&quot;)</span><br></pre></td></tr></table></figure>
-<p>111为图片显示不出来的时候会显示的字</p>
-<hr>
-<h2 id="引用符号："><a href="#引用符号：" class="headerlink" title="引用符号：&gt;"></a>引用符号：&gt;</h2><p>>文本内容</p>
-<p>在引用的文本内容里，依然可以使用##等符号，来控制文字内容的和换行</p>
-<p>多行引用会合并成一个引用</p>
-
-<blockquote>
-<h4 id="洛神赋"><a href="#洛神赋" class="headerlink" title="洛神赋"></a>洛神赋</h4><p>其形也，翩若惊鸿，婉若游龙，荣曜(yào)秋菊，华茂春松。</p>
-<blockquote>
-<p>髣髴(fǎngfú)兮若轻云之蔽月，飘飖(yáo)兮若流风之回雪。</p>
-</blockquote>
-</blockquote>
-<hr>
-<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><p>使字符不以Markdown语法展示：\字符</p>
-<hr>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><h3 id="Html方法"><a href="#Html方法" class="headerlink" title="Html方法"></a>Html方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;display:none&quot;&gt;这是一段注释&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="Xml注释"><a href="#Xml注释" class="headerlink" title="Xml注释"></a>Xml注释</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">整段整段的不可见内容</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
-
- 
+  <h1 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么"></a>Markdown是什么</h1><p>Markdown是一个Web上使用的文本到HTML的转换工具，可以通过简单、易读易写的文本格式生成结构化的HTML文档。（支持范围较广）</p> 
+      <a class="article-more-link" href="/2024/01/21/Markdown%E8%AF%AD%E6%B3%95/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -786,22 +461,11 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h2 id="更新方式"><a href="#更新方式" class="headerlink" title="更新方式"></a>更新方式</h2><p>在 blog 中打开 GBH，使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-
-<p>生成网页；</p>
-<p>使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-<p>运行本地服务器，可以在本地查看修改样式</p>
-<p>使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-<p>将网页部署到 gitee 中，在 gitee pages 服务中更新网页。</p>
-<p>如果未发生改变，使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-
-<p>清除缓存之后再生成和部署。</p>
- 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure> 
+      <a class="article-more-link" href="/2024/01/19/Test/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -848,20 +512,11 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
- 
+  <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p> 
+      <a class="article-more-link" href="/2024/01/14/hello-world/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
