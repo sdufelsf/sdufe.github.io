@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">447</span>
+            <span class="post-count">570</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -109,7 +109,7 @@
   <h2 id="原码-反码-补码"><a href="#原码-反码-补码" class="headerlink" title="原码 反码 补码"></a>原码 反码 补码</h2><ol>
 <li>二进制最高位是符号位，0表示正数，1表示负数</li>
 <li>整数的原码、反码和补码都一样</li>
-<li>负数的反码 &#x3D; 原码符号位不变，其他位取反</li>
+<li>负数的反码 &#x3D; 原码符号位不变，其他位取反<span id="more"></span></li>
 <li>负数的补码 &#x3D; 反码 + 1</li>
 <li>0的反码和补码都是0</li>
 <li>java所有的数都是有符号的</li>
@@ -132,7 +132,10 @@
 <li>switch(表达式)中表达式的返回值必须是byte,short,int,char,enum[枚举],String</li>
 <li>casez字句中的值必须是常量或常量表达式，不能是变量</li>
 </ul>
- 
+<h2 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">label1:</span><br><span class="line">for(int j = 0; j &lt; 4; j++)&#123;</span><br><span class="line">    label2:for(int i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">        if(i == 2)&#123;</span><br><span class="line">            //break label1;</span><br><span class="line">            break;//等价于break label2</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>continue和标签的用法同break</strong></p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>boolean的初始值为false<br>基本数据类型之间的赋值方式是值传递(值拷贝)，互不影响<br>数组在默认情况下进行的是引用传递(地址拷贝)，赋的值是地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">声明  int[] x,y[];表示x是一维数组，y是二维数组</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -212,6 +215,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2024/01/28/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            面向对象编程基础
+          
+        </div>
+      </a>
     
     
       <a href="/2024/01/26/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(1)/" class="article-nav-link">
