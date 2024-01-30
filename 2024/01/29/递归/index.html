@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">787</span>
+            <span class="post-count">1.2k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -120,7 +120,15 @@
 <p>设置的优先右和上所以显然这个map中会按照上右边框到达终点</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">========这是迷宫的路线========</span><br><span class="line">1 1 1 1 1 1 1 1 1 1 </span><br><span class="line">1 2 2 2 2 2 2 2 2 1 </span><br><span class="line">1 0 0 0 0 0 0 0 2 1 </span><br><span class="line">1 1 1 1 1 0 0 0 2 1 </span><br><span class="line">1 0 0 0 0 0 0 0 2 1 </span><br><span class="line">1 0 0 0 0 0 0 0 2 1 </span><br><span class="line">1 0 0 0 0 0 0 0 2 1 </span><br><span class="line">1 0 0 0 0 0 0 0 2 1 </span><br><span class="line">1 1 1 1 1 1 1 1 1 1 </span><br></pre></td></tr></table></figure>
 <p><strong>回溯现象</strong><br>如果在findWay方法中某一条路出现了全都走不通的现象，他就会回到上一个栈，再继续进行下一个方向</p>
-<h3 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h3><h3 id="八皇后问题"><a href="#八皇后问题" class="headerlink" title="八皇后问题"></a>八皇后问题</h3> 
+<hr>
+<h3 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h3><p><strong>背景</strong>：传说大梵天创造世界的时候做了三根金刚石柱子，在一根柱子上从下往上按照大小顺序摞着64片黄金圆盘。大梵天命令婆罗门把圆盘从下面开始按大小顺序重新摆放在另一根柱子上。并且规定，任何时候，在小圆盘上都不能放大圆盘，且在三根柱子之间一次只能移动一个圆盘。问应该如何操作？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class hanoi&#123;</span><br><span class="line">    //汉诺塔移动,num表示圆盘数，abc分别表示初始，经过和结果位置</span><br><span class="line">    public void move(int num, char a, char b, char c)&#123;</span><br><span class="line">        //如果只有一个圆盘的话，就可以直接a上的圆盘移动到c</span><br><span class="line">        if (num == 1) &#123;</span><br><span class="line">            System.out.println(a + &quot;-&gt;&quot; + c);</span><br><span class="line">        &#125;else &#123;//如果有1个以上就将1以上的部分看作一个整体，最后再移动最底下的大圆盘</span><br><span class="line">            //先将上面的num-1个圆盘从a经过c移动到b</span><br><span class="line">            move(num - 1, a, c, b);</span><br><span class="line">            //再将最后一个从a移动到c</span><br><span class="line">            System.out.println(a + &quot;-&gt;&quot; + c);</span><br><span class="line">            //最后把b上的再通过a移动到c即可</span><br><span class="line">            move(num - 1, b, a, c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是输入3层的测试结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A-&gt;C</span><br><span class="line">A-&gt;B</span><br><span class="line">C-&gt;B</span><br><span class="line">A-&gt;C</span><br><span class="line">B-&gt;A</span><br><span class="line">B-&gt;C</span><br><span class="line">A-&gt;C</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="八皇后问题"><a href="#八皇后问题" class="headerlink" title="八皇后问题"></a>八皇后问题</h3><p>回溯算法的典型案例，8x8的国际象棋上摆放8个皇后并使其中任意两个皇后不能同处于一行、一列或者同一斜线，问有几种摆法</p>
+ 
       <!-- reward -->
       
       <div id="reword-out">
