@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>面向对象编程基础 |  Liu</title>
+      <title>面向对象编程基础-中级 |  Liu</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -55,7 +55,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-面向对象编程基础"
+  id="post-面向对象编程-中级"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -66,7 +66,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  面向对象编程基础
+  面向对象编程基础-中级
 </h1>
  
 
@@ -74,15 +74,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/01/28/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time datetime="2024-01-28T11:17:53.000Z" itemprop="datePublished">2024-01-28</time>
+      <a href="/2024/02/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E4%B8%AD%E7%BA%A7/" class="article-date">
+  <time datetime="2024-02-01T06:11:40.000Z" itemprop="datePublished">2024-02-01</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.2k</span>
+            <span class="post-count">779</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -106,38 +106,35 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><ol>
-<li>类是抽象的，概念的，代表一类事物，是数据类型</li>
-<li>对象是具体的，实际的，代表一个具体事物，即实例</li>
-<li>类是对象的模板，对象是类的一个个体，对应一个实例<span id="more"></span></li>
-</ol>
-<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>从概念看：成员变量 &#x3D; 属性 &#x3D; field(字段)<br>属性是类的一个组成部分，一般是基本数据类型，也可以是引用类型(对象、数组)。</p>
-<h3 id="对象在内存中的形式"><a href="#对象在内存中的形式" class="headerlink" title="对象在内存中的形式"></a>对象在内存中的形式</h3><p>在<strong>栈中</strong>有指向<strong>堆里</strong>的地址，如果成员变量是基础数据类型就直接放在堆里，如果成员变量是字符串类型，则有指向<strong>方法区中常量池</strong>里字符串的地址<br>栈里的只是对象名(对象引用)，对象实际在堆里以及常量池<br>方法区里会加载类信息(属性信息、方法信息)且类信息只会加载一次<br><strong>练习题</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Person a = new Person();</span><br><span class="line">a.age = 10; a.name = &quot;小明&quot;;</span><br><span class="line">b = a;//这样b和a指向的是同一地址</span><br><span class="line">b = null;//b指向了空指针，所以b.age会抛出错误，需要new才有对象</span><br><span class="line">System.out.println(b.age);//会报错</span><br></pre></td></tr></table></figure>
-
-<h3 id="方法-成员方法"><a href="#方法-成员方法" class="headerlink" title="方法(成员方法)"></a>方法(成员方法)</h3><p>程序执行到方法时会开辟一个独立的栈空间<br>引用类型传递的是地址(传递的也是值，但是值是地址)，形参会影响实参</p>
-<h3 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h3><p>同一个类中允许多个同名方法的存在，但要求形参列表不一致</p>
-<h3 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h3><p>同一个类中允许多个同名同功能但参数个数不同的方法封装成一个方法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public int sum(int... nums)&#123;</span><br><span class="line">    int res = 0;</span><br><span class="line">    for(int i = 0; i &lt; nums.length; i++)&#123;</span><br><span class="line">        res += nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>可变参数的实参可以直接传入数组</li>
-<li>可变参数可以放在普通类型参数的后面一起构成形参列表</li>
-<li>一个形参列表只能由一个可变参数</li>
-</ul>
+  <p>到断点调试</p>
+<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p><strong>作用</strong>：区分相同名字的类，方便管理类，控制访问范围<br><strong>本质</strong>：创建不同的文件夹来保存类文件</p>
+<span id="more"></span>
+<p><strong>细节</strong>：package的作用是声明当前类所在的包，需要放在类的最上面且一个类只能有一句package</p>
+<h3 id="包的命名"><a href="#包的命名" class="headerlink" title="包的命名"></a>包的命名</h3><h4 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h4><p>只能包含数字、字母、下划线、圆点，不能数字开头，不能是关键字或保留字</p>
+<h4 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h4><p>com.公司名.项目名.业务模块名<br><code>com.sina.crm.user//用户模块</code></p>
 <hr>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>全局变量(属性)可以不赋值，因为有默认值<br>局部变量(除属性之外的变量)必须赋值才能使用，作用域在定义它的代码块中<br>属性的生命周期(伴随对象)比局部变量(伴随代码块，即一次调用过程)长<br>局部变量前不能加修饰符，属性可以加</p>
-<h2 id="构造方法-构造器"><a href="#构造方法-构造器" class="headerlink" title="构造方法&#x2F;构造器"></a>构造方法&#x2F;构造器</h2><ol>
-<li>构造器没有返回值，也不需要void，用于对象初始化</li>
-<li>构造器的方法名和类名要一样</li>
-<li>构造器的调用是由系统完成的</li>
-<li>构造器可以重载</li>
-<li>不定义构造器系统会默认生成一个无参构造器(默认构造器)，可以使用javap指令反编译查看，定义构造器之后默认构造器会直接覆盖，除非再写一个默认构造器<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//分析下面对象创建的流程</span><br><span class="line">class Person&#123;//类Person</span><br><span class="line">    int age = 90;</span><br><span class="line">    String name;</span><br><span class="line">    Person(String n, int a)&#123;//构造器</span><br><span class="line">        name = n;</span><br><span class="line">        age = a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//主方法中创建对象</span><br><span class="line">Person p = new Person(&quot;小谢&quot;，18);</span><br><span class="line">//分析</span><br><span class="line">1.在方法区加载Person类信息(Person.class)，只加载一次</span><br><span class="line">2.在堆中分配空间(得到一个地址),</span><br><span class="line">3.完成对象初始化，首先默认初始化，即age = 0，name = null；</span><br><span class="line">  第二步显式初始化，将属性值赋给变量，即age = 90，name = null；</span><br><span class="line">  最后进行构造器的初始化，在方法区发常量池中生成&quot;小倩&quot;，</span><br><span class="line">  堆中的对象name指向&quot;小倩&quot;，即age = 20，name = &quot;小倩&quot;</span><br><span class="line">4.将对象在堆中的地址返回给栈中的p(p是对象名，也可以理解为对象的引用)</span><br></pre></td></tr></table></figure></li>
+<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>java提供了四种访问控制修饰符号，用于控制方法和属性的访问权限<br>同一类 &lt; 同一包 &lt; 子类 &lt; 不同包</p>
+<ol>
+<li>公开级别：用<strong>public</strong>修饰，对外公开</li>
+<li>受保护级别：用<strong>protected</strong>修饰，对子类和同一个包中的类公开</li>
+<li>默认级别：没有修饰符，向同一个包的类公开</li>
+<li>私有级别：用<strong>private</strong>修饰，只有类本身可以访问，不对外公开</li>
 </ol>
-<h2 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h2><p>this.name表示当前对象的name属性，哪个对象调用，this就代表哪个对象<br><strong>理解</strong>：this可以理解为在对象创建时有一个默认的this属性，这个属性指向对象的地址，即和对象名相同，可以通过输出对象的hashcode()与this的hashcode()相同验证</p>
-<p>访问成员方法的语法this.方法名(参数列表);</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 构造器的复用</span><br><span class="line">class Employee &#123;</span><br><span class="line">    String name;</span><br><span class="line">    char gender;</span><br><span class="line">    int age;</span><br><span class="line">    String job;</span><br><span class="line">    double sal;</span><br><span class="line">    public Employee(String job, double sal) &#123;</span><br><span class="line">        this.job = job;</span><br><span class="line">        this.sal = sal;</span><br><span class="line">    &#125;</span><br><span class="line">    public Employee(String name, char gender, int age) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.gender = gender;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    public Employee(String job, double sal, String name, char gender, int age) &#123;</span><br><span class="line">        this(name, gender, age);</span><br><span class="line">        this.job = job;</span><br><span class="line">        this.sal = sal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>访问构造器语法：this(参数列表)只能在构造器中访问另一个构造器，而且必须放在第一句</p>
-<h2 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//表示创建好匿名对象之后就调用count1()</span><br><span class="line">new Test().count1();</span><br><span class="line">//new Test() 是匿名对象，匿名对象使用后就会被销毁</span><br></pre></td></tr></table></figure> 
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>封装可以隐藏实现细节，可以对数据进行验证来保证其安全合理<br>将属性私有化，然后提供set和get方法来操作<br>构造器可以调用set方法实现对属性的保护</p>
+<hr>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承可以解决代码复用，使编程更加接近人类思维<br>当多个类存在相同的属性(变量)和方法时，可以从这些类中抽象出父类，在父类中定义这些相同的属性和方法，所有的的子类不需要重新定义这些属性和方法，只需要通过extends来声明继承父类即可<br>父类又叫超类、基类；子类又叫派生类</p>
+<ol>
+<li>子类继承了所有的属性和方法，但是私有属性和方法不能在子类直接访问，要通过<strong>公共的方法</strong>去访问</li>
+<li>子类必须调用父类的构造器，完成父类的初始化</li>
+<li>创建子类对象时，不管子类使用哪个构造器，默认情况下总会去调用父类的无参构造器，如果父类没有无参构造器，则必须<strong>在子类构造器中用super去指定使用父类的某构造器</strong>完成父类的初始化</li>
+<li>如果用super指定调用父类的某构造器，要显式的调用一下</li>
+<li>super使用时必须放在构造器的第一行</li>
+<li>super()和this()都只能放在构造器第一行，所以两个方法不能共存</li>
+<li>java所有类都是Object的子类</li>
+<li>java是单继承机制，子类最多只能继承一个父类(直接继承)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line">    A()&#123;System.out.print(&quot;a,&quot;);&#125;</span><br><span class="line">    A(String name)&#123;System.out.print(&quot;a name,&quot;);&#125;</span><br><span class="line">&#125;</span><br><span class="line">class B extends A&#123;</span><br><span class="line">    B()&#123;this(&quot;abc&quot;);System.out.print(&quot;b,&quot;);&#125;</span><br><span class="line">    B(String name)&#123;System.out.print(&quot;b name,&quot;);&#125;</span><br><span class="line">&#125;</span><br><span class="line">//main中：B b = new B();会输出什么？</span><br></pre></td></tr></table></figure>
+this和super语句在构造器中只能存在一个，因此B的有参构造器默认有一句<code>super();</code><br>所以输出结果为<code>a,b name,b,</code></li>
+</ol>
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -207,7 +204,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/01/28/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/02/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E4%B8%AD%E7%BA%A7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -218,19 +215,10 @@
    
   <nav class="article-nav">
     
+    
       <a href="/2024/01/29/%E9%80%92%E5%BD%92/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            递归
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2024/01/27/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(2)/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Java基础查缺补漏(2)</div>
+        <div class="article-nav-title">递归</div>
       </a>
     
   </nav>

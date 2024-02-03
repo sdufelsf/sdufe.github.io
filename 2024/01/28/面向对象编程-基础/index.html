@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Java基础查缺补漏(2) |  Liu</title>
+      <title>面向对象编程-基础 |  Liu</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -55,7 +55,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Java基础查缺补漏(2)"
+  id="post-面向对象编程-基础"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -66,7 +66,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Java基础查缺补漏(2)
+  面向对象编程-基础
 </h1>
  
 
@@ -74,15 +74,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/01/27/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(2)/" class="article-date">
-  <time datetime="2024-01-27T09:50:38.000Z" itemprop="datePublished">2024-01-27</time>
+      <a href="/2024/01/28/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time datetime="2024-01-28T11:17:53.000Z" itemprop="datePublished">2024-01-28</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">570</span>
+            <span class="post-count">1.2k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -106,36 +106,38 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="原码-反码-补码"><a href="#原码-反码-补码" class="headerlink" title="原码 反码 补码"></a>原码 反码 补码</h2><ol>
-<li>二进制最高位是符号位，0表示正数，1表示负数</li>
-<li>整数的原码、反码和补码都一样</li>
-<li>负数的反码 &#x3D; 原码符号位不变，其他位取反<span id="more"></span></li>
-<li>负数的补码 &#x3D; 反码 + 1</li>
-<li>0的反码和补码都是0</li>
-<li>java所有的数都是有符号的</li>
-<li>计算机运算时是<strong>以补码的方式运算</strong>的</li>
-<li>运算结果看的是原码</li>
+  <h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><ol>
+<li>类是抽象的，概念的，代表一类事物，是数据类型</li>
+<li>对象是具体的，实际的，代表一个具体事物，即实例</li>
+<li>类是对象的模板，对象是类的一个个体，对应一个实例<span id="more"></span></li>
 </ol>
-<h2 id="位运算符-补码运算"><a href="#位运算符-补码运算" class="headerlink" title="位运算符 (补码运算)"></a>位运算符 (补码运算)</h2><ol>
-<li>按位与&amp;：两位全1则为1，否则为0</li>
-<li>按位或|：两位有一个1则为1，否则为0</li>
-<li>按位异或^：两位不同则为1，否则为0</li>
-<li>按位取反~</li>
-<li>算术右移&gt;&gt;：符号位不变，低位溢出并用符号位补溢出的高位 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 1&gt;&gt;2; //本质相当于 1/2/2 = 0</span><br><span class="line">int b = 1&lt;&lt;2; //本质相当于 1*2*2 = 4</span><br></pre></td></tr></table></figure></li>
-<li>算术左移&lt;&lt;：符号不变，低位补0</li>
-<li>逻辑右移也叫无符号右移&gt;&gt;&gt;：低位溢出，高位补0</li>
-</ol>
-<h2 id="分支控制if-else语句"><a href="#分支控制if-else语句" class="headerlink" title="分支控制if-else语句"></a>分支控制if-else语句</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">boolean b = true;</span><br><span class="line">if(b = false) System.out.println(&quot;1234&quot;);</span><br><span class="line">else System.out.println(&quot;5678&quot;);</span><br><span class="line">//会输出5678！！！！C++也一样</span><br></pre></td></tr></table></figure>
-<p><strong>if括号里如果是关系运算符的话，就会判断整个表达式是true还是false，但是如果括号里是一个赋值语句的话，就比如说a&#x3D;4;那么if(a&#x3D;4)就等价于if(a)，这个a就是赋完值的a。但是在C&#x2F;C++里，只有0是假，其他都为真，Java里只有true为真，java的boolean类型只有true和false，没有其他结果</strong></p>
-<hr>
-<h2 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h2><ul>
-<li>switch(表达式)中表达式的返回值必须是byte,short,int,char,enum[枚举],String</li>
-<li>casez字句中的值必须是常量或常量表达式，不能是变量</li>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>从概念看：成员变量 &#x3D; 属性 &#x3D; field(字段)<br>属性是类的一个组成部分，一般是基本数据类型，也可以是引用类型(对象、数组)。</p>
+<h3 id="对象在内存中的形式"><a href="#对象在内存中的形式" class="headerlink" title="对象在内存中的形式"></a>对象在内存中的形式</h3><p>在<strong>栈中</strong>有指向<strong>堆里</strong>的地址，如果成员变量是基础数据类型就直接放在堆里，如果成员变量是字符串类型，则有指向<strong>方法区中常量池</strong>里字符串的地址<br>栈里的只是对象名(对象引用)，对象实际在堆里以及常量池<br>方法区里会加载类信息(属性信息、方法信息)且类信息只会加载一次<br><strong>练习题</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Person a = new Person();</span><br><span class="line">a.age = 10; a.name = &quot;小明&quot;;</span><br><span class="line">b = a;//这样b和a指向的是同一地址</span><br><span class="line">b = null;//b指向了空指针，所以b.age会抛出错误，需要new才有对象</span><br><span class="line">System.out.println(b.age);//会报错</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法-成员方法"><a href="#方法-成员方法" class="headerlink" title="方法(成员方法)"></a>方法(成员方法)</h3><p>程序执行到方法时会开辟一个独立的栈空间<br>引用类型传递的是地址(传递的也是值，但是值是地址)，形参会影响实参</p>
+<h3 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h3><p>同一个类中允许多个同名方法的存在，但要求形参列表不一致</p>
+<h3 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h3><p>同一个类中允许多个同名同功能但参数个数不同的方法封装成一个方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public int sum(int... nums)&#123;</span><br><span class="line">    int res = 0;</span><br><span class="line">    for(int i = 0; i &lt; nums.length; i++)&#123;</span><br><span class="line">        res += nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可变参数的实参可以直接传入数组</li>
+<li>可变参数可以放在普通类型参数的后面一起构成形参列表</li>
+<li>一个形参列表只能由一个可变参数</li>
 </ul>
-<h2 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">label1:</span><br><span class="line">for(int j = 0; j &lt; 4; j++)&#123;</span><br><span class="line">    label2:for(int i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">        if(i == 2)&#123;</span><br><span class="line">            //break label1;</span><br><span class="line">            break;//等价于break label2</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>continue和标签的用法同break</strong></p>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>boolean的初始值为false<br>基本数据类型之间的赋值方式是值传递(值拷贝)，互不影响<br>数组在默认情况下进行的是引用传递(地址拷贝)，赋的值是地址</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">声明  int[] x,y[];表示x是一维数组，y是二维数组</span><br></pre></td></tr></table></figure> 
+<hr>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>全局变量(属性)可以不赋值，因为有默认值<br>局部变量(除属性之外的变量)必须赋值才能使用，作用域在定义它的代码块中<br>属性的生命周期(伴随对象)比局部变量(伴随代码块，即一次调用过程)长<br>局部变量前不能加修饰符，属性可以加</p>
+<h2 id="构造方法-构造器"><a href="#构造方法-构造器" class="headerlink" title="构造方法&#x2F;构造器"></a>构造方法&#x2F;构造器</h2><ol>
+<li>构造器没有返回值，也不需要void，用于对象初始化</li>
+<li>构造器的方法名和类名要一样</li>
+<li>构造器的调用是由系统完成的</li>
+<li>构造器可以重载</li>
+<li>不定义构造器系统会默认生成一个无参构造器(默认构造器)，可以使用javap指令反编译查看，定义构造器之后默认构造器会直接覆盖，除非再写一个默认构造器<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//分析下面对象创建的流程</span><br><span class="line">class Person&#123;//类Person</span><br><span class="line">    int age = 90;</span><br><span class="line">    String name;</span><br><span class="line">    Person(String n, int a)&#123;//构造器</span><br><span class="line">        name = n;</span><br><span class="line">        age = a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//主方法中创建对象</span><br><span class="line">Person p = new Person(&quot;小谢&quot;，18);</span><br><span class="line">//分析</span><br><span class="line">1.在方法区加载Person类信息(Person.class)，只加载一次</span><br><span class="line">2.在堆中分配空间(得到一个地址),</span><br><span class="line">3.完成对象初始化，首先默认初始化，即age = 0，name = null；</span><br><span class="line">  第二步显式初始化，将属性值赋给变量，即age = 90，name = null；</span><br><span class="line">  最后进行构造器的初始化，在方法区发常量池中生成&quot;小倩&quot;，</span><br><span class="line">  堆中的对象name指向&quot;小倩&quot;，即age = 20，name = &quot;小倩&quot;</span><br><span class="line">4.将对象在堆中的地址返回给栈中的p(p是对象名，也可以理解为对象的引用)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h2><p>this.name表示当前对象的name属性，哪个对象调用，this就代表哪个对象<br><strong>理解</strong>：this可以理解为在对象创建时有一个默认的this属性，这个属性指向对象的地址，即和对象名相同，可以通过输出对象的hashcode()与this的hashcode()相同验证</p>
+<p>访问成员方法的语法this.方法名(参数列表);</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 构造器的复用</span><br><span class="line">class Employee &#123;</span><br><span class="line">    String name;</span><br><span class="line">    char gender;</span><br><span class="line">    int age;</span><br><span class="line">    String job;</span><br><span class="line">    double sal;</span><br><span class="line">    public Employee(String job, double sal) &#123;</span><br><span class="line">        this.job = job;</span><br><span class="line">        this.sal = sal;</span><br><span class="line">    &#125;</span><br><span class="line">    public Employee(String name, char gender, int age) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.gender = gender;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    public Employee(String job, double sal, String name, char gender, int age) &#123;</span><br><span class="line">        this(name, gender, age);</span><br><span class="line">        this.job = job;</span><br><span class="line">        this.sal = sal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>访问构造器语法：this(参数列表)只能在构造器中访问另一个构造器，而且必须放在第一句</p>
+<h2 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//表示创建好匿名对象之后就调用count1()</span><br><span class="line">new Test().count1();</span><br><span class="line">//new Test() 是匿名对象，匿名对象使用后就会被销毁</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -205,7 +207,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/01/27/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(2)/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/01/28/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -216,19 +218,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/01/28/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%9F%BA%E7%A1%80/" class="article-nav-link">
+      <a href="/2024/01/29/%E9%80%92%E5%BD%92/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            面向对象编程-基础
+            递归
           
         </div>
       </a>
     
     
-      <a href="/2024/01/26/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(1)/" class="article-nav-link">
+      <a href="/2024/01/27/Java%E5%9F%BA%E7%A1%80%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F(2)/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Java基础查缺补漏</div>
+        <div class="article-nav-title">Java基础查缺补漏(2)</div>
       </a>
     
   </nav>
