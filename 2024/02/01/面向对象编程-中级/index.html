@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">779</span>
+            <span class="post-count">1.4k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -107,22 +107,22 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>到断点调试</p>
-<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p><strong>作用</strong>：区分相同名字的类，方便管理类，控制访问范围<br><strong>本质</strong>：创建不同的文件夹来保存类文件</p>
+<h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p><strong>作用</strong>：区分相同名字的类，方便管理类，控制访问范围<br><strong>本质</strong>：创建不同的文件夹来保存类文件</p>
 <span id="more"></span>
 <p><strong>细节</strong>：package的作用是声明当前类所在的包，需要放在类的最上面且一个类只能有一句package</p>
-<h3 id="包的命名"><a href="#包的命名" class="headerlink" title="包的命名"></a>包的命名</h3><h4 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h4><p>只能包含数字、字母、下划线、圆点，不能数字开头，不能是关键字或保留字</p>
-<h4 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h4><p>com.公司名.项目名.业务模块名<br><code>com.sina.crm.user//用户模块</code></p>
+<h4 id="包的命名"><a href="#包的命名" class="headerlink" title="包的命名"></a>包的命名</h4><h5 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h5><p>只能包含数字、字母、下划线、圆点，不能数字开头，不能是关键字或保留字</p>
+<h5 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h5><p>com.公司名.项目名.业务模块名<br><code>com.sina.crm.user//用户模块</code></p>
 <hr>
-<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>java提供了四种访问控制修饰符号，用于控制方法和属性的访问权限<br>同一类 &lt; 同一包 &lt; 子类 &lt; 不同包</p>
+<h3 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h3><p>java提供了四种访问控制修饰符号，用于控制方法和属性的访问权限<br>同一类 &lt; 同一包 &lt; 子类 &lt; 不同包</p>
 <ol>
 <li>公开级别：用<strong>public</strong>修饰，对外公开</li>
 <li>受保护级别：用<strong>protected</strong>修饰，对子类和同一个包中的类公开</li>
 <li>默认级别：没有修饰符，向同一个包的类公开</li>
 <li>私有级别：用<strong>private</strong>修饰，只有类本身可以访问，不对外公开</li>
 </ol>
-<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>封装可以隐藏实现细节，可以对数据进行验证来保证其安全合理<br>将属性私有化，然后提供set和get方法来操作<br>构造器可以调用set方法实现对属性的保护</p>
+<h2 id="面向对象的-三大特征"><a href="#面向对象的-三大特征" class="headerlink" title="面向对象的 三大特征"></a>面向对象的 三大特征</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装可以隐藏实现细节，可以对数据进行验证来保证其安全合理<br>将属性私有化，然后提供set和get方法来操作<br>构造器可以调用set方法实现对属性的保护</p>
 <hr>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承可以解决代码复用，使编程更加接近人类思维<br>当多个类存在相同的属性(变量)和方法时，可以从这些类中抽象出父类，在父类中定义这些相同的属性和方法，所有的的子类不需要重新定义这些属性和方法，只需要通过extends来声明继承父类即可<br>父类又叫超类、基类；子类又叫派生类</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承可以解决代码复用，使编程更加接近人类思维<br>当多个类存在相同的属性(变量)和方法时，可以从这些类中抽象出父类，在父类中定义这些相同的属性和方法，所有的的子类不需要重新定义这些属性和方法，只需要通过extends来声明继承父类即可<br>父类又叫超类、基类；子类又叫派生类</p>
 <ol>
 <li>子类继承了所有的属性和方法，但是私有属性和方法不能在子类直接访问，要通过<strong>公共的方法</strong>去访问</li>
 <li>子类必须调用父类的构造器，完成父类的初始化</li>
@@ -133,6 +133,40 @@
 <li>java所有类都是Object的子类</li>
 <li>java是单继承机制，子类最多只能继承一个父类(直接继承)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line">    A()&#123;System.out.print(&quot;a,&quot;);&#125;</span><br><span class="line">    A(String name)&#123;System.out.print(&quot;a name,&quot;);&#125;</span><br><span class="line">&#125;</span><br><span class="line">class B extends A&#123;</span><br><span class="line">    B()&#123;this(&quot;abc&quot;);System.out.print(&quot;b,&quot;);&#125;</span><br><span class="line">    B(String name)&#123;System.out.print(&quot;b name,&quot;);&#125;</span><br><span class="line">&#125;</span><br><span class="line">//main中：B b = new B();会输出什么？</span><br></pre></td></tr></table></figure>
 this和super语句在构造器中只能存在一个，因此B的有参构造器默认有一句<code>super();</code><br>所以输出结果为<code>a,b name,b,</code></li>
+</ol>
+<h4 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h4><ol>
+<li>方法重写(override)也叫方法覆盖，需要子类方法的参数和方法名称与父类的完全一样</li>
+<li>子类的返回类型要和父类一样或者是父类返回类型的子类，比如父类<code>public Object getInfo()&#123;&#125;</code>，子类可以是<code>public String getInfo()&#123;&#125;</code></li>
+<li>子类方法不能缩小父类方法的访问权限</li>
+</ol>
+<hr>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>多态建立在封装和继承之上，重写和重载就是多态的体现<br>多态的前提是：两个对象(类)存在继承关系</p>
+<h4 id="对象的多态-重点"><a href="#对象的多态-重点" class="headerlink" title="对象的多态(重点)"></a>对象的多态(重点)</h4><ol>
+<li>一个对象的的编译类型和运行类型可以不一致</li>
+<li>编译类型在定义对象时就确定下来不能改变，运行类型可以改变<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Animal animal = new Dog();</span><br><span class="line">//animal编译类型为Animal，运行类型为Dog</span><br><span class="line">animal = new Cat();//animal的运行类型变成Cat</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="向上转型"><a href="#向上转型" class="headerlink" title="向上转型"></a>向上转型</h4><p><strong>本质</strong>：父类的引用指向了子类的对象(如上Dog例子)</p>
+<ol>
+<li><p>可以调用父类的所有成员(需遵循访问权限)</p>
+</li>
+<li><p>不能调用子类的特有成员(属性不能重写，可以理解为特有的方法和所有属性)(因为<strong>编译阶段调用的成员由编译类型决定)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Base &#123;</span><br><span class="line">    int count = 10;</span><br><span class="line">&#125;</span><br><span class="line">class Sub extends Base &#123;</span><br><span class="line">    int count = 20;</span><br><span class="line">&#125;</span><br><span class="line">//主函数里</span><br><span class="line">Base base = new Sub();//向上转型</span><br><span class="line">System.out.println(base.count);//10,因为对象的编译类型是Base</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最终运行效果看子类(运行类型)的具体实现</p>
+</li>
+</ol>
+<h4 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a>向下转型</h4><p>向下转型后可以调用子类类型中所有的成员</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Animal animal = new Cat();</span><br><span class="line">Cat cat = (Cat)animal;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>只能强制转换父类的引用，不能强制转换父类的对象</li>
+<li>父类的引用必须指向的是当前目标类型的对象(如上animal的运行类型为cat)</li>
+<li>Dog和Cat都是Animal的子类，但是Dog和Cat之间是没有关系的(不能转换)</li>
+</ol>
+<h4 id="instanceOf比较操作符"><a href="#instanceOf比较操作符" class="headerlink" title="instanceOf比较操作符"></a>instanceOf比较操作符</h4><p>用于判断<strong>对象的运行类型</strong>是否为某类型或者某类型的子类型  <code>aa instanceOf AA//返回布尔类型值</code></p>
+<hr>
+<h3 id="动态绑定机制"><a href="#动态绑定机制" class="headerlink" title="动态绑定机制"></a>动态绑定机制</h3><ol>
+<li>调用对象方法的时候，方法会和该对象的内存地址(运行类型)绑定</li>
+<li>当调用对象属性时，没有动态绑定机制，哪里声明哪里使用</li>
 </ol>
  
       <!-- reward -->
