@@ -131,25 +131,33 @@
 <hr>
 <h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>又称为初始化块，属于类中的成员(是类的一部分)，类似于方法，将逻辑语句封装在方法体中用{}包围起来，{}外分号可写可不写。和方法的区别在于没有方法名，没有返回，没有参数，只有方法体，而且不用通过对象或类显式调用，在加载类或创建对象是隐式调用。</p>
 <ol>
-<li>代码块相当于另外一种形式的构造器(对构造器的补充机制)，可以做初始化操作</li>
-<li>如果多个构造器中都有重复的语句，可以抽取到代码块中，提高代码复用性</li>
-<li>static代码块也叫静态代码块，随着类的加载而执行且只会执行一次，普通代码块每创建一个对象都会执行</li>
-</ol>
+<li><p>代码块相当于另外一种形式的构造器(对构造器的补充机制)，可以做初始化操作</p>
+</li>
+<li><p>如果多个构造器中都有重复的语句，可以抽取到代码块中，提高代码复用性</p>
+</li>
+<li><p>static代码块也叫静态代码块，随着类的加载而执行且只会执行一次，普通代码块每创建一个对象都会执行</p>
 <blockquote>
 <p><strong>类什么时候会被加载</strong></p>
 <ol>
 <li>创建对象实例的时候(new)</li>
 <li>创建子类对象实例，父类也会被加载(先加载父类，再加载子类)</li>
 <li>使用类的静态成员时</li>
-<li>只使用类的静态成员时，普通代码块并不会执行，相当于构造器的延伸，只有创建对象才会执行</li>
-<li>在创建一个对象时，一个类中的调用顺序为：<ol>
+</ol>
+</blockquote>
+</li>
+<li><p>只使用类的静态成员时，普通代码块并不会执行，相当于构造器的延伸，只有创建对象才会执行</p>
+</li>
+<li><p>在创建一个对象时，一个类中的调用顺序为：</p>
+<ol>
 <li>调用静态代码块和静态属性初始化，两者优先级相同，按定义顺序调用</li>
 <li>调用普通代码块和普通属性初始化，两者优先级相同，按定义顺序调用</li>
 <li>调用构造方法</li>
 </ol>
 </li>
-<li>在子类继承父类创建对象时，构造器隐藏了<strong>super()和普通代码块</strong>，所以静态成员(类加载时执行完毕)优于构造器和普通代码块</li>
-<li>创建子类对象时的调用顺序为：<ol>
+<li><p>在子类继承父类创建对象时，构造器隐藏了<strong>super()和普通代码块</strong>，所以静态成员(类加载时执行完毕)优于构造器和普通代码块</p>
+</li>
+<li><p>创建子类对象时的调用顺序为：</p>
+<ol>
 <li>父类静态代码块和静态属性初始化(优先级相同)</li>
 <li>子类静态代码块和静态属性初始化(优先级相同)</li>
 <li>父类普通代码块和普通属性初始化(优先级相同)</li>
@@ -159,7 +167,6 @@
 </ol>
 </li>
 </ol>
-</blockquote>
 <h4 id="子类对象调用顺序练习"><a href="#子类对象调用顺序练习" class="headerlink" title="子类对象调用顺序练习"></a>子类对象调用顺序练习</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">public class CodeBlock &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">    new B02();//问输出结果顺序，序号即为答案</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class A02 &#123;</span><br><span class="line">    private static int n1 = getVal01();</span><br><span class="line">    static &#123;</span><br><span class="line">        System.out.println(&quot;2. A02 的一个静态代码块..&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;5. A02 的第一个普通代码块..&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public int n3 = getVal02();</span><br><span class="line">    public static int getVal01() &#123;</span><br><span class="line">        System.out.println(&quot;1. getVal01&quot;);</span><br><span class="line">        return 10;</span><br><span class="line">    &#125;</span><br><span class="line">    public int getVal02() &#123;</span><br><span class="line">        System.out.println(&quot;6. getVal02&quot;);</span><br><span class="line">        return 10;</span><br><span class="line">    &#125;</span><br><span class="line">    public A02() &#123;</span><br><span class="line">        System.out.println(&quot;7. A02 的构造器&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class B02 extends A02 &#123;</span><br><span class="line">    private static int n3 = getVal03();</span><br><span class="line">    static &#123;</span><br><span class="line">        System.out.println(&quot;4. B02 的一个静态代码块..&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public int n5 = getVal04();</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;9. B02 的第一个普通代码块..&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public static int getVal03() &#123;</span><br><span class="line">        System.out.println(&quot;3. getVal03&quot;);</span><br><span class="line">        return 10;</span><br><span class="line">    &#125;</span><br><span class="line">    public int getVal04() &#123;</span><br><span class="line">        System.out.println(&quot;8. getVal04&quot;);</span><br><span class="line">    return 10;</span><br><span class="line">    &#125;</span><br><span class="line">    public B02() &#123;</span><br><span class="line">        System.out.println(&quot;10. B02 的构造器&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
