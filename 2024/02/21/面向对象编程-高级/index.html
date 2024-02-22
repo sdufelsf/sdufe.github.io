@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.2k</span>
+            <span class="post-count">2.3k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">8 min</span>
         </span>
     </span>
 </div>
@@ -170,7 +170,59 @@
 <h4 id="子类对象调用顺序练习"><a href="#子类对象调用顺序练习" class="headerlink" title="子类对象调用顺序练习"></a>子类对象调用顺序练习</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">public class CodeBlock &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">    new B02();//问输出结果顺序，序号即为答案</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class A02 &#123;</span><br><span class="line">    private static int n1 = getVal01();</span><br><span class="line">    static &#123;</span><br><span class="line">        System.out.println(&quot;2. A02 的一个静态代码块..&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;5. A02 的第一个普通代码块..&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public int n3 = getVal02();</span><br><span class="line">    public static int getVal01() &#123;</span><br><span class="line">        System.out.println(&quot;1. getVal01&quot;);</span><br><span class="line">        return 10;</span><br><span class="line">    &#125;</span><br><span class="line">    public int getVal02() &#123;</span><br><span class="line">        System.out.println(&quot;6. getVal02&quot;);</span><br><span class="line">        return 10;</span><br><span class="line">    &#125;</span><br><span class="line">    public A02() &#123;</span><br><span class="line">        System.out.println(&quot;7. A02 的构造器&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class B02 extends A02 &#123;</span><br><span class="line">    private static int n3 = getVal03();</span><br><span class="line">    static &#123;</span><br><span class="line">        System.out.println(&quot;4. B02 的一个静态代码块..&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public int n5 = getVal04();</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;9. B02 的第一个普通代码块..&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public static int getVal03() &#123;</span><br><span class="line">        System.out.println(&quot;3. getVal03&quot;);</span><br><span class="line">        return 10;</span><br><span class="line">    &#125;</span><br><span class="line">    public int getVal04() &#123;</span><br><span class="line">        System.out.println(&quot;8. getVal04&quot;);</span><br><span class="line">    return 10;</span><br><span class="line">    &#125;</span><br><span class="line">    public B02() &#123;</span><br><span class="line">        System.out.println(&quot;10. B02 的构造器&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="单例设计模式"><a href="#单例设计模式" class="headerlink" title="单例设计模式"></a>单例设计模式</h2> 
+<h2 id="单例设计模式"><a href="#单例设计模式" class="headerlink" title="单例设计模式"></a>单例设计模式</h2><p>就是采取一定的方式保证整个软件系统中，对某个类只能存在一个对象实例，并且该类只提供一个取得其对象实例的方法</p>
+<ol>
+<li>区别在于创建对象的时机不同，饿汉式在类加载时就创建，饿汉式使用才创建</li>
+<li>懒汉式存在线程安全问题(创建多个对象，破坏单例)</li>
+<li>饿汉式存在资源浪费的可能</li>
+<li>javaSE标准库里，java.lang.Runtime是经典的单例模式</li>
+</ol>
+<h3 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h3><p>不管需不需要那个实例都存在</p>
+<ol>
+<li>构造器私有化防止用户直接创建对象</li>
+<li>类的内部创建对象</li>
+<li>向外暴露一个静态的公共方法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class GirlFriend &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private GirlFriend(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    //为了能够在静态方法中返回gf对象，所以要用static修饰</span><br><span class="line">    private static GirlFriend gf = new GirlFrend(&quot;小谢&quot;);</span><br><span class="line">    public static GirlFriend getInstance() &#123;</span><br><span class="line">        return gf;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h3><ol>
+<li>构造器私有化</li>
+<li>定义一个static静态属性的对象</li>
+<li>提供一个public的static方法返回对象，使用时调用<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class GirlFriend &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private static GirlFriend gf;</span><br><span class="line">    private GirlFriend(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    public static GirlFriend getInstance() &#123;</span><br><span class="line">        if(gf == null)&#123;</span><br><span class="line">            gf = new GirlFrend(&quot;小谢&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return gf;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h2 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h2><p>final可以修饰类、属性、方法和局部变量，用到的情况有：</p>
+<ol>
+<li>不希望类被继承可以用final修饰</li>
+<li>不希望父类某方法被子类重写(override)时，可以用final修饰<code>访问修饰符 final 返回类型 方法名</code></li>
+<li>不希望类的某个属性值被修改，可以用final修饰</li>
+<li>不希望某个局部变量被修改，可以用final<br>注意事项：</li>
+<li>final修饰的属性定义时必须赋初值且不可修改，赋值可以发生在<ol>
+<li>定义时，如<code>public final double TAX_RATE = 0.08;</code></li>
+<li>在构造器中</li>
+<li>在代码块中</li>
+</ol>
+</li>
+<li>如果final修饰的属性是静态的，则初始化的位置只能是定义时或者静态代码块中</li>
+<li>final类不能继承，但是可以实例化对象</li>
+<li>如果类不是final类，但是含有final对象，该方法虽然不能重写，但是可以被继承</li>
+<li>final不能修饰构造器</li>
+<li><strong>final和static搭配使用不会导致类加载</strong><br>7.包装类(Integer,Double,Float,Boolean等)都是final，String也是final类</li>
+</ol>
+<hr>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>当父类的一些方法不能确定的时候(没有方法体)，可以用abstract关键字来修饰该方法，这个方法就是抽象方法，用abstract来修饰该类就是抽象类，抽象类一般会被继承由子类实现抽象方法</p>
+<ol>
+<li>抽象类是不能被实例化的</li>
+<li>抽象类不一定要包含抽象方法</li>
+<li>一个类一旦包含了抽象方法，这个类必须声明为抽象类</li>
+<li>abstract只能修饰类和方法</li>
+<li>如果一个类继承了抽象类，就必须实现抽象类的所有抽象方法，除非自己也声明为抽象类</li>
+<li>抽象方法不能使用private、final、static修饰，因为这些关键字都是和重写违背的</li>
+</ol>
+<h2 id="模板设计模式-抽象类实践"><a href="#模板设计模式-抽象类实践" class="headerlink" title="模板设计模式(抽象类实践)"></a>模板设计模式(抽象类实践)</h2><p>例：设计一个抽象类(Template)，编写calculateTime()方法，计算某段代码消耗的时间，编写抽象方法job()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">abstract class Template&#123;</span><br><span class="line">    public abstract void job();</span><br><span class="line">    public void calculateTime()&#123;</span><br><span class="line">        //统计当前时间距离 1970-1-1 0:0:0的时间差，单位是ms</span><br><span class="line">        long start = System.currentTimeMillis();</span><br><span class="line">        job();</span><br><span class="line">        long end = System.currentTimeMillis();</span><br><span class="line">        System.out.println(&quot;耗时：&quot; + (end-start))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>接口就是给出一些没有实现的方法，封装到一起，到某个类要使用的时候根据具体情况把这些方法写出来<br><strong>语法</strong>：<code>interface 接口名&#123;属性和方法&#125;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>class 类名 implements 接口&#123;属性和方法;必须实现的接口的抽象方法&#125;</code><br><strong>注</strong>：Jdk7前接口中所有的方法都是抽象方法，Jdk8以后接口中可以有静态方法<code>public static void a()&#123;&#125;</code>，默认方法<code>default public void b()&#123;&#125;</code>，也就是可以有方法体</p>
+ 
       <!-- reward -->
       
       <div id="reword-out">
