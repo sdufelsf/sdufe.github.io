@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">2.3k</span>
+            <span class="post-count">3.3k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">8 min</span>
+            <span class="post-count">12 min</span>
         </span>
     </span>
 </div>
@@ -221,7 +221,52 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">abstract class Template&#123;</span><br><span class="line">    public abstract void job();</span><br><span class="line">    public void calculateTime()&#123;</span><br><span class="line">        //统计当前时间距离 1970-1-1 0:0:0的时间差，单位是ms</span><br><span class="line">        long start = System.currentTimeMillis();</span><br><span class="line">        job();</span><br><span class="line">        long end = System.currentTimeMillis();</span><br><span class="line">        System.out.println(&quot;耗时：&quot; + (end-start))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>接口就是给出一些没有实现的方法，封装到一起，到某个类要使用的时候根据具体情况把这些方法写出来<br><strong>语法</strong>：<code>interface 接口名&#123;属性和方法&#125;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>class 类名 implements 接口&#123;属性和方法;必须实现的接口的抽象方法&#125;</code><br><strong>注</strong>：Jdk7前接口中所有的方法都是抽象方法，Jdk8以后接口中可以有静态方法<code>public static void a()&#123;&#125;</code>，默认方法<code>default public void b()&#123;&#125;</code>，也就是可以有方法体</p>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>接口就是给出一些没有实现的方法，封装到一起，到某个类要使用的时候根据具体情况把这些方法写出来<br><strong>语法</strong>：<code>interface 接口名&#123;属性和方法&#125;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>class 类名 implements 接口&#123;属性和方法;必须实现的接口的抽象方法&#125;</code><br><strong>注</strong>：</p>
+<ol>
+<li>Jdk7前接口中所有的方法都是抽象方法，Jdk8以后接口中可以有静态方法<code>public static void a()&#123;&#125;</code>，默认方法<code>default public void b()&#123;&#125;</code>，也就是可以有方法体</li>
+<li>接口不能被实例化</li>
+<li>接口中的所有方法都为public方法，接口中的抽象方法可以不用abstract修饰</li>
+<li>抽象类实现接口不用实现接口的方法</li>
+<li>一个类可以实现多个接口</li>
+<li>接口中的属性只能是final的，而且是public static final</li>
+<li>接口不能继承其他类，但是可以继承多个别的接口</li>
+<li>接口的修饰符只能是public和默认，和类的修饰符一样</li>
+</ol>
+<h4 id="实现接口和继承类"><a href="#实现接口和继承类" class="headerlink" title="实现接口和继承类"></a>实现接口和继承类</h4><p><strong>继承的价值在于</strong>解决代码的复用性和可维护性<br><strong>接口的价值在于</strong>设计好各种规范方法，让其他类去实现这些方法<br>接口比继承更加灵活，是对java单继承机制的补充，在一定程度上实现了代码解耦(依赖接口的规范性和动态绑定机制)</p>
+<h2 id="变量名重复问题"><a href="#变量名重复问题" class="headerlink" title="变量名重复问题"></a>变量名重复问题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">interface A&#123;</span><br><span class="line">    int x = 0;//要立刻想到等价于public static final int x = 0;</span><br><span class="line">&#125;</span><br><span class="line">class B&#123;</span><br><span class="line">    int x = 1;//普通属性</span><br><span class="line">&#125;</span><br><span class="line">class C extends B implements A&#123;</span><br><span class="line">    public void pX()&#123;</span><br><span class="line">        System.out.println(x);</span><br><span class="line">        //直接写x会报错，访问接口x可以用A.x,访问父类的x可以用super.x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><p><strong>定义</strong>：一个类的内部又完整的嵌套了另一个类结构，被嵌套的类称为内部类，嵌套其他类的类称为外部类，其他无关的叫外部其他类。内部类的最大特点就是可以直接访问私有属性，并且可以体现类与类之间的包含关系<br><strong>类的五大成员</strong>：属性、方法、构造器、代码块、内部类</p>
+<h3 id="定义在外部类局部位置-比如方法内"><a href="#定义在外部类局部位置-比如方法内" class="headerlink" title="定义在外部类局部位置(比如方法内)"></a>定义在外部类局部位置(比如方法内)</h3><h4 id="局部内部类-有类名"><a href="#局部内部类-有类名" class="headerlink" title="局部内部类(有类名)"></a>局部内部类(有类名)</h4><ol>
+<li>可以直接访问外部类的所有成员，包括私有</li>
+<li>不能添加访问修饰符，因为它相当于一个局部变量，<strong>局部变量不能使用修饰符</strong>，可以用final修饰</li>
+<li>作用域仅仅在定义它的方法或代码块中</li>
+<li>局部类访问外部类的成员是直接访问的</li>
+<li>外部类访问局部内部类的成员要创建对象再访问</li>
+<li>外部其他类不能访问局部内部类(因为局部内部类地位是局部变量)</li>
+<li>如果外部类和局部内部类的成员重名则遵循就近原则，如果想访问外部类的成员，则可以使用(外部类名.this.成员)去访问，外部类.this本质上就是外部类的对象，即哪个对象调用了成员，外部类.this就是哪个对象</li>
+</ol>
+<h4 id="匿名内部类-没有类名"><a href="#匿名内部类-没有类名" class="headerlink" title="匿名内部类(没有类名)"></a>匿名内部类(没有类名)</h4><p>本质还是类，没有名字同时还是一个对象<br><strong>语法</strong>：new 类或接口(参数列表){类体};类似于直接创建对象并在后续方法体中实现<br><strong>应用场景</strong>：当作实参直接传递，更加简洁高效</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">interface AA&#123;</span><br><span class="line">    public void cry();</span><br><span class="line">&#125;</span><br><span class="line">//主方法中</span><br><span class="line">show(new AA()&#123;</span><br><span class="line">    public void cry()&#123;</span><br><span class="line">        System.out.println(&quot;AA cry&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">public static void show(AA a)&#123;</span><br><span class="line">    a.cry();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义在外部类的成员位置上"><a href="#定义在外部类的成员位置上" class="headerlink" title="定义在外部类的成员位置上"></a>定义在外部类的成员位置上</h3><h4 id="成员内部类-不用static修饰"><a href="#成员内部类-不用static修饰" class="headerlink" title="成员内部类(不用static修饰)"></a>成员内部类(不用static修饰)</h4><ol>
+<li>可以直接访问外部类的所有成员，包括私有的</li>
+<li>可以添加任意访问修饰符，地位相当于成员</li>
+<li>外部类访问成员内部类先创建对象再访问</li>
+<li>外部其他类访问成员内部类的方法<ol>
+<li><code>Out.in in = out.new in();//相当于把new in()当作out的一个成员</code></li>
+<li><code>out.in in = out.getIn();//在外部类中编写一个返回对象的方法</code></li>
+</ol>
+</li>
+</ol>
+<h4 id="静态内部类-使用static修饰"><a href="#静态内部类-使用static修饰" class="headerlink" title="静态内部类(使用static修饰)"></a>静态内部类(使用static修饰)</h4><ol>
+<li>可以直接访问外部类的所有静态成员，包含私有的，但是不能直接访问非静态成员</li>
+<li>可以添加任意访问修饰符，因为地位相当于一个成员</li>
+<li>外部其他类访问静态内部类的方法<ol>
+<li><code>out.in in = new out.in();//静态内部类，可以通过类名直接访问</code></li>
+<li><code>out.int in = out.getIn();//编写返回静态类对象的方法</code></li>
+</ol>
+</li>
+</ol>
  
       <!-- reward -->
       
