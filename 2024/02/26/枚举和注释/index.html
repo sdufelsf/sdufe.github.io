@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title> Liu</title>
+      <title>枚举和注释 |  Liu</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -53,218 +53,221 @@
     
       
     <main class="content on">
-      
-<section class="cover">
+      <section class="outer">
+  <article
+  id="post-枚举和注释"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-  <div class="cover-frame">
-    <div class="bg-box">
-      <img src="/images/cover2.jpg" alt="image frame" />
-    </div>
-    <div class="cover-inner text-center text-white">
-      <h1><a href="/">Liu</a></h1>
-      <div id="subtitle-box">
-        
-        <span id="subtitle"></span>
-        
-      </div>
-      <div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="cover-learn-more">
-    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  枚举和注释
+</h1>
+ 
 
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/26/%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E9%87%8A/" class="article-date">
+  <time datetime="2024-02-26T13:29:59.000Z" itemprop="datePublished">2024-02-26</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">547</span>
+        </span>
+    </span>
 
-
-<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
-
-
-<!-- Subtitle -->
-
-  <script>
-    try {
-      var typed = new Typed("#subtitle", {
-        strings: ['顺风吹叶落，新芽何时发', '.-.. .. ...- . .. -. - .... . -- --- -- . -. -', '我亦无他，唯手熟尔'],
-        startDelay: 0,
-        typeSpeed: 200,
-        loop: true,
-        backSpeed: 100,
-        showCursor: true
-      });
-    } catch (err) {
-      console.log(err)
-    }
-  </script>
-  
-<div id="main">
-  <section class="outer">
-  
-  
-  
-
-<div class="notice" style="margin-top:50px">
-    <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">2 min</span>
+        </span>
+    </span>
 </div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
-        })
-        .catch(console.error)
-</script>
-
-<style>
-    .notice {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        background: #fbfbfb50;
-        border-radius: 10px;
-    }
-
-    .notice i {
-        float: left;
-        color: #999;
-        font-size: 16px;
-        padding-right: 10px;
-        vertical-align: middle;
-        margin-top: -2px;
-    }
-
-    .notice-content {
-        display: initial;
-        vertical-align: middle;
-    }
-</style>
-  
-  <article class="articles">
-    
-    
-    
-    
-    <article
-  id="post-Test"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/01/19/Test/"
-    >Test</a> 
-</h2>
  
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/01/19/Test/" class="article-date">
-  <time datetime="2024-01-19T13:40:16.000Z" itemprop="datePublished">2024-01-19</time>
-</a>    
     </div>
       
+    <div class="tocbot"></div>
+
+
+
+
+  
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="更新方式"><a href="#更新方式" class="headerlink" title="更新方式"></a>更新方式</h2><p>在 blog 中打开 GBH，使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2024/01/19/Test/"
-        >阅读更多...</a
-      >
-       
+  <h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><p>枚举(enumeration)是一组常量的集合，可以理解为一种特殊类，里面只包含一组有限的特定对象</p>
+<span id="more"></span>
+<h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><ol>
+<li>自定义实现枚举<ol>
+<li>构造器私有化，不提供set方法，因为枚举对象值通常为只读</li>
+<li>对外暴露对象，对枚举对象&#x2F;属性使用public final static共同修饰，实现底层优化</li>
+<li>枚举对象名通常使用全部大写，是常量的命名规范</li>
+<li>枚举对象根据需要也可以有多个属性</li>
+</ol>
+</li>
+<li>使用enum关键字实现枚举<ol>
+<li>使用enum关键字开发一个枚举类时会默认为final类并继承Enum类(javap反编译)</li>
+<li>Enum重写了toString()方法，返回一个字符串，为枚举常量的名称</li>
+<li>传统的<code>public static final Season SPRING = new Season(&quot;春天&quot;,&quot;温暖&quot;);</code>被简化成了<code>SPRING(&quot;春天&quot;,&quot;温暖&quot;);</code>，要明确调用的构造器</li>
+<li>使用无参构造器创建枚举对象时，实参列表和小括号都可以省略</li>
+<li>有多个枚举对象是使用逗号间隔，最后一个分号收尾</li>
+<li>枚举对象必须放在枚举类的行首</li>
+</ol>
+</li>
+</ol>
+<h3 id="枚举-enum-常用的方法"><a href="#枚举-enum-常用的方法" class="headerlink" title="枚举(enum)常用的方法"></a>枚举(enum)常用的方法</h3><table>
+<thead>
+<tr>
+<th align="left">方法名</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">toString</td>
+<td align="left">Enum类重写为返回当前对象名，子类可以重写该方法用于返回对象的属性信息</td>
+</tr>
+<tr>
+<td align="left">name</td>
+<td align="left">返回当前对象名(常量名)，子类不能重写</td>
+</tr>
+<tr>
+<td align="left">ordinal</td>
+<td align="left">返回当前对象的位置号，默认从0开始</td>
+</tr>
+<tr>
+<td align="left">values</td>
+<td align="left">返回一个数组，包含当前枚举类中所有的常量</td>
+</tr>
+<tr>
+<td align="left">valueOf</td>
+<td align="left">将字符串转换成枚举对象，要求字符串必须为已有的常量名，否则报异常</td>
+</tr>
+<tr>
+<td align="left">compareTo</td>
+<td align="left">比较枚举对象的编号，返回值为调用者编号减去参数对象的编号</td>
+</tr>
+</tbody></table>
+<h2 id="增强for循环"><a href="#增强for循环" class="headerlink" title="增强for循环"></a>增强for循环</h2><p>是一种简洁的遍历数组的循环方法<br><strong>语法</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(表达式1:表达式2)&#123;</span><br><span class="line">    //循环体</span><br><span class="line">&#125;</span><br><span class="line">表达式1：与数据或集合类型相同的变量</span><br><span class="line">表达式2：数组或集合类型</span><br></pre></td></tr></table></figure>
+<p><strong>举例</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int[] numbers = &#123;10, 20, 30, 40, 50&#125;;</span><br><span class="line">for(int i : numbers)&#123;</span><br><span class="line">    System.out.println(&quot;i=&quot; + x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+ 
       <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
       
     </div>
     
 
     <!-- copyright -->
     
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
     <footer class="article-footer">
        
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/02/26/%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E9%87%8A/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
     </footer>
   </div>
 
    
-   
-  
-</article>
-
+  <nav class="article-nav">
     
-    <article
-  id="post-hello-world"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
     
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/01/14/hello-world/"
-    >Hello World</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/01/14/hello-world/" class="article-date">
-  <time datetime="2024-01-14T13:35:55.150Z" itemprop="datePublished">2024-01-14</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p> 
-      <a class="article-more-link" href="/2024/01/14/hello-world/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
+      <a href="/2024/02/21/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E9%AB%98%E7%BA%A7/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">面向对象编程-高级</div>
+      </a>
     
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-  </article>
-  
-
-  
-  <nav class="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
-  
-</section>
-</div>
 
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
       <footer class="footer">
   <div class="outer">
     <ul>
@@ -386,6 +389,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
