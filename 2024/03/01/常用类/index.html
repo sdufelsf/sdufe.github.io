@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>面向对象编程基础-中级 |  Liu</title>
+      <title>常用类 |  Liu</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -55,7 +55,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-面向对象编程-中级"
+  id="post-常用类"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -66,7 +66,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  面向对象编程基础-中级
+  常用类
 </h1>
  
 
@@ -74,15 +74,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/02/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E4%B8%AD%E7%BA%A7/" class="article-date">
-  <time datetime="2024-02-01T06:11:40.000Z" itemprop="datePublished">2024-02-01</time>
+      <a href="/2024/03/01/%E5%B8%B8%E7%94%A8%E7%B1%BB/" class="article-date">
+  <time datetime="2024-03-01T03:19:23.000Z" itemprop="datePublished">2024-03-01</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.8k</span>
+            <span class="post-count">94</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">6 min</span>
+            <span class="post-count">1 min</span>
         </span>
     </span>
 </div>
@@ -106,90 +106,9 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p><strong>作用</strong>：区分相同名字的类，方便管理类，控制访问范围<br><strong>本质</strong>：创建不同的文件夹来保存类文件</p>
+  <h2 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h2><p>针对八种基本定义相应的引用类型就是包装类，可以调用类中的方法</p>
 <span id="more"></span>
-
-<p><strong>细节</strong>：package 的作用是声明当前类所在的包，需要放在类的最上面且一个类只能有一句 package</p>
-<h4 id="包的命名"><a href="#包的命名" class="headerlink" title="包的命名"></a>包的命名</h4><h5 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h5><p>只能包含数字、字母、下划线、圆点，不能数字开头，不能是关键字或保留字</p>
-<h5 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h5><p>com.公司名.项目名.业务模块名<br><code>com.sina.crm.user//用户模块</code></p>
-<hr>
-<h3 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h3><p>java 提供了四种访问控制修饰符号，用于控制方法和属性的访问权限<br>同一类 &lt; 同一包 &lt; 子类 &lt; 不同包</p>
-<ol>
-<li>公开级别：用<strong>public</strong>修饰，对外公开</li>
-<li>受保护级别：用<strong>protected</strong>修饰，对子类和同一个包中的类公开</li>
-<li>默认级别：没有修饰符，向同一个包的类公开</li>
-<li>私有级别：用<strong>private</strong>修饰，只有类本身可以访问，不对外公开</li>
-</ol>
-<h2 id="面向对象的-三大特征"><a href="#面向对象的-三大特征" class="headerlink" title="面向对象的 三大特征"></a>面向对象的 三大特征</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装可以隐藏实现细节，可以对数据进行验证来保证其安全合理<br>将属性私有化，然后提供 set 和 get 方法来操作<br>构造器可以调用 set 方法实现对属性的保护</p>
-<hr>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承可以解决代码复用，使编程更加接近人类思维<br>当多个类存在相同的属性(变量)和方法时，可以从这些类中抽象出父类，在父类中定义这些相同的属性和方法，所有的的子类不需要重新定义这些属性和方法，只需要通过 extends 来声明继承父类即可<br>父类又叫超类、基类；子类又叫派生类</p>
-<ol>
-<li>子类继承了所有的属性和方法，但是私有属性和方法不能在子类直接访问，要通过<strong>公共的方法</strong>去访问</li>
-<li>子类必须调用父类的构造器，完成父类的初始化</li>
-<li>创建子类对象时，不管子类使用哪个构造器，默认情况下总会去调用父类的无参构造器，如果父类没有无参构造器，则必须<strong>在子类构造器中用 super 去指定使用父类的某构造器</strong>完成父类的初始化</li>
-<li>如果用 super 指定调用父类的某构造器，要显式的调用一下</li>
-<li>super 使用时必须放在构造器的第一行</li>
-<li>super()和 this()都只能放在构造器第一行，所以两个方法不能共存</li>
-<li>java 所有类都是 Object 的子类</li>
-<li>java 是单继承机制，子类最多只能继承一个父类(直接继承)</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line">    A()&#123;System.out.print(&quot;a,&quot;);&#125;</span><br><span class="line">    A(String name)&#123;System.out.print(&quot;a name,&quot;);&#125;</span><br><span class="line">&#125;</span><br><span class="line">class B extends A&#123;</span><br><span class="line">    B()&#123;this(&quot;abc&quot;);System.out.print(&quot;b,&quot;);&#125;</span><br><span class="line">    B(String name)&#123;System.out.print(&quot;b name,&quot;);&#125;</span><br><span class="line">&#125;</span><br><span class="line">//main中：B b = new B();会输出什么？</span><br></pre></td></tr></table></figure>
-
-<p>this 和 super 语句在构造器中只能存在一个，因此 B 的有参构造器默认有一句<code>super();</code><br>所以输出结果为<code>a,b name,b,</code></p>
-<h4 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h4><ol>
-<li>方法重写(override)也叫方法覆盖，需要子类方法的参数和方法名称与父类的完全一样</li>
-<li>子类的返回类型要和父类一样或者是父类返回类型的子类，比如父类<code>public Object getInfo()&#123;&#125;</code>，子类可以是<code>public String getInfo()&#123;&#125;</code></li>
-<li>子类方法不能缩小父类方法的访问权限</li>
-</ol>
-<hr>
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>方法或对象具有多种形态<br>多态建立在封装和继承之上，重写和重载就是多态的体现<br>多态的前提是：两个对象(类)存在继承关系</p>
-<h4 id="对象的多态-重点"><a href="#对象的多态-重点" class="headerlink" title="对象的多态(重点)"></a>对象的多态(重点)</h4><ol>
-<li>一个对象的的编译类型和运行类型可以不一致</li>
-<li>编译类型在定义对象时就确定下来不能改变，运行类型可以改变，getClass()可以查看运行类型</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Animal animal = new Dog();</span><br><span class="line">//animal编译类型为Animal，运行类型为Dog</span><br><span class="line">animal = new Cat();//animal的运行类型变成Cat</span><br></pre></td></tr></table></figure>
-
-<h4 id="向上转型"><a href="#向上转型" class="headerlink" title="向上转型"></a>向上转型</h4><p><strong>本质</strong>：父类的引用指向了子类的对象(如上 Dog 例子)</p>
-<ol>
-<li>可以调用父类的所有成员(需遵循访问权限)</li>
-<li>不能调用子类的特有成员(属性不能重写，可以理解为特有的方法和所有属性)(因为<strong>编译阶段调用的成员由编译类型决定)</strong></li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Base &#123;</span><br><span class="line">    int count = 10;</span><br><span class="line">&#125;</span><br><span class="line">class Sub extends Base &#123;</span><br><span class="line">    int count = 20;</span><br><span class="line">&#125;</span><br><span class="line">//主函数里</span><br><span class="line">Base base = new Sub();//向上转型</span><br><span class="line">System.out.println(base.count);//10,因为对象的编译类型是Base</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>最终运行效果看子类(运行类型)的具体实现</li>
-</ol>
-<h4 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a>向下转型</h4><p>向下转型后可以调用子类类型中所有的成员</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Animal animal = new Cat();</span><br><span class="line">Cat cat = (Cat)animal;//强制类型转换</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>只能强制转换父类的引用，不能强制转换父类的对象</li>
-<li>父类的引用必须指向的是当前目标类型的对象(如上 animal 的运行类型为 cat)</li>
-<li>Dog 和 Cat 都是 Animal 的子类，但是 Dog 和 Cat 之间是没有关系的(不能转换)</li>
-</ol>
-<h4 id="instanceof-比较操作符"><a href="#instanceof-比较操作符" class="headerlink" title="instanceof 比较操作符"></a>instanceof 比较操作符</h4><p>用于判断<strong>对象的运行类型</strong>是否为某类型或者某类型的子类型 <code>aa instanceof AA//返回布尔类型值</code></p>
-<hr>
-<h3 id="动态绑定机制"><a href="#动态绑定机制" class="headerlink" title="动态绑定机制"></a>动态绑定机制</h3><ol>
-<li>调用对象方法的时候，方法会和该对象的内存地址(运行类型)绑定</li>
-<li>当调用对象属性时，没有动态绑定机制，哪里声明哪里使用</li>
-</ol>
-<hr>
-<h3 id="Object-类"><a href="#Object-类" class="headerlink" title="Object 类"></a>Object 类</h3><h4 id="equals-方法"><a href="#equals-方法" class="headerlink" title="equals 方法"></a>equals 方法</h4><ol>
-<li>&#x3D;&#x3D;既可以判断基本类型又可以判断引用类型，引用类型判断的是地址是否相等，即判断是不是一个对象</li>
-<li>Object 类中的 equals 只能判断引用类型，默认判断的是地址是否相等，子类中往往重写成判断内容是否相等(比如 Integer,String 等中的 equals)</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//重写Object类中的equals方法样例</span><br><span class="line">public boolean equals(Object obj)&#123;</span><br><span class="line">    //先判断两个对象是不是同一个，同一个直接返回true</span><br><span class="line">    if(this == obj)&#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    //然后要判断类型</span><br><span class="line">    if(obj instanceof Person)&#123;//是我们的子类才进行比较</span><br><span class="line">        //进行向下转型，因为要得到obj的各个属性</span><br><span class="line">        Person p = (Person)obj;</span><br><span class="line">        return this.name.equals(p.name) &amp;&amp; this.age == p.age &amp;&amp; this.gender == p.gender;</span><br><span class="line">    &#125;</span><br><span class="line">    //如果不是Person类就直接返回false</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="hashCode-方法"><a href="#hashCode-方法" class="headerlink" title="hashCode 方法"></a>hashCode 方法</h4><ol>
-<li>提高具有哈希结构的容器的效率</li>
-<li>两个引用如果指向的是同一对象，哈希值一定相等</li>
-<li>哈希值主要是根据地址号计算得来的，不能完全将哈希值等价于地址</li>
-</ol>
-<h4 id="toString-方法"><a href="#toString-方法" class="headerlink" title="toString 方法"></a>toString 方法</h4><ol>
-<li>Object 类中默认返还全类名+@+十六进制哈希值，子类一般重写返还对象属性信息</li>
-<li>直接输出一个对象会默认调用 toString()</li>
-</ol>
-<h4 id="finalize"><a href="#finalize" class="headerlink" title="finalize"></a>finalize</h4><p>当某个对象没有任何引用的时候，jvm 就会认为这个对象是垃圾，就会使用垃圾回收机制销毁该对象，销毁对象前会调用 finalize 方法。子类可以重写该方法做一些释放资源的操作，垃圾回收机制的调用是由系统自己决定的，也可以通过 System.gc()主动触发垃圾回收机制</p>
+<p>Boolean和Character的父类是Object<br>Byte、Short、Integer、Long、Float、Double的父类是Number<br>jdk5前手动装箱(基本数据类型-&gt;包装类型)和拆箱，jdk5以后的自动装箱和拆箱，自动装箱底层调用的是valueOf方法，比如Integer.valueOf()</p>
  
       <!-- reward -->
       
@@ -260,7 +179,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/02/01/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E4%B8%AD%E7%BA%A7/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/03/01/%E5%B8%B8%E7%94%A8%E7%B1%BB/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -273,19 +192,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/02/21/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E9%AB%98%E7%BA%A7/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            面向对象编程-高级
-          
-        </div>
-      </a>
     
-    
-      <a href="/2024/01/29/%E9%80%92%E5%BD%92/" class="article-nav-link">
+      <a href="/2024/02/28/%E5%BC%82%E5%B8%B8-Exception/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">递归</div>
+        <div class="article-nav-title">异常</div>
       </a>
     
   </nav>
