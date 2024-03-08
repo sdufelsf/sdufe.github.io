@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -91,20 +91,116 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h2 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h2><p>包含用于执行基本数学运算的方法，如初等指数、对数、平方根和三角函数</p>
+<span id="more"></span>
+
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><p>Math的常用方法均为static静态方法</p>
+<ol>
+<li><p>abs求绝对值</p>
+</li>
+<li><p>pow求幂<code>Math.pow(2,  4);</code>表示2的4次方</p>
+</li>
+<li><p>ceil向上取整，返回值为double类型</p>
+</li>
+<li><p>floor向下取整</p>
+</li>
+<li><p>round四舍五入</p>
+</li>
+<li><p>sqrt 求开方</p>
+</li>
+<li><p>random返回0-1之间的随机小数，左闭右开<br> random返回a-b的随机整数<code>x = (int)(a + Math.random()* (b-a+1));</code></p>
+</li>
+<li><p>max和min</p>
+</li>
+</ol>
+<hr>
+<h2 id="Arrays类"><a href="#Arrays类" class="headerlink" title="Arrays类"></a>Arrays类</h2><p>Arrays包含一系列<strong>静态方法</strong>，用于管理或操作数组(比如排序和搜索)</p>
+<h3 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
+<li><p>toString 返回数组的字符串形式</p>
+</li>
+<li><p>sort </p>
+<ol>
+<li><p>默认从小到大排序</p>
+</li>
+<li><p>调用定制排序传入两个参数为数组和实现Comparator接口的匿名内部类，方法返回值正负影响排序</p>
+</li>
+</ol>
+</li>
+<li><p>binarySearch 对排好序的数组进行二分查找，有返回index，没有返回- (应该存在的位置 + 1)</p>
+</li>
+<li><p>copyOf(arr, 个数) 如果长度超过数组则多的为null，如果长度小于0抛出NegativeArraySizeException</p>
+</li>
+<li><p>fill(num, 10) 使用数字10将num数组的元素全部替换掉</p>
+</li>
+<li><p>equals 判断两个数组的元素是否完全相等</p>
+</li>
+<li><p>asList 可以将一组值转换为list</p>
+</li>
+</ol>
+<hr>
+<h2 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h2><p>常用方法有：</p>
+<ol>
+<li><p>exit 退出当前程序，后面跟0表示正常退出</p>
+</li>
+<li><p>arraycopy 复制数组元素，Arrays.copyOf的底层实现，比较适合底层调用</p>
+</li>
+<li><p>currentTimeMillens 返回当前时间距离1970-1-1的毫秒数</p>
+</li>
+<li><p>gc 运行垃圾回收机制</p>
+</li>
+</ol>
+<hr>
+<h2 id="BigInteger类和BigDecimal类"><a href="#BigInteger类和BigDecimal类" class="headerlink" title="BigInteger类和BigDecimal类"></a>BigInteger类和BigDecimal类</h2><ol>
+<li><p>使用字符串构造对象，使用相应的add，subtract，multiply，divide方法</p>
+</li>
+<li><p>BigDecimal的decide可能会因为除不尽抛出ArithmeticException，解决方法为做除法时指定精度，如<code>System.out.println(bigDec.divide(bigDec2, BigDecimal.ROUND_CEILING));</code>会保留分子的精度</p>
+</li>
+</ol>
+<hr>
+<h2 id="日期类"><a href="#日期类" class="headerlink" title="日期类"></a>日期类</h2><h3 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h3><p>精确到毫秒，代表特定的一瞬间，和SimpleDateFormat(格式化和解析日期的具体类)配套使用</p>
+<p>Date对象带参创建可以表示从 GMT 1970年1月1日0时0分0秒(CST8:00)开始经过参数 date 指定的毫秒数</p>
+<p>Date类在java.util包中，默认输出格式是国外的，格式化方法为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Date</span> <span class="variable">d1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="type">SimpleDateFormat</span> <span class="variable">sdf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyy年MM月dd日 hh:mm:ss E&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> sdf.format(d1);</span><br><span class="line">System.out.println(<span class="string">&quot;当前日期 = &quot;</span> + str);<span class="comment">//当前日期 = 2024年03月07日 13:21:54 星期四</span></span><br></pre></td></tr></table></figure>
+
+<p>使用parse可以将<strong>格式化的String对象</strong>转换成对应的Date值，要求字符串格式和sdf一致</p>
+<h3 id="Calendar类"><a href="#Calendar类" class="headerlink" title="Calendar类"></a>Calendar类</h3><p>Calendar是一个抽象类，为特定瞬间与一组日历字段(YEAR, MONTH, DAY_OF_MONTH, HOUR等)之间的转换提供方法，并为操作日历字段(如获得下星期的日期)提供一些方法</p>
+<p>构造器是protected，只能通过getInstance创建对象，而且没有提供对应的格式化类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Calendar</span> <span class="variable">c</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">System.out.println(<span class="string">&quot;年：&quot;</span> + c.get(Calendar.YEAR));</span><br><span class="line">System.out.println(<span class="string">&quot;月：&quot;</span> + c.get(Calendar.MONTH) + <span class="number">1</span>);<span class="comment">//月从0开始编号</span></span><br><span class="line">System.out.println(<span class="string">&quot;日：&quot;</span> + c.get(Calendar.DAY_OF_MONTH));</span><br><span class="line">System.out.println(<span class="string">&quot;小时：&quot;</span> + c.get(Calendar.HOUR));<span class="comment">//12小时。24小时为HOUR_OF_DAY</span></span><br><span class="line">System.out.println(<span class="string">&quot;分钟：&quot;</span> + c.get(Calendar.MINUTE));</span><br><span class="line">System.out.println(<span class="string">&quot;秒：&quot;</span> + c.get(Calendar.SECOND));</span><br></pre></td></tr></table></figure>
+
+<h3 id="第三代日期类-JDK8加入"><a href="#第三代日期类-JDK8加入" class="headerlink" title="第三代日期类(JDK8加入)"></a>第三代日期类(JDK8加入)</h3><p>JDK1.0包含了java.util.Date类，但是大多数方法在JDK1.1引入Calendar类后被弃用，Calendar存在的缺点：</p>
+<ol>
+<li><p>可变性：日期和时间这样的类应该是不可变的，在多线程环境下需要额外的同步操作才能保证线程安全</p>
+</li>
+<li><p>偏移性：Date中的年份编号是基于1900年开始的，月份都是从0开始的</p>
+</li>
+<li><p>格式化：Calendar不能格式化</p>
+</li>
+<li><p>线程不安全；不能处理闰秒等(每隔两天多出1s)</p>
+</li>
+</ol>
+<h4 id="三代日期使用："><a href="#三代日期使用：" class="headerlink" title="三代日期使用："></a>三代日期使用：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">ldt</span> <span class="operator">=</span> LocalDateTime.now(); <span class="comment">//LocalDate.now();//LocalTime.now();</span></span><br><span class="line">System.out.println(<span class="string">&quot;年 = &quot;</span> + ldt.getYear());</span><br><span class="line">System.out.println(<span class="string">&quot;月 = &quot;</span> + ldt.getMonth());<span class="comment">//英文</span></span><br><span class="line">System.out.println(<span class="string">&quot;月 = &quot;</span> + ldt.getMonthValue());<span class="comment">//数字</span></span><br><span class="line">System.out.println(<span class="string">&quot;日 = &quot;</span> + ldt.getDayOfMonth());</span><br><span class="line">System.out.println(<span class="string">&quot;时 = &quot;</span> + ldt.getHour());</span><br><span class="line">System.out.println(<span class="string">&quot;分 = &quot;</span> + ldt.getMinute());</span><br><span class="line">System.out.println(<span class="string">&quot;秒 = &quot;</span> + ldt.getSecond());</span><br><span class="line"></span><br><span class="line"><span class="comment">//plus和minus方法可以对当前时间进行加减</span></span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">ldt1</span> <span class="operator">=</span> ldt.plusDays(<span class="number">100</span>);<span class="comment">//看100天之后的时间</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DateTimeFormatter</span> <span class="variable">dtf</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">f</span> <span class="operator">=</span> dft.format(ldt);</span><br><span class="line">System.out.println(<span class="string">&quot;格式化的日期 = &quot;</span> + format);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Instant时间戳"><a href="#Instant时间戳" class="headerlink" title="Instant时间戳"></a>Instant时间戳</h4><p>类似于Date，提供一系列和Date类转换的方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Instant</span> <span class="variable">now</span> <span class="operator">=</span> Instant.now();<span class="comment">//通过静态方法now()获取当前时间戳的对象</span></span><br><span class="line">System.out.println(now);</span><br><span class="line"><span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> Date.from(now);<span class="comment">//通过from把Instant转换成Date</span></span><br><span class="line"><span class="type">Instant</span> <span class="variable">instant</span> <span class="operator">=</span> date.toInstant();<span class="comment">//通过date的toInstant把date转换为Instant对象</span></span><br></pre></td></tr></table></figure>
+
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -179,11 +275,22 @@
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a></li></ul>
+
     </footer>
   </div>
 
    
   <nav class="article-nav">
+    
+      <a href="/2024/03/09/%E9%9B%86%E5%90%88/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            集合
+          
+        </div>
+      </a>
     
     
       <a href="/2024/03/01/%E5%B8%B8%E7%94%A8%E7%B1%BB1/" class="article-nav-link">
