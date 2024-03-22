@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">41</span>
+            <span class="post-count">569</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -108,6 +108,15 @@
        
   <h2 id="java绘图坐标体系"><a href="#java绘图坐标体系" class="headerlink" title="java绘图坐标体系"></a>java绘图坐标体系</h2><p>坐标原点在左上角，以像素为单位，x坐标为向右水平方向，y坐标为向下垂直方向</p>
 <span id="more"></span>
+
+<p>Component类提供了两个和绘图相关最重要的方法：</p>
+<ol>
+<li>paint(Graphics g)绘制组件的外观</li>
+<li>repaint()刷新组件的外观</li>
+</ol>
+<p>组件第一次在屏幕上显示的时候，程序会自动的调用paint()方法来绘制组件，在窗口最小化再放大后、窗口的大小发生变化时、repaint函数被调用时都会调用paint()</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="meta">@SuppressWarnings(&#123;&quot;all&quot;&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> <span class="keyword">extends</span> <span class="title class_">JFrame</span> &#123; <span class="comment">//JFrame 对应窗口,可以理解成是一个画框</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">MyPanel</span> <span class="variable">mp</span> <span class="operator">=</span> <span class="literal">null</span>;<span class="comment">//定义一个面板</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Main</span>();</span><br><span class="line">        System.out.println(<span class="string">&quot;退出程序~&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Main</span><span class="params">()</span> &#123;<span class="comment">//构造器</span></span><br><span class="line">        mp = <span class="keyword">new</span> <span class="title class_">MyPanel</span>();<span class="comment">//初始化面板</span></span><br><span class="line">        <span class="built_in">this</span>.add(mp);<span class="comment">//把面板放入到窗口(画框)</span></span><br><span class="line">        <span class="built_in">this</span>.setSize(<span class="number">400</span>, <span class="number">300</span>);<span class="comment">//设置窗口的大小</span></span><br><span class="line">        <span class="built_in">this</span>.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);<span class="comment">//当点击窗口的小×，程序完全退出.</span></span><br><span class="line">        <span class="built_in">this</span>.setVisible(<span class="literal">true</span>);<span class="comment">//可以显示</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyPanel</span> <span class="keyword">extends</span> <span class="title class_">JPanel</span> &#123;<span class="comment">//先定义一个 MyPanel, 继承 JPanel 类，画图形，就在面板上画</span></span><br><span class="line"><span class="comment">//1. MyPanel 对象就是一个画板</span></span><br><span class="line"><span class="comment">//2. Graphics g 把 g 理解成一支画笔</span></span><br><span class="line"><span class="comment">//3. Graphics 提供了很多绘图的方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">paint</span><span class="params">(Graphics g)</span> &#123;<span class="comment">//绘图方法</span></span><br><span class="line">        <span class="built_in">super</span>.paint(g);<span class="comment">//调用父类的方法完成初始化.</span></span><br><span class="line">        System.out.println(<span class="string">&quot;paint 方法被调用了~&quot;</span>);</span><br><span class="line">        <span class="comment">//g.drawOval(10, 10, 100, 100);  //画出一个圆形.</span></span><br><span class="line">        <span class="comment">//g.drawLine(10, 10, 100, 100);  //画直线drawLine(int x1,int y1,int x2,int y2)</span></span><br><span class="line">        <span class="comment">//g.drawRect(10, 10, 100, 100);//画矩形边框 drawRect(int x, int y, int width, int height)</span></span><br><span class="line">        <span class="comment">//画椭圆边框 drawOval(int x, int y, int width, int height)</span></span><br><span class="line">        <span class="comment">// g.fillRect(10, 10, 100, 100);  //填充矩形 fillRect(int x, int y, int width, int height)</span></span><br><span class="line">        <span class="comment">// g.fillOval(10, 10, 100, 100);  //填充椭圆 fillOval(int x, int y, int width, int height)</span></span><br><span class="line">        <span class="comment">// Image image = Toolkit.getDefaultToolkit().getImage(Panel.class.getResource(&quot;/bg.png&quot;));</span></span><br><span class="line">        <span class="comment">// g.drawImage(image, 10, 10, 175, 221, this);  //画图片 drawImage(Image img, int x, int y, ..)</span></span><br><span class="line">        <span class="comment">//画字符串 drawString(String str, int x, int y)</span></span><br><span class="line">        g.setColor(Color.red);<span class="comment">//设置画笔的颜色 setColor(Color c)</span></span><br><span class="line">        g.setFont(<span class="keyword">new</span> <span class="title class_">Font</span>(<span class="string">&quot;隶书&quot;</span>, Font.BOLD, <span class="number">50</span>));  <span class="comment">//设置画笔的字体 setFont(Font font)</span></span><br><span class="line">        g.drawString(<span class="string">&quot;北京你好&quot;</span>, <span class="number">100</span>, <span class="number">100</span>);  <span class="comment">//这里设置的 100,100坐标是 &quot;北京你好&quot;左下角</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
  
       <!-- reward -->
       
@@ -183,13 +192,22 @@
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/" rel="tag">坦克大战</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a></li></ul>
 
     </footer>
   </div>
 
    
   <nav class="article-nav">
+    
+      <a href="/2024/03/22/%E7%BA%BF%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            线程
+          
+        </div>
+      </a>
     
     
       <a href="/2024/03/20/%E6%B3%9B%E5%9E%8B/" class="article-nav-link">
