@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>线程 |  Liu</title>
+      <title>PyTorch快速入门 |  Liu</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -55,7 +55,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-线程"
+  id="post-PyTorch快速入门"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -66,7 +66,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  线程
+  PyTorch快速入门
 </h1>
  
 
@@ -74,15 +74,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/03/22/%E7%BA%BF%E7%A8%8B/" class="article-date">
-  <time datetime="2024-03-22T15:05:11.000Z" itemprop="datePublished">2024-03-22</time>
+      <a href="/2024/04/08/PyTorch%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="article-date">
+  <time datetime="2024-04-08T13:33:27.000Z" itemprop="datePublished">2024-04-08</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">164</span>
         </span>
     </span>
 
@@ -98,13 +98,27 @@
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <ol>
+<li><p>dir()函数可以知道包内子级的具体内容，如<code>dir(torch.cuda.is_available)</code></p>
+</li>
+<li><p>help()函数可以知道具体使用方法，如<code>help(torch.cuda.is_available)</code></p>
+</li>
+<li><p>要注意help具体的使用方法时不带括号</p>
+</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><h3 id="加载数据"><a href="#加载数据" class="headerlink" title="加载数据"></a>加载数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> Dataset</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyData</span>(<span class="title class_ inherited__">Dataset</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, root_dir, label_dir</span>):</span><br><span class="line">        self.root_dir = root_dir</span><br><span class="line">        self.label_dir = label_dir</span><br><span class="line">        self.path = os.path.join(self.root_dir, self.label_dir)</span><br><span class="line">        self.img_path = os.listdir(self.path)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, index</span>):</span><br><span class="line">        img_name = self.img_path[index]</span><br><span class="line">        img_item_path = os.path.join(self.root_dir, self.label_dir, img_name)</span><br><span class="line">        img = Image.<span class="built_in">open</span>(img_item_path)</span><br><span class="line">        label = self.label_dir</span><br><span class="line">        <span class="keyword">return</span> img, label</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.img_path)</span><br><span class="line"></span><br><span class="line">root_dir = <span class="string">&quot;hymenoptera_data/train&quot;</span></span><br><span class="line">ants_label_dir = <span class="string">&quot;ants&quot;</span></span><br><span class="line">bees_label_dir = <span class="string">&quot;bees&quot;</span></span><br><span class="line">ants_dataset = MyData(root_dir, ants_label_dir)</span><br><span class="line">bees_dataset = MyData(root_dir, bees_label_dir)</span><br><span class="line">img, label = bees_dataset[<span class="number">100</span>]</span><br><span class="line">img.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="TensorBoard"><a href="#TensorBoard" class="headerlink" title="TensorBoard"></a>TensorBoard</h2> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -174,7 +188,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/03/22/%E7%BA%BF%E7%A8%8B/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/04/08/PyTorch%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -186,9 +200,9 @@
   <nav class="article-nav">
     
     
-      <a href="/2024/03/22/java%E7%BB%98%E5%9B%BE/" class="article-nav-link">
+      <a href="/2024/04/06/Python%E8%AF%AD%E6%B3%95/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">java绘图</div>
+        <div class="article-nav-title">Python3语法</div>
       </a>
     
   </nav>
