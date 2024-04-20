@@ -106,10 +106,13 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><ol>
+  <p>主要记录类与对象的基本概念和细节</p>
+<span id="more"></span>
+
+<h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><ol>
 <li>类是抽象的，概念的，代表一类事物，是数据类型</li>
 <li>对象是具体的，实际的，代表一个具体事物，即实例</li>
-<li>类是对象的模板，对象是类的一个个体，对应一个实例<span id="more"></span></li>
+<li>类是对象的模板，对象是类的一个个体，对应一个实例</li>
 </ol>
 <h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>从概念看：成员变量 &#x3D; 属性 &#x3D; field(字段)<br>属性是类的一个组成部分，一般是基本数据类型，也可以是引用类型(对象、数组)。</p>
 <h3 id="对象在内存中的形式"><a href="#对象在内存中的形式" class="headerlink" title="对象在内存中的形式"></a>对象在内存中的形式</h3><p>在<strong>栈中</strong>有指向<strong>堆里</strong>的地址，如果成员变量是基础数据类型就直接放在堆里，如果成员变量是字符串类型，则有指向<strong>方法区中常量池</strong>里字符串的地址<br>栈里的只是对象名(对象引用)，对象实际在堆里以及常量池<br>方法区里会加载类信息(属性信息、方法信息)且类信息只会加载一次<br><strong>练习题</strong></p>
@@ -586,7 +589,7 @@
  
 <script>
   if (window.mermaid) {
-    mermaid.initialize({ theme: "forest" });
+    mermaid.initialize({ theme: "" });
   }
 </script>
 

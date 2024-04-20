@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.2k</span>
+            <span class="post-count">1.3k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -106,7 +106,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>程序</strong>：为完成特定任务，用某种语言编写的一组指令的集合</p>
+  <p><strong>程序</strong>：为完成特定任务，用某种语言编写的一组指令的集合</p>
 <p><strong>进程</strong>：运行的程序，启动了进程操作系统就会为进程分配内存空间。有产生存在和消亡的过程</p>
 <span id="more"></span>
 
@@ -170,7 +170,14 @@
 <li>线程执行了设置了时间参数的LockSupport.park(long nanos) 和LockSupport.parkUntil(long deadline) 方法</li>
 </ol>
 <h2 id="Synchronized-线程同步机制"><a href="#Synchronized-线程同步机制" class="headerlink" title="Synchronized(线程同步机制)"></a>Synchronized(线程同步机制)</h2><p>线程同步，即当有一个线程在对内存进行操作时，其他线程都不可以对这个内存地址进行操作，直到该线程完成操作，其他线程才能对该内存地址进行操作</p>
-<h3 id="同步的实现"><a href="#同步的实现" class="headerlink" title="同步的实现"></a>同步的实现</h3> 
+<h3 id="同步的实现"><a href="#同步的实现" class="headerlink" title="同步的实现"></a>同步的实现</h3><ol>
+<li><p>同步代码块</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(对象)&#123;<span class="comment">//得到对象的锁才能操作同步代码</span></span><br><span class="line">    <span class="comment">//需要被同步代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>synchronized还可以放在方法声明中，表示整个方法为同步方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">m</span><span class="params">(String name)</span>&#123;</span><br><span class="line">    <span class="comment">//需要被同步的代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -617,7 +624,7 @@
  
 <script>
   if (window.mermaid) {
-    mermaid.initialize({ theme: "forest" });
+    mermaid.initialize({ theme: "" });
   }
 </script>
 

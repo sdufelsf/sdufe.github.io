@@ -106,8 +106,10 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="类变量和类方法"><a href="#类变量和类方法" class="headerlink" title="类变量和类方法"></a>类变量和类方法</h2><h3 id="类变量"><a href="#类变量" class="headerlink" title="类变量"></a>类变量</h3><p><strong>定义</strong>：也叫静态变量&#x2F;静态属性，该类的所有对象共享的变量<br><strong>语法</strong>：访问修饰符 static 数据类型 变量名;(或者static放前面)</p>
+  <p>介绍了类变量和类方法，代码块、内部类以及对象调用顺序的细节</p>
 <span id="more"></span>
+
+<h2 id="类变量和类方法"><a href="#类变量和类方法" class="headerlink" title="类变量和类方法"></a>类变量和类方法</h2><h3 id="类变量"><a href="#类变量" class="headerlink" title="类变量"></a>类变量</h3><p><strong>定义</strong>：也叫静态变量&#x2F;静态属性，该类的所有对象共享的变量<br><strong>语法</strong>：访问修饰符 static 数据类型 变量名;(或者static放前面)</p>
 <ol>
 <li>访问方法为<code>类名.类变量名(或者用对象名，一般用类名)</code>，要满足访问修饰符权限，实例变量(又叫普通变量，非静态变量)不能用类名访问</li>
 <li>类变量随着类的加载而创建，所以即使没有创建对象实例也可以访问</li>
@@ -716,7 +718,7 @@
  
 <script>
   if (window.mermaid) {
-    mermaid.initialize({ theme: "forest" });
+    mermaid.initialize({ theme: "" });
   }
 </script>
 
