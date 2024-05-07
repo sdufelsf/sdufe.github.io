@@ -43,7 +43,7 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
 
@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">841</span>
+            <span class="post-count">837</span>
         </span>
     </span>
 
@@ -108,8 +108,8 @@
        
   <p>Git 是一个开源的<strong>分布式版本控制</strong>系统，用于敏捷高效地处理任何或小或大的项目，是为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
 <span id="more"></span>
-
-<h2 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h2><p><strong>设置用户签名</strong>：</p>
+<h2 id="git常用命令">Git常用命令</h2>
+<p><strong>设置用户签名</strong>：</p>
 <ol>
 <li><code>git config --global user.name xxx</code>：指定用户</li>
 <li><code>git config --global user.email xxx</code>：指定邮箱</li>
@@ -117,31 +117,37 @@
 <p>用户签名会记录在当前用户文件的<code>.gitconfig</code>中，只需要设置这一次</p>
 <p><strong>初始化本地库</strong>：每个项目都要执行一次<code>git init</code>，会生成一个隐藏的<code>.git</code>配置文件夹</p>
 <p><strong>查看本地库状态</strong>：项目(工作区workspace)中新创建的文件处于<code>untracked</code>(未跟踪)状态，已有的文件修改后处于<code>unstaged</code>(未暂存状态)，通过<code>git status</code>可以查看文件的状态</p>
-<p><strong>添加&#x2F;移除暂存区</strong>：</p>
+<p><strong>添加/移除暂存区</strong>：</p>
 <ol>
-<li><p><code>git add 文件名</code>可以将工作区的文件移动到暂存区(index)</p>
+<li>
+<p><code>git add 文件名</code>可以将工作区的文件移动到暂存区(index)</p>
 </li>
-<li><p><code>git add .</code>可以全部移到暂存区</p>
+<li>
+<p><code>git add .</code>可以全部移到暂存区</p>
 </li>
-<li><p><code>git rm --cached 文件名</code>可以将文件从暂存区退回到工作区</p>
+<li>
+<p><code>git rm --cached 文件名</code>可以将文件从暂存区退回到工作区</p>
 </li>
 </ol>
-<p><strong>提交本地仓库</strong>：<code>git commit -m &#39;日志信息&#39;</code></p>
+<p><strong>提交本地仓库</strong>：<code>git commit -m '日志信息'</code></p>
 <p><strong>查看日志</strong>：<code>git log</code>查看<strong>当前</strong>日志或者<code>git reflog</code>查<strong>历史</strong>日志，历史日志是所有日志，当前日志不显示后面版本</p>
 <p><strong>版本切换</strong>：使用<code>git reset --hard 版本号</code>可以切换版本，版本号为日志文件的<code>commit</code></p>
-<h2 id="Git分支操作"><a href="#Git分支操作" class="headerlink" title="Git分支操作"></a>Git分支操作</h2><p><strong>查看分支</strong>：<code>git branch -v</code></p>
+<h2 id="git分支操作">Git分支操作</h2>
+<p><strong>查看分支</strong>：<code>git branch -v</code></p>
 <p><strong>创建分支</strong>：<code>git branch 分支名</code>，相当于对上一个分支完整的克隆，包括所有日志</p>
 <p><strong>切换分支</strong>：<code>git checkout 分支名</code></p>
 <p><strong>创建并切换分支</strong>：<code>git checkout -b 分支名</code></p>
 <p><strong>删除分支</strong>：<code>git branch -d 分支名</code>删除时需要做检查，而且不能删除当前分支，D为强制删除不检查</p>
 <p><strong>正常合并分支</strong>：<code>git merge 分支名</code>把指定的分支合并到当前分支上，一般将分支合并到master</p>
 <p><strong>冲突合并分支</strong>：提交之后发生冲突，要手动处理文件中的冲突然后再加入暂存区提交到仓库</p>
-<h3 id="Git分支开发规范"><a href="#Git分支开发规范" class="headerlink" title="Git分支开发规范"></a>Git分支开发规范</h3><p><strong>master</strong>：用于部署生产环境的分支，确保master分支的稳定性，一般由develop和hotfix分支合并，任何时间都不能直接修改代码</p>
-<p><strong>hotfix</strong>：线上出现紧急问题需要及时修复，以master分支为基线创建hotfix分支，修复完成后要合并到master和develop分支，命名为hotfix&#x2F;user</p>
+<h3 id="git分支开发规范">Git分支开发规范</h3>
+<p><strong>master</strong>：用于部署生产环境的分支，确保master分支的稳定性，一般由develop和hotfix分支合并，任何时间都不能直接修改代码</p>
+<p><strong>hotfix</strong>：线上出现紧急问题需要及时修复，以master分支为基线创建hotfix分支，修复完成后要合并到master和develop分支，命名为hotfix/user</p>
 <p><strong>develop</strong>：始终保持最新完成以及bug修复后的代码，feature分支都是基于develop分支下创建的</p>
-<p><strong>feature</strong>：开发新功能时，以develop为基础创建feature分支，命名为feature&#x2F;user_module</p>
+<p><strong>feature</strong>：开发新功能时，以develop为基础创建feature分支，命名为feature/user_module</p>
 <p><strong>release</strong>：一组feature开发完成时首先合并到develop分支进行测试发布时会创建release分支，测试如果发现了bug由develop需要改bug后重新合并，测试通过后合并到master分支</p>
-<h2 id="Gitee远程仓库"><a href="#Gitee远程仓库" class="headerlink" title="Gitee远程仓库"></a>Gitee远程仓库</h2><p><strong>产生公钥</strong>：<code>ssh-keygen -t rsa</code></p>
+<h2 id="gitee远程仓库">Gitee远程仓库</h2>
+<p><strong>产生公钥</strong>：<code>ssh-keygen -t rsa</code></p>
 <p><strong>查看公钥</strong>：<code>cat ~/.ssh/id_rsa.pub</code></p>
 <p><strong>验证公钥</strong>：<code>ssh -T git@gitee.com</code></p>
 <p><strong>添加远程仓库</strong>：<code>git remote add origin(仓库名) 仓库地址</code></p>
@@ -523,9 +529,40 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
-
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+    
+ 
 <!-- busuanzi  -->
  
 <script src="/js/busuanzi-2.3.pure.min.js"></script>

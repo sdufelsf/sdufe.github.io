@@ -43,7 +43,7 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
 
@@ -108,26 +108,33 @@
        
   <p>泛型又称为参数化类型，是Jdk5.0出现的新特性，解决数据类型的安全性问题，在类声明或实例化时只要制定好需要的类型即可，泛型可以保证如果程序在编译时没有发出异常，运行时就不会出现ClassCastException</p>
 <span id="more"></span>
-
 <p><strong>作用</strong>：可以在类声明时通过一个标识表示类中某个属性的类型或者某个方法的返回值类型或者参数类型</p>
 <p><strong>注</strong>：如果泛型为空，未使用泛型则默认为Object</p>
-<h2 id="自定义泛型类"><a href="#自定义泛型类" class="headerlink" title="自定义泛型类"></a>自定义泛型类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class 类名&lt;T, R...&gt;&#123;<span class="comment">// ...表示可以有多个泛型</span></span><br><span class="line">	成员</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="自定义泛型类">自定义泛型类</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class 类名&lt;T, R...&gt;&#123;<span class="comment">// ...表示可以有多个泛型</span></span><br><span class="line">	成员</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>普通成员可以使用泛型(属性、方法)，使用泛型的数组不能初始化(因为数组在new的时候不能确定泛型的类型，就无法开辟内存空间)，静态方法不能使用类的泛型(静态和类相关，类加载时对象还未创建，如果静态方法和属性使用泛型的话JVM无法完成初始化)</p>
-<h2 id="自定义泛型接口"><a href="#自定义泛型接口" class="headerlink" title="自定义泛型接口"></a>自定义泛型接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interface 接口名&lt;T, R...&gt;&#123;&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="自定义泛型接口">自定义泛型接口</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interface 接口名&lt;T, R...&gt;&#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>静态成员同样不能使用泛型，泛型接口的类型在继承或实现接口的时候确定</p>
-<h2 id="自定义泛型方法"><a href="#自定义泛型方法" class="headerlink" title="自定义泛型方法"></a>自定义泛型方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修饰符&lt;T, R...&gt; 返回类型 方法名(参数列表)&#123;&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="自定义泛型方法">自定义泛型方法</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修饰符&lt;T, R...&gt; 返回类型 方法名(参数列表)&#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>泛型方法可以定义在普通类中，也可以定义在泛型类中，调用泛型方法时确定其类型</p>
 <p><code>public void eat(E e)&#123;&#125;</code> 修饰符后没有泛型标识符表示eat不是泛型方法而是使用了泛型</p>
-<h2 id="泛型的继承和通配符"><a href="#泛型的继承和通配符" class="headerlink" title="泛型的继承和通配符"></a>泛型的继承和通配符</h2><ol>
+<h2 id="泛型的继承和通配符">泛型的继承和通配符</h2>
+<ol>
 <li>泛型没有继承性</li>
-<li><?>：支持任意泛型类型</li>
-<li><? extends A>：支持A类及A类的子类，规定泛型的上限</li>
-<li><? super A>支持A类及A类的父类，不限于直接父类，规定了泛型的下限</li>
+<li>
+<?>：支持任意泛型类型
+</li>
+<li>
+<? extends A>：支持A类及A类的子类，规定泛型的上限
+</li>
+<li>
+<? super A>支持A类及A类的父类，不限于直接父类，规定了泛型的下限
+</li>
 </ol>
-<h2 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</h2><p>一个类有很多功能代码需要测试，为了测试要写入main方法，JUnit可以直接运行某一个方法并给出相关信息</p>
+<h2 id="junit">JUnit</h2>
+<p>一个类有很多功能代码需要测试，为了测试要写入main方法，JUnit可以直接运行某一个方法并给出相关信息</p>
 <p>JUnit是一个Java语言的单元测试框架，在测试语句前面加@Test</p>
  
       <!-- reward -->
@@ -499,9 +506,40 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
-
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+    
+ 
 <!-- busuanzi  -->
  
 <script src="/js/busuanzi-2.3.pure.min.js"></script>

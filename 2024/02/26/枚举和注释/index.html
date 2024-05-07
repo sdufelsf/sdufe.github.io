@@ -43,7 +43,7 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
 
@@ -108,16 +108,18 @@
        
   <p>枚举(enumeration)是一组常量的集合，可以理解为一种特殊类，里面只包含一组有限的特定对象</p>
 <span id="more"></span>
-
-<h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><ol>
-<li>自定义实现枚举<ol>
+<h2 id="实现方式">实现方式</h2>
+<ol>
+<li>自定义实现枚举
+<ol>
 <li>构造器私有化，不提供set方法，因为枚举对象值通常为只读</li>
-<li>对外暴露对象，对枚举对象&#x2F;属性使用public final static共同修饰，实现底层优化</li>
+<li>对外暴露对象，对枚举对象/属性使用public final static共同修饰，实现底层优化</li>
 <li>枚举对象名通常使用全部大写，是常量的命名规范</li>
 <li>枚举对象根据需要也可以有多个属性</li>
 </ol>
 </li>
-<li>使用enum关键字实现枚举<ol>
+<li>使用enum关键字实现枚举
+<ol>
 <li>使用enum关键字开发一个枚举类时会默认为final类并继承Enum类(javap反编译)</li>
 <li>Enum重写了toString()方法，返回一个字符串，为枚举常量的名称</li>
 <li>传统的<code>public static final Season SPRING = new Season(&quot;春天&quot;,&quot;温暖&quot;);</code>被简化成了<code>SPRING(&quot;春天&quot;,&quot;温暖&quot;);</code>，要明确调用的构造器</li>
@@ -127,61 +129,78 @@
 </ol>
 </li>
 </ol>
-<h2 id="枚举-enum-常用的方法"><a href="#枚举-enum-常用的方法" class="headerlink" title="枚举(enum)常用的方法"></a>枚举(enum)常用的方法</h2><table>
+<h2 id="枚举-enum-常用的方法">枚举(enum)常用的方法</h2>
+<table>
 <thead>
 <tr>
-<th align="left">方法名</th>
-<th align="left">描述</th>
+<th style="text-align:left">方法名</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">toString</td>
-<td align="left">Enum类重写为返回当前对象名，子类可以重写该方法用于返回对象的属性信息</td>
+<tbody>
+<tr>
+<td style="text-align:left">toString</td>
+<td style="text-align:left">Enum类重写为返回当前对象名，子类可以重写该方法用于返回对象的属性信息</td>
 </tr>
 <tr>
-<td align="left">name</td>
-<td align="left">返回当前对象名(常量名)，子类不能重写</td>
+<td style="text-align:left">name</td>
+<td style="text-align:left">返回当前对象名(常量名)，子类不能重写</td>
 </tr>
 <tr>
-<td align="left">ordinal</td>
-<td align="left">返回当前对象的位置号，默认从0开始</td>
+<td style="text-align:left">ordinal</td>
+<td style="text-align:left">返回当前对象的位置号，默认从0开始</td>
 </tr>
 <tr>
-<td align="left">values</td>
-<td align="left">返回一个数组，包含当前枚举类中所有的常量</td>
+<td style="text-align:left">values</td>
+<td style="text-align:left">返回一个数组，包含当前枚举类中所有的常量</td>
 </tr>
 <tr>
-<td align="left">valueOf</td>
-<td align="left">将字符串转换成枚举对象，要求字符串必须为已有的常量名，否则报异常</td>
+<td style="text-align:left">valueOf</td>
+<td style="text-align:left">将字符串转换成枚举对象，要求字符串必须为已有的常量名，否则报异常</td>
 </tr>
 <tr>
-<td align="left">compareTo</td>
-<td align="left">比较枚举对象的编号，返回值为调用者编号减去参数对象的编号</td>
+<td style="text-align:left">compareTo</td>
+<td style="text-align:left">比较枚举对象的编号，返回值为调用者编号减去参数对象的编号</td>
 </tr>
-</tbody></table>
-<h2 id="增强for循环"><a href="#增强for循环" class="headerlink" title="增强for循环"></a>增强for循环</h2><p>是一种简洁的遍历数组的循环方法<br><strong>语法</strong>：</p>
+</tbody>
+</table>
+<h2 id="增强for循环">增强for循环</h2>
+<p>是一种简洁的遍历数组的循环方法<br>
+<strong>语法</strong>：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(表达式1:表达式2)&#123;</span><br><span class="line">    //循环体</span><br><span class="line">&#125;</span><br><span class="line">表达式1：与数据或集合类型相同的变量</span><br><span class="line">表达式2：数组或集合类型</span><br></pre></td></tr></table></figure>
 <p><strong>举例</strong>：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int[] numbers = &#123;10, 20, 30, 40, 50&#125;;</span><br><span class="line">for(int i : numbers)&#123;</span><br><span class="line">    System.out.println(&quot;i=&quot; + x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <hr>
-<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><p>注解(Annotation)也被称为元数据(Metadata)，用于修饰解释包、类、方法、属性、构造器、局部变量等数据信息。使用Annotation时要在其前面添加@符号，并将该注解当作一个修饰符使用</p>
+<h2 id="注解">注解</h2>
+<p>注解(Annotation)也被称为元数据(Metadata)，用于修饰解释包、类、方法、属性、构造器、局部变量等数据信息。使用Annotation时要在其前面添加@符号，并将该注解当作一个修饰符使用</p>
 <ol>
 <li>注解不影响程序的逻辑，但是注解可以被编译或运行，相当于嵌入代码中的补全信息</li>
 <li>修饰注解的注解叫做元注解</li>
 </ol>
-<h3 id="三个基本注解"><a href="#三个基本注解" class="headerlink" title="三个基本注解"></a>三个基本注解</h3><h4 id="Override"><a href="#Override" class="headerlink" title="@Override"></a>@Override</h4><p>限定某个方法是重写父类的方法，该注解只能用于方法<br>如果写了@Override注解编译器就会去检查该方法是否重写了父类<br>@interface不是接口，表示的是注解类(jdk5.0之后加入的)</p>
-<h4 id="Deprecated"><a href="#Deprecated" class="headerlink" title="@Deprecated"></a>@Deprecated</h4><p>用于表示某个程序元素已经过时了，可以修饰方法，类，字段，包，参数等，作用是可以做到新旧版版本的兼容和过度</p>
-<h4 id="SuppressWarnings"><a href="#SuppressWarnings" class="headerlink" title="@SuppressWarnings"></a>@SuppressWarnings</h4><p>不希望看到警告的时候可以用于抑制警告，<code>@SuppressWarnings(&#123;&quot;all&quot;&#125;)</code>可以抑制所有警告</p>
-<h3 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h3><h4 id="Retention-保留"><a href="#Retention-保留" class="headerlink" title="Retention(保留)"></a>Retention(保留)</h4><p>指定注解的作用范围，@Retention中包含一个RetentionPolicy类型的成员变量，使用@Rentention时必须为该value成员变量指定的值，共有三种</p>
+<h3 id="三个基本注解">三个基本注解</h3>
+<h4 id="override">@Override</h4>
+<p>限定某个方法是重写父类的方法，该注解只能用于方法<br>
+如果写了@Override注解编译器就会去检查该方法是否重写了父类<br>
+@interface不是接口，表示的是注解类(jdk5.0之后加入的)</p>
+<h4 id="deprecated">@Deprecated</h4>
+<p>用于表示某个程序元素已经过时了，可以修饰方法，类，字段，包，参数等，作用是可以做到新旧版版本的兼容和过度</p>
+<h4 id="suppresswarnings">@SuppressWarnings</h4>
+<p>不希望看到警告的时候可以用于抑制警告，<code>@SuppressWarnings(&#123;&quot;all&quot;&#125;)</code>可以抑制所有警告</p>
+<h3 id="元注解">元注解</h3>
+<h4 id="retention-保留">Retention(保留)</h4>
+<p>指定注解的作用范围，@Retention中包含一个RetentionPolicy类型的成员变量，使用@Rentention时必须为该value成员变量指定的值，共有三种</p>
 <ol>
 <li><code>RetentionPolicy.SOURCE</code>：编译器使用后直接丢弃这种策略的注解</li>
 <li><code>RetentionPolicy.CLASS</code>：编译器将注解记录在class文件中，允许java程序时JVM不会保留注解</li>
 <li><code>RetentionPolicy.RUNTIME</code>：编译器将把注解记录在class文件中，当运行程序时JVM会保留注解，程序可以通过反射获取注解</li>
 </ol>
-<h4 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h4><p>指定注解可以在那些地方使用，其中也包含一个名为value的成员变量</p>
-<h4 id="Documented"><a href="#Documented" class="headerlink" title="Documented"></a>Documented</h4><p>指定注解是否会在javadoc体现，被javadoc工具提取成文档时可以看到该注解<br>定义为Documented的注解必须设置Retention值为RUNTIME</p>
-<h4 id="Inherited"><a href="#Inherited" class="headerlink" title="Inherited"></a>Inherited</h4><p>子类会继承父类注解，父类有该注解的话子类会继承</p>
+<h4 id="target">Target</h4>
+<p>指定注解可以在那些地方使用，其中也包含一个名为value的成员变量</p>
+<h4 id="documented">Documented</h4>
+<p>指定注解是否会在javadoc体现，被javadoc工具提取成文档时可以看到该注解<br>
+定义为Documented的注解必须设置Retention值为RUNTIME</p>
+<h4 id="inherited">Inherited</h4>
+<p>子类会继承父类注解，父类有该注解的话子类会继承</p>
  
       <!-- reward -->
       
@@ -552,9 +571,40 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
-
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+    
+ 
 <!-- busuanzi  -->
  
 <script src="/js/busuanzi-2.3.pure.min.js"></script>

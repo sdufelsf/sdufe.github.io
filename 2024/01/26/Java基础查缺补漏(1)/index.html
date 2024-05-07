@@ -43,7 +43,7 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">5 min</span>
+            <span class="post-count">6 min</span>
         </span>
     </span>
 </div>
@@ -108,92 +108,141 @@
        
   <p>跟着韩顺平老师的课从基础开始系统学习的Java</p>
 <span id="more"></span>
-
-<h2 id="Java的重要特点"><a href="#Java的重要特点" class="headerlink" title="Java的重要特点"></a>Java的重要特点</h2><p>1.Java语言是面向对象的(oop)<br>2.Java语言是健壮的。Java的强类型机制(明确的数据类型)、异常处理、垃圾的自动收集等是Java程序健壮性的重要保证<br>3.Java语言具有跨平台性(靠JVM实现)<br>4.Java语言是解释型的，解释型语言编译后的代码需要解释器才能执行，编译性语言编译后可以直接运行(C&#x2F;C++)</p>
-<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>配置Path的作用是为了在dos的任意目录可以使用java和javac<br>配置用户变量仅对单一用户生效，系统变量适用于所有用户</p>
-<h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h2><p>JDK &#x3D; JRE + java的开发工具(java,javac,javadoc,javap等)<br>JRE &#x3D; JVM + Java SE标准类库(java核心类库)<br>.java文件通过javac生成.class文件，运行.class文件只需要JRE</p>
+<h2 id="java的重要特点">Java的重要特点</h2>
+<p>1.Java语言是面向对象的(oop)<br>
+2.Java语言是健壮的。Java的强类型机制(明确的数据类型)、异常处理、垃圾的自动收集等是Java程序健壮性的重要保证<br>
+3.Java语言具有跨平台性(靠JVM实现)<br>
+4.Java语言是解释型的，解释型语言编译后的代码需要解释器才能执行，编译性语言编译后可以直接运行(C/C++)</p>
+<h2 id="环境变量">环境变量</h2>
+<p>配置Path的作用是为了在dos的任意目录可以使用java和javac<br>
+配置用户变量仅对单一用户生效，系统变量适用于所有用户</p>
+<h2 id="jdk">JDK</h2>
+<p>JDK = JRE + java的开发工具(java,javac,javadoc,javap等)<br>
+JRE = JVM + Java SE标准类库(java核心类库)<br>
+.java文件通过javac生成.class文件，运行.class文件只需要JRE</p>
 <hr>
-<h2 id="注意事项和细节"><a href="#注意事项和细节" class="headerlink" title="注意事项和细节"></a>注意事项和细节</h2><p>Java应用程序的执行入口main()方法格式<br><code>public static void main(String[] args)&#123;...&#125;</code><br>一个源文件最多只有一个public类，其他类不限<br>编译后每一个类都对应一个字节码文件<br>如果源文件包含了一个public类，文件名必须按该类命名<br>main方法可以写在非public类然后指定运行非public类</p>
-<h2 id="Java代码书写规范"><a href="#Java代码书写规范" class="headerlink" title="Java代码书写规范"></a>Java代码书写规范</h2><h3 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释"></a>文档注释</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * javadoc标签</span><br><span class="line"> * @author 小明</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
-<p>使用<code>javadoc -d 文件名 -xx -yy Demo.java</code>可以在文件名中生成一套以网页文件形式体现的程序说明文档，一般写在类<br><strong>源码文件使用utf-8编码</strong></p>
-<h2 id="DOS指令"><a href="#DOS指令" class="headerlink" title="DOS指令"></a>DOS指令</h2><ol>
+<h2 id="注意事项和细节">注意事项和细节</h2>
+<p>Java应用程序的执行入口main()方法格式<br>
+<code>public static void main(String[] args)&#123;...&#125;</code><br>
+一个源文件最多只有一个public类，其他类不限<br>
+编译后每一个类都对应一个字节码文件<br>
+如果源文件包含了一个public类，文件名必须按该类命名<br>
+main方法可以写在非public类然后指定运行非public类</p>
+<h2 id="java代码书写规范">Java代码书写规范</h2>
+<h3 id="文档注释">文档注释</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * javadoc标签</span><br><span class="line"> * @author 小明</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+<p>使用<code>javadoc -d 文件名 -xx -yy Demo.java</code>可以在文件名中生成一套以网页文件形式体现的程序说明文档，一般写在类<br>
+<strong>源码文件使用utf-8编码</strong></p>
+<h2 id="dos指令">DOS指令</h2>
+<ol>
 <li>dir，查看当前路径的文件，可以跟具体路径</li>
 <li>cd 路径，切换目录，</li>
-<li>cd .. 返回上级目录</li>
-<li>cd \ 直达根目录 </li>
+<li>cd … 返回上级目录</li>
+<li>cd \ 直达根目录</li>
 <li>tree，查看当前路径的文件，可以跟具体路径</li>
 <li>cls清屏，exit退出</li>
 </ol>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量在同一作用域内不能重名</p>
+<h2 id="变量">变量</h2>
+<p>变量在同一作用域内不能重名</p>
 <hr>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
-<li><p>数值型</p>
+<h2 id="数据类型">数据类型</h2>
+<h3 id="基本数据类型">基本数据类型</h3>
+<ul>
+<li>数值型
 <ol>
-<li>byte[1], short[2], int[4], long[8]<br><strong>整型常量默认int型，声明long型要加l或者L</strong></li>
-<li>float[4], double[8]<br><strong>浮点数在机器中的存放形式,浮点数&#x3D;符号位+指数位+尾数位</strong><br><em>0.125 等价于 .125</em><br><strong>浮点型常量默认double型,声明float型要加f或者F</strong><br>8.1&#x2F;3 结果不是2.7，而是一个接近2.7的小数<br>要比较两数的话可以使用差值的绝对值在某精度范围内判断<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(Math.abs(num1 - num2) &lt; 0.000001)&#123;</span><br><span class="line">    System.out.println(&quot;相等&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>byte[1], short[2], int[4], long[8]<br>
+<strong>整型常量默认int型，声明long型要加l或者L</strong></li>
+<li>float[4], double[8]<br>
+<strong>浮点数在机器中的存放形式,浮点数=符号位+指数位+尾数位</strong><br>
+<em>0.125 等价于 .125</em><br>
+<strong>浮点型常量默认double型,声明float型要加f或者F</strong><br>
+8.1/3 结果不是2.7，而是一个接近2.7的小数<br>
+要比较两数的话可以使用差值的绝对值在某精度范围内判断</li>
 </ol>
 </li>
-<li><p>字符型 char[2]</p>
-</li>
-<li><p>布尔型 boolean[1]<br><strong>布尔类型的值只有false和true</strong></p>
-</li>
 </ul>
-<h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(Math.abs(num1 - num2) &lt; 0.000001)&#123;</span><br><span class="line">    System.out.println(&quot;相等&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>字符型 char[2]</li>
+<li>布尔型 boolean[1]<br>
+<strong>布尔类型的值只有false和true</strong></li>
+</ul>
+<h3 id="引用数据类型">引用数据类型</h3>
+<ul>
 <li>类 class</li>
 <li>接口 interface</li>
-<li>数组 []<br><strong>String是一个类</strong></li>
+<li>数组 []<br>
+<strong>String是一个类</strong></li>
 </ul>
 <hr>
-<h2 id="Java-API-文档"><a href="#Java-API-文档" class="headerlink" title="Java API 文档"></a>Java API 文档</h2><p>在线API文档：<a target="_blank" rel="noopener" href="http://www.matools.com/api/java8">http://www.matools.com/api/java8</a><br>使用方法：</p>
+<h2 id="java-api-文档">Java API 文档</h2>
+<p>在线API文档：<a target="_blank" rel="noopener" href="http://www.matools.com/api/java8">http://www.matools.com/api/java8</a><br>
+使用方法：</p>
 <ol>
-<li>按包 -&gt; 类 -&gt; 方法的顺序查找  </li>
+<li>按包 -&gt; 类 -&gt; 方法的顺序查找</li>
 <li>直接索引名称</li>
 </ol>
 <hr>
-<h2 id="常用编码"><a href="#常用编码" class="headerlink" title="常用编码"></a>常用编码</h2><ol>
+<h2 id="常用编码">常用编码</h2>
+<ol>
 <li>ASCII码：美国指定的一套字符编码(1字节)，规定了英语字符和二进制之间的关系，最前面一位统一规定0，只用后七位表示了128个字符</li>
-<li>Unicode：一种编码包含世界上所有的符号，每个符号都有独一无二的编码，所以不会乱码，一个英文字母和汉字都是2字节，浪费空间</li>
+<li>Unicode：国际组织制定的统一码，万国码，一种编码包含世界上所有的符号，每个符号都有独一无二的编码，所以不会乱码，一个英文字母和汉字都是2字节，浪费空间</li>
 <li>UTF-8：是互联网上使用最广的一种Unicode实现方式，可以使用1-6个字节表示一个符号，根据不同符号变化字节长度，字母占1个字节，汉字占3个字节</li>
-<li>gbk：字母1字节，汉字2字节，表示的汉字比gbk2312多</li>
+<li>GBK：字母数字1字节，汉字2字节且汉字的第一个字节的第一位为1，表示的汉字比GBK2312多</li>
 <li>big5：表示繁体中文</li>
 </ol>
 <hr>
-<h2 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h2><ol>
+<h2 id="自动类型转换">自动类型转换</h2>
+<ol>
 <li>char -&gt; int -&gt; long -&gt; float -&gt; double</li>
-<li>byte -&gt; short -&gt; int -&gt; long -&gt; float -&gt; double<br><strong>(byte, short)和char之间不会相互自动转换</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">byte a = 10;</span><br><span class="line">char b = a;//会报错，因为byte不能自动转换成char</span><br></pre></td></tr></table></figure>
-<strong>byte,short和char三者可以计算，计算时首先转换为int型</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">byte a = 1;</span><br><span class="line">short b = 1;</span><br><span class="line">short c = a + b;//会报错，因为结果为int型</span><br><span class="line">//就算是byte + byte结果也是int！！！</span><br></pre></td></tr></table></figure></li>
+<li>byte -&gt; short -&gt; int -&gt; long -&gt; float -&gt; double<br>
+<strong>(byte, short)和char之间不会相互自动转换</strong></li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">byte a = 10;</span><br><span class="line">char b = a;//会报错，因为byte不能自动转换成char</span><br></pre></td></tr></table></figure>
+<p><strong>byte,short和char三者可以计算，计算时首先转换为int型</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">byte a = 1;</span><br><span class="line">short b = 1;</span><br><span class="line">short c = a + b;//会报错，因为结果为int型</span><br><span class="line">//就算是byte + byte结果也是int！！！</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="String和基本类型转换"><a href="#String和基本类型转换" class="headerlink" title="String和基本类型转换"></a>String和基本类型转换</h2><h3 id="基本类型转String类型"><a href="#基本类型转String类型" class="headerlink" title="基本类型转String类型"></a>基本类型转String类型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 1;</span><br><span class="line">String str = a + &quot;&quot;;</span><br></pre></td></tr></table></figure>
-<h3 id="String类型转基本数据类型"><a href="#String类型转基本数据类型" class="headerlink" title="String类型转基本数据类型"></a>String类型转基本数据类型</h3><p>基本数据类型的包装类调用parseXX方法</p>
+<h2 id="string和基本类型转换">String和基本类型转换</h2>
+<h3 id="基本类型转string类型">基本类型转String类型</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 1;</span><br><span class="line">String str = a + &quot;&quot;;</span><br></pre></td></tr></table></figure>
+<h3 id="string类型转基本数据类型">String类型转基本数据类型</h3>
+<p>基本数据类型的包装类调用parseXX方法</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String str = &quot;123&quot;;</span><br><span class="line">byte num2 = Byte.parseByte(str);</span><br><span class="line">short num3 = Short.parseShort(str);</span><br><span class="line">int num1 = Integer.parseInt(str);</span><br><span class="line">long num4 = Long.parseLong(str);</span><br><span class="line">float num5 = Float.parseFloat(str);</span><br><span class="line">double num6 = Double.parseDouble(str);</span><br><span class="line">boolean b = Boolean.parseBoolean(&quot;true&quot;);</span><br></pre></td></tr></table></figure>
-
 <hr>
-<h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><p><strong>取模的实质即为</strong>：<code>a % b = a - a / b * b</code><br>如：<code>-10%3= -10 - (-10)/3 *3 = -10+9 = -1</code><br>如果a或b有小数a&#x2F;b*b的每个数要强制类型转换为int<br><strong>面试题1</strong></p>
+<h2 id="算术运算符">算术运算符</h2>
+<p><strong>取模的实质即为</strong>：<code>a % b = a - a / b * b</code><br>
+如：<code>-10%3= -10 - (-10)/3 *3 = -10+9 = -1</code><br>
+如果a或b有小数a/b*b的每个数要强制类型转换为int<br>
+<strong>面试题1</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int i = 1;</span><br><span class="line">i = i++;</span><br><span class="line">System.out.println(i)//结果为多少？为什么</span><br></pre></td></tr></table></figure>
 <ol>
 <li>一个临时变量保存原来的i <code>temp = i;</code></li>
 <li>执行自增操作 <code>i = i + 1;</code></li>
-<li>把临时变量赋给i <code>i = temp;</code><br><em>所以答案为1</em></li>
+<li>把临时变量赋给i <code>i = temp;</code><br>
+<em>所以答案为1</em></li>
 </ol>
 <p><strong>面试题2</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int i = 1;</span><br><span class="line">i = ++i;</span><br><span class="line">System.out.println(i)//结果为多少？为什么</span><br></pre></td></tr></table></figure>
 <ol>
 <li>执行自增操作 <code>i = i + 1;</code></li>
 <li>一个临时变量保存i <code>temp = i;</code></li>
-<li>把临时变量赋给i <code>i = temp;</code><br><em>所以答案为2</em></li>
+<li>把临时变量赋给i <code>i = temp;</code><br>
+<em>所以答案为2</em></li>
 </ol>
 <hr>
-<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><ul>
+<h2 id="逻辑运算符">逻辑运算符</h2>
+<ul>
 <li>&amp;&amp;(短路与)和&amp;(逻辑与)的判断条件相同，但是短路与高效，第一个条件false后不再判断，逻辑与全都会判断</li>
-<li>||(短路或)和|(逻辑或)同理，基本使用<strong>短路</strong><br><strong>逻辑运算一定要注意赋值号和相等于！！！</strong></li>
+<li>||(短路或)和|(逻辑或)同理，基本使用<strong>短路</strong><br>
+<strong>逻辑运算一定要注意赋值号和相等于！！！</strong></li>
 </ul>
 <hr>
-<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><p><strong>复合赋值运算符会进行类型转换</strong></p>
+<h2 id="赋值运算符">赋值运算符</h2>
+<p><strong>复合赋值运算符会进行类型转换</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">byte b = 3;</span><br><span class="line">b += 2;//等价于b = (byte)(b + 2);不会报错</span><br><span class="line">b++;//同样不会报错</span><br><span class="line">b = b + 2;//会报错</span><br></pre></td></tr></table></figure>
-
 <hr>
-<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p>Java标识符组成有字母、数字、_和$</p>
+<h2 id="标识符">标识符</h2>
+<p>Java标识符组成有字母、数字、_和$</p>
 <ol>
 <li>包名：多单词组成时所有字母小写，如aaa.bbb.ccc</li>
 <li>类名、接口名：多单词组成所有首字母大写，如XxxYyyZzz</li>
@@ -570,9 +619,40 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
-
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+    
+ 
 <!-- busuanzi  -->
  
 <script src="/js/busuanzi-2.3.pure.min.js"></script>

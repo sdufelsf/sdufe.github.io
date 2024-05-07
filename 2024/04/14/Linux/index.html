@@ -43,7 +43,7 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
 
@@ -108,48 +108,58 @@
        
   <p>Linux是内核，对其进行不同的包装形成了Ubuntu、RedHat、CentOS、Debain等发行版</p>
 <span id="more"></span>
-
-<h1 id="Linux基础"><a href="#Linux基础" class="headerlink" title="Linux基础"></a>Linux基础</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Linux分区：boot区1G，swap区(缓存)内存大小，根分区其余全部</p>
-<h3 id="网络连接模式"><a href="#网络连接模式" class="headerlink" title="网络连接模式"></a>网络连接模式</h3><ol>
+<h1>Linux基础</h1>
+<h2 id="安装">安装</h2>
+<p>Linux分区：boot区1G，swap区(缓存)内存大小，根分区其余全部</p>
+<h3 id="网络连接模式">网络连接模式</h3>
+<ol>
 <li>桥接模式：虚拟系统可以和外界系统通讯，但是容易造成IP冲突</li>
 <li>NAT模式：网络地址转换模式会在主机生成一个虚拟网卡，虚拟系统可以与外部通讯但是不会造成IP冲突</li>
 <li>主机模式：独立系统</li>
 </ol>
-<h3 id="虚拟机的克隆"><a href="#虚拟机的克隆" class="headerlink" title="虚拟机的克隆"></a>虚拟机的克隆</h3><ol>
+<h3 id="虚拟机的克隆">虚拟机的克隆</h3>
+<ol>
 <li>直接拷贝一份安装好的虚拟机文件</li>
 <li>使用VMware的克隆操作(克隆时要关闭系统)</li>
 </ol>
-<h3 id="虚拟机快照"><a href="#虚拟机快照" class="headerlink" title="虚拟机快照"></a>虚拟机快照</h3><p>使用虚拟机想要回到原先的某个状态，或者担心一些误操作造成系统异常需要回到原先某个正常运行的状态</p>
-<h3 id="虚拟机的迁移和删除"><a href="#虚拟机的迁移和删除" class="headerlink" title="虚拟机的迁移和删除"></a>虚拟机的迁移和删除</h3><p>直接对文件操作即可</p>
-<h2 id="Linux目录结构"><a href="#Linux目录结构" class="headerlink" title="Linux目录结构"></a>Linux目录结构</h2><p>在Linux中一切皆文件，硬件也映射为文件使用</p>
-<p>linux的文件系统采用级层式的树状目录结构，在此结构中的最上层是根目录”&#x2F;“，然后在此目录下创建其他目录包括bin,boot,dev,etc,home,lib,media,mnt,opt,proc,root,sbin,tmp,usr,var等</p>
+<h3 id="虚拟机快照">虚拟机快照</h3>
+<p>使用虚拟机想要回到原先的某个状态，或者担心一些误操作造成系统异常需要回到原先某个正常运行的状态</p>
+<h3 id="虚拟机的迁移和删除">虚拟机的迁移和删除</h3>
+<p>直接对文件操作即可</p>
+<h2 id="linux目录结构">Linux目录结构</h2>
+<p>在Linux中一切皆文件，硬件也映射为文件使用</p>
+<p>linux的文件系统采用级层式的树状目录结构，在此结构中的最上层是根目录&quot;/&quot;，然后在此目录下创建其他目录包括bin,boot,dev,etc,home,lib,media,mnt,opt,proc,root,sbin,tmp,usr,var等</p>
 <ol>
-<li>&#x2F;bin 是 Binaries (二进制文件) 的缩写, 这个目录存放着最经常使用的命令</li>
-<li>&#x2F;sbin存放的是系统管理员使用的系统管理程序</li>
-<li>&#x2F;home是用户的主目录，在 Linux 中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的</li>
-<li>&#x2F;root为系统管理员，也称作超级权限者的用户主目录。</li>
-<li>&#x2F;lib存放着系统最基本的动态连接共享库，其作用类似于 Windows 里的 DLL 文件。几乎所有的应用程序都需要用到这些共享库。</li>
-<li>&#x2F;lost+found一般是空的，系统非法关机后会存放一些文件</li>
-<li>&#x2F;etc是Etcetera(等等) 的缩写,这个目录用来存放所有的系统管理所需要的配置文件和子目录</li>
-<li>&#x2F;usr非常重要，用户的很多应用程序和文件都放在里面，类似于 windows的 program files 目录。</li>
-<li>&#x2F;boot存放的是启动 Linux 时使用的一些核心文件，包括一些连接文件以及镜像文件。</li>
-<li>&#x2F;proc是一个虚拟的目录，它是系统内存的映射，&#x2F;srv存放一些服务启动之后需要提取的数据，&#x2F;sys安装了 2.6 内核中新出现的一个文件系统 sysfs，三个文件很重要，尽量不要动</li>
-<li>&#x2F;tmp是用来存放一些临时文件的</li>
-<li>&#x2F;dev存放的是 Linux 的外部设备，在 Linux 中访问设备的方式和访问文件的方式是相同的</li>
-<li>&#x2F;media:Linux 系统会自动识别设备如U盘、光驱等等，当识别后，Linux 会把识别的设备挂载到这个目录下</li>
-<li>&#x2F;mnt：可以将光驱挂载在 &#x2F;mnt&#x2F; 上，然后进入该目录就可以查看光驱里的内容了</li>
-<li>&#x2F;opt是给主机额外安装软件所摆放的目录</li>
-<li>&#x2F;var存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件</li>
+<li>/bin 是 Binaries (二进制文件) 的缩写, 这个目录存放着最经常使用的命令</li>
+<li>/sbin存放的是系统管理员使用的系统管理程序</li>
+<li>/home是用户的主目录，在 Linux 中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的</li>
+<li>/root为系统管理员，也称作超级权限者的用户主目录。</li>
+<li>/lib存放着系统最基本的动态连接共享库，其作用类似于 Windows 里的 DLL 文件。几乎所有的应用程序都需要用到这些共享库。</li>
+<li>/lost+found一般是空的，系统非法关机后会存放一些文件</li>
+<li>/etc是Etcetera(等等) 的缩写,这个目录用来存放所有的系统管理所需要的配置文件和子目录</li>
+<li>/usr非常重要，用户的很多应用程序和文件都放在里面，类似于 windows的 program files 目录。</li>
+<li>/boot存放的是启动 Linux 时使用的一些核心文件，包括一些连接文件以及镜像文件。</li>
+<li>/proc是一个虚拟的目录，它是系统内存的映射，/srv存放一些服务启动之后需要提取的数据，/sys安装了 2.6 内核中新出现的一个文件系统 sysfs，三个文件很重要，尽量不要动</li>
+<li>/tmp是用来存放一些临时文件的</li>
+<li>/dev存放的是 Linux 的外部设备，在 Linux 中访问设备的方式和访问文件的方式是相同的</li>
+<li>/media:Linux 系统会自动识别设备如U盘、光驱等等，当识别后，Linux 会把识别的设备挂载到这个目录下</li>
+<li>/mnt：可以将光驱挂载在 /mnt/ 上，然后进入该目录就可以查看光驱里的内容了</li>
+<li>/opt是给主机额外安装软件所摆放的目录</li>
+<li>/var存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件</li>
 </ol>
-<h1 id="Linux实操"><a href="#Linux实操" class="headerlink" title="Linux实操"></a>Linux实操</h1><h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><p>按下i，I，o，O，a，A，r，R等任一字母进入编辑模式，一般来说按i即可</p>
-<p>按esc后会进入一般(正常)模式，输入:或者&#x2F;进入命令行模式，:wq表示保存退出，:q!强制退出不保存</p>
-<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>正常模式输入yy可以复制当前行，输入数字+yy复制当前行向下的数字行，输入p粘贴</p>
+<h1>Linux实操</h1>
+<h2 id="vim">Vim</h2>
+<p>按下i，I，o，O，a，A，r，R等任一字母进入编辑模式，一般来说按i即可</p>
+<p>按esc后会进入一般(正常)模式，输入:或者/进入命令行模式，:wq表示保存退出，:q!强制退出不保存</p>
+<h3 id="快捷键">快捷键</h3>
+<p>正常模式输入yy可以复制当前行，输入数字+yy复制当前行向下的数字行，输入p粘贴</p>
 <p>正常模式输入dd删除当前行，输入数字+yy删除当前行向下的数字行</p>
-<p>命令行模式输入&#x2F;关键字然后回车查找，输入n查找下一个</p>
+<p>命令行模式输入/关键字然后回车查找，输入n查找下一个</p>
 <p>命令行模式set nu和set nonu设置和取消行号</p>
 <p>正常模式G移动到最末行，gg移动到首行</p>
 <p>一般模式输入数字+shift+g可以将光标移动到数字行</p>
-<h2 id="关机-重启-登录-注销"><a href="#关机-重启-登录-注销" class="headerlink" title="关机&amp;重启&amp;登录&amp;注销"></a>关机&amp;重启&amp;登录&amp;注销</h2><ol>
+<h2 id="关机-重启-登录-注销">关机&amp;重启&amp;登录&amp;注销</h2>
+<ol>
 <li><code>shutdown -h now</code>：立刻关机</li>
 <li><code>shutdown -h 数字n</code>：n分钟后关机</li>
 <li><code>shutdown -r now</code>：立刻重启</li>
@@ -162,27 +172,37 @@
 </ol>
 <p>在一般情况下，我们登录时应该尽量不使用root用户登录，因为其拥有最大权限，可能导致误操作。一般使用普通用户登录，需要时再使用<code>su root</code>切root用户</p>
 <p>不管关机还是重启，首先都应该运行<code>sync</code>命令，确保内存数据写入磁盘；目前的<code>shutdown</code>|<code>reboot</code>|<code>halt</code>命令都已经在关机前进行了<code>sync</code>，但是以防万一，在生产环境建议至少手动执行一次<code>sync</code></p>
-<p><code>logout</code>注销命令在图形运行级别无效（一般会提示<code>bash: logout: not login shell: use &#39;exit&#39;</code>），在运行级别3（无界面终端）下有效</p>
+<p><code>logout</code>注销命令在图形运行级别无效（一般会提示<code>bash: logout: not login shell: use 'exit'</code>），在运行级别3（无界面终端）下有效</p>
 <p>root用户用<code>useradd</code>创建完用户后，系统会自动切换到新用户的目录；可以通过<code>su root</code>切换回root用户；root用户也可以使用<code>exit</code>或者<code>logout</code>切换回原用户</p>
-<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><p>Linux系统是一个多用户多任务的操作系统，任何一个使用系统资源的用户首先都要向系统管理员申请一个账号，然后使用该账号进入系统。</p>
-<h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><ol>
-<li><p><code>useradd 新用户名</code>：创建用户，用户目录会自动创建在<code>/home/新用户名</code></p>
+<h2 id="用户管理">用户管理</h2>
+<p>Linux系统是一个多用户多任务的操作系统，任何一个使用系统资源的用户首先都要向系统管理员申请一个账号，然后使用该账号进入系统。</p>
+<h3 id="添加用户">添加用户</h3>
+<ol>
+<li>
+<p><code>useradd 新用户名</code>：创建用户，用户目录会自动创建在<code>/home/新用户名</code></p>
 </li>
-<li><p><code>useradd -d 指定目录 新用户名</code>：创建用户，用户目录会创建在<code>/home/指定目录</code></p>
+<li>
+<p><code>useradd -d 指定目录 新用户名</code>：创建用户，用户目录会创建在<code>/home/指定目录</code></p>
 </li>
 </ol>
-<h3 id="指定-修改密码"><a href="#指定-修改密码" class="headerlink" title="指定&#x2F;修改密码"></a>指定&#x2F;修改密码</h3><p><code>passwd 用户名</code>：修改指定用户密码，如果不填用户名，会给当前用户设置密码</p>
-<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><ol>
-<li><p><code>userdel 用户名</code>：删除指定用户，但是保留其家目录</p>
+<h3 id="指定-修改密码">指定/修改密码</h3>
+<p><code>passwd 用户名</code>：修改指定用户密码，如果不填用户名，会给当前用户设置密码</p>
+<h3 id="删除用户">删除用户</h3>
+<ol>
+<li>
+<p><code>userdel 用户名</code>：删除指定用户，但是保留其家目录</p>
 </li>
-<li><p><code>userdel -r 用户名</code>：删除指定用户及其用户目录</p>
+<li>
+<p><code>userdel -r 用户名</code>：删除指定用户及其用户目录</p>
 </li>
 </ol>
 <p>一般情况下删除用户不会使用<code>userdel -r</code>，因为往往用户目录下仍有重要的数据，非必要应该保留该用户目录</p>
-<h3 id="查询用户信息指令"><a href="#查询用户信息指令" class="headerlink" title="查询用户信息指令"></a>查询用户信息指令</h3><p><code>id 用户名</code>查询用户信息</p>
+<h3 id="查询用户信息指令">查询用户信息指令</h3>
+<p><code>id 用户名</code>查询用户信息</p>
 <p><code>whoami</code>：显示当前用户名</p>
 <p><code>who im i</code>：显示当前终端的用户名、终端设备和登录时间等详细信息；</p>
-<h3 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h3><p>在Linux中，用户组是一组具有相同权限和访问权限的用户的集合。每个用户都必须属于至少一个用户组。</p>
+<h3 id="用户组">用户组</h3>
+<p>在Linux中，用户组是一组具有相同权限和访问权限的用户的集合。每个用户都必须属于至少一个用户组。</p>
 <ul>
 <li>用户组可以用于管理文件和目录的访问权限，以及限制用户对系统资源的访问。</li>
 <li>在Linux中，每个用户都有一个主组和多个附加组。用户的主组是在创建用户时指定的，而附加组是可以随时添加或删除的</li>
@@ -194,28 +214,33 @@
 <li><code>useradd -g 用户组 新用户名</code>：创建一个用户并指定用户组</li>
 <li><code>usermod -g 用户组 用户名</code>：修改用户的用户组</li>
 </ol>
-<h3 id="用户和组相关文件"><a href="#用户和组相关文件" class="headerlink" title="用户和组相关文件"></a>用户和组相关文件</h3><p>用户和用户组相关文件：</p>
+<h3 id="用户和组相关文件">用户和组相关文件</h3>
+<p>用户和用户组相关文件：</p>
 <ol>
-<li><p><code>/etc/passwd</code>文件：用户（user）的配置文件，记录用户的各种信息</p>
+<li>
+<p><code>/etc/passwd</code>文件：用户（user）的配置文件，记录用户的各种信息</p>
 <ul>
 <li>内容：<code>用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录使用的Shell</code></li>
 <li>示例：<code>lsf:x:1000:1000:lsf,,,:/home/lsf:/usr/bin/zsh</code></li>
 </ul>
 </li>
-<li><p><code>/etc/shadow</code>文件：口令的配置文件</p>
+<li>
+<p><code>/etc/shadow</code>文件：口令的配置文件</p>
 <ul>
 <li>内容：<code>登录名:加密口令:最后修改时间:最小时间间隔:最大时间间隔:告警时间:不活动时间:失效时间:标志</code></li>
 <li>示例：<code>lsf:*:19827:0:99999:7:::</code></li>
 </ul>
 </li>
-<li><p><code>/etc/group</code>文件：组（group）的配置文件，</p>
+<li>
+<p><code>/etc/group</code>文件：组（group）的配置文件，</p>
 <ul>
 <li>内容：<code>组名:口令:组标识号：组内用户列表</code></li>
 <li>示例：<code>kaboxer:x:136:lsf</code></li>
 </ul>
 </li>
 </ol>
-<h2 id="运行级别"><a href="#运行级别" class="headerlink" title="运行级别"></a>运行级别</h2><p><code>init n</code>：切换运行级别0-6，例如<code>init 3</code>就是切换到运行级别3</p>
+<h2 id="运行级别">运行级别</h2>
+<p><code>init n</code>：切换运行级别0-6，例如<code>init 3</code>就是切换到运行级别3</p>
 <table>
 <thead>
 <tr>
@@ -224,7 +249,8 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>0</td>
 <td>【不常用】</td>
 <td>关机，系统停机状态，系统已关闭，没有任何服务或进程运行</td>
@@ -259,7 +285,8 @@
 <td>【不常用】</td>
 <td>系统重启模式，用于重新启动系统。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ol>
 <li><code>who -r</code>或<code>runlevel</code>：可以查看当前的运行级别</li>
 <li><code>systemctl get-default</code>：可以查看系统默认的运行级别</li>
@@ -267,10 +294,13 @@
 <li>在<code>/lib/systemd/system</code>目录下可以看到可以指定运行级别的所有的target</li>
 <li>其中<code>multi-user.target</code>就是运行级别3，<code>graphical.target</code>就是运行级别5</li>
 </ol>
-<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><ol>
-<li><p><code>pwd</code>：显示当前用户所在工作目录的绝对路径</p>
+<h2 id="文件目录">文件目录</h2>
+<ol>
+<li>
+<p><code>pwd</code>：显示当前用户所在工作目录的绝对路径</p>
 </li>
-<li><p><code>ls</code>：列出当前目录的内容</p>
+<li>
+<p><code>ls</code>：列出当前目录的内容</p>
 <ol>
 <li><code>ls 指定路径</code>：列出指定路径目录的内容</li>
 <li><code>ls -a</code>：列出当前目录的所有内容，包括以<code>.</code>开头的隐藏文件</li>
@@ -278,193 +308,235 @@
 <li><code>ls -h</code>：列出当前目录的内容，显示更符合人类习惯（文件大小显示从字节显示变为自适应单位）</li>
 </ol>
 </li>
-<li><p><code>cd 指定目录</code>：切换到指定目录</p>
+<li>
+<p><code>cd 指定目录</code>：切换到指定目录</p>
 <ol>
 <li><code>cd ~</code>：回到根目录，普通用户所在的用户目录，一般是<code>/home/用户名</code>，root用户则是<code>/root</code></li>
 <li><code>cd ..</code>：返回上一级目录</li>
 </ol>
 </li>
-<li><p><code>mkdir 指定一级目录</code>：创建一个一级目录，如<code>mkdir dog</code>在创建一个名为<code>dog</code>的目录</p>
+<li>
+<p><code>mkdir 指定一级目录</code>：创建一个一级目录，如<code>mkdir dog</code>在创建一个名为<code>dog</code>的目录</p>
 <ol>
 <li><code>mkdir 指定路径指定目录</code>：在指定路径创建一个目录，如<code>mkdir ./dog</code>在当前目录创建<code>dog</code>目录，<code>mkdir /home/用户目录/dog</code>在用户目录下创建<code>dog</code>目录</li>
 <li><code>mkdir -p 多级目录</code>：创建多级目录，如<code>mkdir ./animal/dog</code>在当前目录创建<code>animal</code>目录，再在<code>animaml</code>目录下创建<code>dog</code>目录</li>
 </ol>
 </li>
-<li><p><code>rm 文件</code>：删除文件</p>
+<li>
+<p><code>rm 文件</code>：删除文件</p>
 <ol>
 <li><code>rmdir</code>：删除空目录，注意：只能删除空目录，命令中间没有空格</li>
 <li><code>rm -rf 目录</code>：删除整个目录，<code>-f</code>是强制删除不提示，<code>-r</code>是递归删除，就是强制递归删除所有文件</li>
 </ol>
 </li>
-<li><p><code>touch 文件名</code>： 创建指定文件名的空文件，<code>touch /home/用户目录/cat</code>是在用户目录创建<code>cat</code>空文件</p>
+<li>
+<p><code>touch 文件名</code>： 创建指定文件名的空文件，<code>touch /home/用户目录/cat</code>是在用户目录创建<code>cat</code>空文件</p>
 </li>
-<li><p><code>cp 原文件 目标路径</code>：将原文件拷贝到目标路径下</p>
+<li>
+<p><code>cp 原文件 目标路径</code>：将原文件拷贝到目标路径下</p>
 <ol>
 <li><code>cp -r 原目录 目标路径</code>：将原目录递归拷贝到目标路径下，例如<code>cp -r animal zoo/</code>就是将<code>animal</code>目录及其所有内容拷贝到<code>zoo</code>目录下</li>
 <li><code>\cp -r 原目录 目标路径</code>：将原目录递归拷贝到目标路径下，覆盖不提示</li>
 </ol>
 </li>
-<li><p><code>mv</code>：移动文件及重命名</p>
+<li>
+<p><code>mv</code>：移动文件及重命名</p>
 <ol>
 <li><code>mv 旧文件名 新文件名</code>：两个文件在同一个目录下执行<code>mv</code>，就是重命名</li>
 <li><code>mv 旧文件路径 新文件路径</code>：当两个文件不在同一个路径下执行<code>mv</code>，可以移动文件</li>
 </ol>
 </li>
-<li><p><code>cat 文件名</code>：查看文件内容</p>
+<li>
+<p><code>cat 文件名</code>：查看文件内容</p>
 <ol>
 <li><code>cat -n 文件名</code>：查看文件内容，带上行号</li>
 <li><code>cat -n 文件名 | more</code>：一般为了浏览方便，会加上<code>| more</code>使用<code>more</code> 文本过滤器，<code>|</code>是管道符号</li>
 </ol>
 </li>
-<li><p><code>more</code>：基于Vi编辑器的文本过滤器命令，可以以全屏的方式按页显示文本内容。除了常常和<code>cat</code>联用，也能直接<code>more 文件名</code>来查看文件，快捷键如下</p>
+<li>
+<p><code>more</code>：基于Vi编辑器的文本过滤器命令，可以以全屏的方式按页显示文本内容。除了常常和<code>cat</code>联用，也能直接<code>more 文件名</code>来查看文件，快捷键如下</p>
 </li>
 </ol>
 <table>
 <thead>
 <tr>
-<th align="center">操作</th>
-<th align="center">说明</th>
+<th style="text-align:center">操作</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">空格 <code>Space</code></td>
-<td align="center">下翻一页</td>
+<tbody>
+<tr>
+<td style="text-align:center">空格 <code>Space</code></td>
+<td style="text-align:center">下翻一页</td>
 </tr>
 <tr>
-<td align="center">回车 <code>Enter</code></td>
-<td align="center">下翻一行</td>
+<td style="text-align:center">回车 <code>Enter</code></td>
+<td style="text-align:center">下翻一行</td>
 </tr>
 <tr>
-<td align="center"><code>q</code></td>
-<td align="center">退出</td>
+<td style="text-align:center"><code>q</code></td>
+<td style="text-align:center">退出</td>
 </tr>
 <tr>
-<td align="center"><code>Ctrl</code>+<code>F</code></td>
-<td align="center">向下滚动一屏</td>
+<td style="text-align:center"><code>Ctrl</code>+<code>F</code></td>
+<td style="text-align:center">向下滚动一屏</td>
 </tr>
 <tr>
-<td align="center"><code>Ctrl</code>+<code>B</code></td>
-<td align="center">向上滚动一屏</td>
+<td style="text-align:center"><code>Ctrl</code>+<code>B</code></td>
+<td style="text-align:center">向上滚动一屏</td>
 </tr>
 <tr>
-<td align="center"><code>=</code></td>
-<td align="center">输出当前行的行号</td>
+<td style="text-align:center"><code>=</code></td>
+<td style="text-align:center">输出当前行的行号</td>
 </tr>
 <tr>
-<td align="center"><code>:f</code></td>
-<td align="center">输出文件名和当前行的行号</td>
+<td style="text-align:center"><code>:f</code></td>
+<td style="text-align:center">输出文件名和当前行的行号</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ol start="11">
 <li><code>less</code>：文本查阅工具，功能与<code>more</code>类似，但是更加强大，支持各种显示终端，查找操作，而且是懒加载，大文件打开更快，效率更高,使用方法<code>less 文件名</code>，快捷键如下</li>
 </ol>
 <table>
 <thead>
 <tr>
-<th align="center">操作</th>
-<th align="center">说明</th>
+<th style="text-align:center">操作</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">空格 <code>Space</code></td>
-<td align="center">下翻一页</td>
+<tbody>
+<tr>
+<td style="text-align:center">空格 <code>Space</code></td>
+<td style="text-align:center">下翻一页</td>
 </tr>
 <tr>
-<td align="center"><code>pagedown</code></td>
-<td align="center">下翻一页</td>
+<td style="text-align:center"><code>pagedown</code></td>
+<td style="text-align:center">下翻一页</td>
 </tr>
 <tr>
-<td align="center"><code>pageup</code></td>
-<td align="center">上翻一页</td>
+<td style="text-align:center"><code>pageup</code></td>
+<td style="text-align:center">上翻一页</td>
 </tr>
 <tr>
-<td align="center"><code>/字符串</code></td>
-<td align="center">搜索<code>字符串</code>，<code>n</code>上一个，<code>N</code>下一个</td>
+<td style="text-align:center"><code>/字符串</code></td>
+<td style="text-align:center">搜索<code>字符串</code>，<code>n</code>上一个，<code>N</code>下一个</td>
 </tr>
 <tr>
-<td align="center"><code>?字符串</code></td>
-<td align="center">搜索<code>字符串</code>，<code>n</code>上一个，<code>N</code>下一个</td>
+<td style="text-align:center"><code>?字符串</code></td>
+<td style="text-align:center">搜索<code>字符串</code>，<code>n</code>上一个，<code>N</code>下一个</td>
 </tr>
 <tr>
-<td align="center"><code>q</code></td>
-<td align="center">退出</td>
+<td style="text-align:center"><code>q</code></td>
+<td style="text-align:center">退出</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <ol start="12">
-<li><p><code>echo</code>：输出命令</p>
+<li>
+<p><code>echo</code>：输出命令</p>
 <ol>
-<li><p><code>echo $PATH</code>：输出环境变量</p>
+<li>
+<p><code>echo $PATH</code>：输出环境变量</p>
 </li>
-<li><p><code>echo hello world!</code>：输出<code>hello wrold！</code>到控制台</p>
+<li>
+<p><code>echo hello world!</code>：输出<code>hello wrold！</code>到控制台</p>
 </li>
-<li><p><code>echo hello world!&gt;&gt;learn.txt</code>：追加<code>hello world</code>文本到<code>learn.txt</code>文件中</p>
+<li>
+<p><code>echo hello world!&gt;&gt;learn.txt</code>：追加<code>hello world</code>文本到<code>learn.txt</code>文件中</p>
 </li>
 </ol>
 </li>
-<li><p><code>head -n 数字x 文件名</code>：查看指定文件头部x行数据，如果直接<code>head 文件名</code>，会默认显示前面10行数据</p>
+<li>
+<p><code>head -n 数字x 文件名</code>：查看指定文件头部x行数据，如果直接<code>head 文件名</code>，会默认显示前面10行数据</p>
 </li>
-<li><p><code>tail -n 数字x 文件名</code>：查看指定文件尾部x行数据，如果直接<code>tail 文件名</code>，会默认显示最后10行数据 </p>
+<li>
+<p><code>tail -n 数字x 文件名</code>：查看指定文件尾部x行数据，如果直接<code>tail 文件名</code>，会默认显示最后10行数据</p>
 </li>
-<li><p><code>tail -f 文件名</code>：实时监控文件尾部，如果有追加就会显示</p>
+<li>
+<p><code>tail -f 文件名</code>：实时监控文件尾部，如果有追加就会显示</p>
 </li>
-<li><p><code>&gt;</code>：输出重定向（覆盖写），示例如下</p>
+<li>
+<p><code>&gt;</code>：输出重定向（覆盖写），示例如下</p>
 <ol>
-<li><p><code>ls -l &gt; nowdir.log</code>：将该目录下内容全部覆盖写入<code>nowdir.log</code>文件</p>
+<li>
+<p><code>ls -l &gt; nowdir.log</code>：将该目录下内容全部覆盖写入<code>nowdir.log</code>文件</p>
 </li>
-<li><p><code>cat pig.txt &gt; dog.txt</code>：将<code>pig.txt</code>文件内容覆盖写入<code>dog.txt</code>文件</p>
+<li>
+<p><code>cat pig.txt &gt; dog.txt</code>：将<code>pig.txt</code>文件内容覆盖写入<code>dog.txt</code>文件</p>
 </li>
-<li><p>如果重定向的文件不存在会自动创建再写入</p>
+<li>
+<p>如果重定向的文件不存在会自动创建再写入</p>
 </li>
 </ol>
 </li>
-<li><p><code>&gt;&gt;</code>：输出重定向（追加写），示例如下</p>
+<li>
+<p><code>&gt;&gt;</code>：输出重定向（追加写），示例如下</p>
 <ol>
-<li><p><code>cal &gt;&gt; today.log</code>：将当前日历信息追加写入<code>today.log</code>文件，注意：<code>cal</code>是CentOs自带输出日历信息的命令，其他linux版本可能没有</p>
+<li>
+<p><code>cal &gt;&gt; today.log</code>：将当前日历信息追加写入<code>today.log</code>文件，注意：<code>cal</code>是CentOs自带输出日历信息的命令，其他linux版本可能没有</p>
 </li>
-<li><p><code>cat pig.txt &gt;&gt; dog.txt</code>：将<code>pig.txt</code>文件内容追加写入<code>dog.txt</code>文件</p>
+<li>
+<p><code>cat pig.txt &gt;&gt; dog.txt</code>：将<code>pig.txt</code>文件内容追加写入<code>dog.txt</code>文件</p>
 </li>
-<li><p>如果重定向的文件不存在会自动创建再写入</p>
+<li>
+<p>如果重定向的文件不存在会自动创建再写入</p>
 </li>
 </ol>
 </li>
-<li><p><code>ln</code>：软连接，相对于Windows中的快捷方式</p>
+<li>
+<p><code>ln</code>：软连接，相对于Windows中的快捷方式</p>
 <ol>
-<li><p><code>ln -s /root /home/myroot</code>：在<code>home</code>目录下创建<code>myroot</code>目录，进入该目录会进入<code>root</code>目录</p>
+<li>
+<p><code>ln -s /root /home/myroot</code>：在<code>home</code>目录下创建<code>myroot</code>目录，进入该目录会进入<code>root</code>目录</p>
 </li>
-<li><p>删除软链接使用<code>rm</code>命令删除软链接目录就也可以了</p>
-</li>
-</ol>
-</li>
-<li><p><code>history 数字</code>：查看最近执行过的n条命令，<code>!数字n</code>：执行编号为<code>数字n</code>的命令，比如查出来的最近执行过的命令记录有<code>383 man ln</code>，此时输入<code>!383</code>就会执行<code>man ln</code></p>
+<li>
+<p>删除软链接使用<code>rm</code>命令删除软链接目录就也可以了</p>
 </li>
 </ol>
-<h2 id="时间日期"><a href="#时间日期" class="headerlink" title="时间日期"></a>时间日期</h2><ol>
+</li>
+<li>
+<p><code>history 数字</code>：查看最近执行过的n条命令，<code>!数字n</code>：执行编号为<code>数字n</code>的命令，比如查出来的最近执行过的命令记录有<code>383 man ln</code>，此时输入<code>!383</code>就会执行<code>man ln</code></p>
+</li>
+</ol>
+<h2 id="时间日期">时间日期</h2>
+<ol>
 <li><code>date</code>：显示当前时间</li>
 <li><code>date +指定时间格式</code>：按指定时间格式显示日期，如<code>date &quot;+%Y-%m-%d %H:%M:%S&quot;</code>，会按照<code>年-月-日 时:分:秒</code>格式输出当前时间</li>
 <li><code>date -s &quot;%Y-%m-%d %H:%M:%S&quot;</code>：设置系统当前时间</li>
 <li><code>cal</code>：显示当前月月历</li>
 <li><code>cal 年份</code>：显示指定年份所有月历</li>
 </ol>
-<h2 id="搜索查找"><a href="#搜索查找" class="headerlink" title="搜索查找"></a>搜索查找</h2><ol>
-<li><p><code>find [路径] [选项] 查询内容</code>：搜索命令，可以按照文件名，用户，文件大小等条件搜索</p>
+<h2 id="搜索查找">搜索查找</h2>
 <ol>
-<li><p><code>find [路径] -name 文件名</code>：按照文件名搜索文件</p>
+<li>
+<p><code>find [路径] [选项] 查询内容</code>：搜索命令，可以按照文件名，用户，文件大小等条件搜索</p>
+<ol>
+<li>
+<p><code>find [路径] -name 文件名</code>：按照文件名搜索文件</p>
 </li>
-<li><p><code>find [路径] -user 用户名</code>：按照用户名搜索文件</p>
+<li>
+<p><code>find [路径] -user 用户名</code>：按照用户名搜索文件</p>
 </li>
-<li><p><code>find [路径] -size 数字n</code>：搜索指定文件大小为<code>n</code>的文件，其中<code>+数字n</code>表示大于<code>n</code>，<code>-数字n</code>表示小于<code>n</code>，单位有<code>k</code>，<code>M</code>，<code>G</code>。如<code>find / -size +1G</code>就是搜索根目录下大于<code>1G</code>的文件</p>
+<li>
+<p><code>find [路径] -size 数字n</code>：搜索指定文件大小为<code>n</code>的文件，其中<code>+数字n</code>表示大于<code>n</code>，<code>-数字n</code>表示小于<code>n</code>，单位有<code>k</code>，<code>M</code>，<code>G</code>。如<code>find / -size +1G</code>就是搜索根目录下大于<code>1G</code>的文件</p>
 </li>
 </ol>
 </li>
-<li><p><code>locate 文件名</code>：快速定位文件路径，使用的locate数据库而非遍历整个系统，使用前要updatedb</p>
+<li>
+<p><code>locate 文件名</code>：快速定位文件路径，使用的locate数据库而非遍历整个系统，使用前要updatedb</p>
 </li>
-<li><p><code>updatedb</code>：更新locate数据库，root用户才有权限更新</p>
+<li>
+<p><code>updatedb</code>：更新locate数据库，root用户才有权限更新</p>
 </li>
-<li><p><code>which 命令</code>：用于查找命令的二进制文件位置，如<code>which ls</code>就是查找<code>ls</code>命令的程序位置</p>
+<li>
+<p><code>which 命令</code>：用于查找命令的二进制文件位置，如<code>which ls</code>就是查找<code>ls</code>命令的程序位置</p>
 </li>
-<li><p><code>|</code>：管道符号，用于将前一个命令的结果传输给后面的命令处理，如上文中的<code>cat 文件名 | more</code></p>
+<li>
+<p><code>|</code>：管道符号，用于将前一个命令的结果传输给后面的命令处理，如上文中的<code>cat 文件名 | more</code></p>
 </li>
-<li><p><code>grep [选项] 查询内容 源文件</code>：过滤查找要压缩的文件</p>
+<li>
+<p><code>grep [选项] 查询内容 源文件</code>：过滤查找要压缩的文件</p>
 <ol>
 <li><code>grep -n 查询内容 源文件</code>：过滤查找，显示行号</li>
 <li><code>grep -i 查询内容 源文件</code>：过滤查找，忽略大小写</li>
@@ -472,7 +544,8 @@
 </ol>
 </li>
 </ol>
-<h2 id="压缩解压"><a href="#压缩解压" class="headerlink" title="压缩解压"></a>压缩解压</h2><p><code>tar</code>是最常用的打包命令，使用 <code>tar</code> 程序打出来的包我们常称为 tar 包，tar 包文件的命令通常都是以 <code>.tar</code>结尾的。生成 tar 包后，就可以用其它的程序来进行压缩了。常见的压缩程序有以下几种：</p>
+<h2 id="压缩解压">压缩解压</h2>
+<p><code>tar</code>是最常用的打包命令，使用 <code>tar</code> 程序打出来的包我们常称为 tar 包，tar 包文件的命令通常都是以 <code>.tar</code>结尾的。生成 tar 包后，就可以用其它的程序来进行压缩了。常见的压缩程序有以下几种：</p>
 <ol>
 <li>gzip 是 GNU 组织开发的一个压缩程序，<code>.gz</code> 结尾的文件就是 gzip 压缩的结果。与 gzip 相对的解压程序是 gunzip。tar 中使用 <code>-z</code> 这个参数来调用gzip</li>
 <li>bzip2 是一个压缩能力更强的压缩程序，<code>.bz2</code> 结尾的文件就是 bzip2 压缩的结果。与 bzip2 相对的解压程序是 bunzip2。tar 中使用<code>-j</code>这个参数来调用 bzip2。</li>
@@ -487,7 +560,8 @@
 <th>功能</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>-c</code></td>
 <td>产生<code>.tar</code>打包文件</td>
 </tr>
@@ -519,7 +593,8 @@
 <td><code>-Z</code></td>
 <td>调用 compress，文件后缀是<code>.Z</code></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><strong>示例</strong></p>
 <p>其实选项顺序是没有固定写法的，但是如果你和我一样有选择困难症，可能参考将压缩程序的选项放在最前面的写法：</p>
 <ol>
@@ -528,7 +603,7 @@
 <li><code>tar -cxf zoo.tar dog bat pig</code>：打包<code>dog</code>,<code>bat</code>,<code>pig</code>文件，生成tar包<code>zoo.tar</code></li>
 <li><code>tar -xvf zoo.tar</code>：解包文件<code>zoo.tar</code></li>
 </ol>
-<p>各种组合都可以使用，看需求即可 </p>
+<p>各种组合都可以使用，看需求即可</p>
 <p><code>zip</code>和<code>unzip</code>，<code>rar</code>和<code>unrar</code>一般用法如下：</p>
 <ol>
 <li><code>rar a jpg.rar *.jpg</code>：rar格式的压缩，需要先下载 rar for linux 压缩打包目录里所有jpg文件</li>
@@ -616,6 +691,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2024/04/22/IO%E6%B5%81/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            File类与IO流
+          
+        </div>
+      </a>
     
     
       <a href="/2024/04/14/Git_and_Gitee/" class="article-nav-link">
@@ -895,9 +979,40 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
-
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+    
+ 
 <!-- busuanzi  -->
  
 <script src="/js/busuanzi-2.3.pure.min.js"></script>

@@ -43,7 +43,7 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
 
@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">677</span>
+            <span class="post-count">674</span>
         </span>
     </span>
 
@@ -108,39 +108,47 @@
        
   <p>跟着韩顺平老师的课从基础开始系统学习的Java</p>
 <span id="more"></span>
-
-<h2 id="原码-反码-补码"><a href="#原码-反码-补码" class="headerlink" title="原码 反码 补码"></a>原码 反码 补码</h2><ol>
+<h2 id="原码-反码-补码">原码 反码 补码</h2>
+<ol>
 <li>二进制最高位是符号位，0表示正数，1表示负数</li>
 <li>整数的原码、反码和补码都一样</li>
-<li>负数的反码 &#x3D; 原码符号位不变，其他位取反</li>
-<li>负数的补码 &#x3D; 反码 + 1</li>
+<li>负数的反码 = 原码符号位不变，其他位取反</li>
+<li>负数的补码 = 反码 + 1</li>
 <li>0的反码和补码都是0</li>
 <li>java所有的数都是有符号的</li>
 <li>计算机运算时是<strong>以补码的方式运算</strong>的</li>
 <li>运算结果看的是原码</li>
 </ol>
-<h2 id="位运算符-补码运算"><a href="#位运算符-补码运算" class="headerlink" title="位运算符 (补码运算)"></a>位运算符 (补码运算)</h2><ol>
+<h2 id="位运算符-补码运算">位运算符 (补码运算)</h2>
+<ol>
 <li>按位与&amp;：两位全1则为1，否则为0</li>
 <li>按位或|：两位有一个1则为1，否则为0</li>
 <li>按位异或^：两位不同则为1，否则为0</li>
 <li>按位取反~</li>
-<li>算术右移&gt;&gt;：符号位不变，低位溢出并用符号位补溢出的高位 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 1&gt;&gt;2; //本质相当于 1/2/2 = 0</span><br><span class="line">int b = 1&lt;&lt;2; //本质相当于 1*2*2 = 4</span><br></pre></td></tr></table></figure></li>
+<li>算术右移&gt;&gt;：符号位不变，低位溢出并用符号位补溢出的高位 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 1&gt;&gt;2; //本质相当于 1/2/2 = 0</span><br><span class="line">int b = 1&lt;&lt;2; //本质相当于 1*2*2 = 4</span><br></pre></td></tr></table></figure>
+</li>
 <li>算术左移&lt;&lt;：符号不变，低位补0</li>
 <li>逻辑右移也叫无符号右移&gt;&gt;&gt;：低位溢出，高位补0</li>
 </ol>
-<h2 id="分支控制if-else语句"><a href="#分支控制if-else语句" class="headerlink" title="分支控制if-else语句"></a>分支控制if-else语句</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">boolean b = true;</span><br><span class="line">if(b = false) System.out.println(&quot;1234&quot;);</span><br><span class="line">else System.out.println(&quot;5678&quot;);</span><br><span class="line">//会输出5678！！！！C++也一样</span><br></pre></td></tr></table></figure>
-<p><strong>if括号里如果是关系运算符的话，就会判断整个表达式是true还是false，但是如果括号里是一个赋值语句的话，就比如说a&#x3D;4;那么if(a&#x3D;4)就等价于if(a)，这个a就是赋完值的a。但是在C&#x2F;C++里，只有0是假，其他都为真，Java里只有true为真，java的boolean类型只有true和false，没有其他结果</strong></p>
+<h2 id="分支控制if-else语句">分支控制if-else语句</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">boolean b = true;</span><br><span class="line">if(b = false) System.out.println(&quot;1234&quot;);</span><br><span class="line">else System.out.println(&quot;5678&quot;);</span><br><span class="line">//会输出5678！！！！C++也一样</span><br></pre></td></tr></table></figure>
+<p><strong>if括号里如果是关系运算符的话，就会判断整个表达式是true还是false，但是如果括号里是一个赋值语句的话，就比如说a=4;那么if(a=4)就等价于if(a)，这个a就是赋完值的a。但是在C/C++里，只有0是假，其他都为真，Java里只有true为真，java的boolean类型只有true和false，没有其他结果</strong></p>
 <hr>
-<h2 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h2><ul>
+<h2 id="switch语句">switch语句</h2>
+<ul>
 <li>switch(表达式)中表达式的返回值必须是byte,short,int,char,enum[枚举],String</li>
 <li>casez字句中的值必须是常量或常量表达式，不能是变量</li>
 </ul>
-<h2 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">label1:</span><br><span class="line">for(int j = 0; j &lt; 4; j++)&#123;</span><br><span class="line">    label2:for(int i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">        if(i == 2)&#123;</span><br><span class="line">            //break label1;</span><br><span class="line">            break;//等价于break label2</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="break语句">break语句</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">label1:</span><br><span class="line">for(int j = 0; j &lt; 4; j++)&#123;</span><br><span class="line">    label2:for(int i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">        if(i == 2)&#123;</span><br><span class="line">            //break label1;</span><br><span class="line">            break;//等价于break label2</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>continue和标签的用法同break</strong></p>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>boolean的初始值为false<br>基本数据类型之间的赋值方式是值传递(值拷贝)，互不影响<br>数组在默认情况下进行的是引用传递(地址拷贝)，赋的值是地址</p>
+<h2 id="数组">数组</h2>
+<p>boolean的初始值为false<br>
+基本数据类型之间的赋值方式是值传递(值拷贝)，互不影响<br>
+数组在默认情况下进行的是引用传递(地址拷贝)，赋的值是地址</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">声明  int[] x,y[];表示x是一维数组，y是二维数组</span><br></pre></td></tr></table></figure>
-
-<h3 id="数组扩容"><a href="#数组扩容" class="headerlink" title="数组扩容"></a>数组扩容</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int[] arr = &#123;1, 2, 3&#125;;</span><br><span class="line">//创建新数组</span><br><span class="line">int[] arrNew = new int[arr.length + 1];</span><br><span class="line">//遍历旧数组将元素赋给新数组</span><br><span class="line">for(int i = 0; i &lt; arr.length; i++)&#123;</span><br><span class="line">    arrNew[i] = arr[i];</span><br><span class="line">&#125;</span><br><span class="line">//把要加进来的值赋给最后一位</span><br><span class="line">arrNew[arrNew.length - 1] = 4;</span><br><span class="line">//让旧数组指向新数组，原来的自动回收</span><br><span class="line">arr = arrNew</span><br></pre></td></tr></table></figure> 
+<h3 id="数组扩容">数组扩容</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int[] arr = &#123;1, 2, 3&#125;;</span><br><span class="line">//创建新数组</span><br><span class="line">int[] arrNew = new int[arr.length + 1];</span><br><span class="line">//遍历旧数组将元素赋给新数组</span><br><span class="line">for(int i = 0; i &lt; arr.length; i++)&#123;</span><br><span class="line">    arrNew[i] = arr[i];</span><br><span class="line">&#125;</span><br><span class="line">//把要加进来的值赋给最后一位</span><br><span class="line">arrNew[arrNew.length - 1] = 4;</span><br><span class="line">//让旧数组指向新数组，原来的自动回收</span><br><span class="line">arr = arrNew</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -510,9 +518,40 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
-
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+    
+ 
 <!-- busuanzi  -->
  
 <script src="/js/busuanzi-2.3.pure.min.js"></script>

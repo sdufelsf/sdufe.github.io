@@ -43,7 +43,7 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
 
@@ -106,97 +106,136 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>Java语言中，将程序执行中发生的不正常情况称为异常。语法错误和逻辑错误不是异常<br>异常事件可以分为以下两类</p>
+  <p>Java语言中，将程序执行中发生的不正常情况称为异常。语法错误和逻辑错误不是异常<br>
+异常事件可以分为以下两类</p>
 <span id="more"></span>
-<h3 id="Error-错误"><a href="#Error-错误" class="headerlink" title="Error(错误)"></a>Error(错误)</h3><p>Java虚拟机无法解决的严重问题，Error是严重错误，程序会崩溃</p>
-<h3 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h3><p>其他因编程错误或偶然的外在因素导致的一般性问题，可以使用针对性的代码进行处理<br>Exception分为运行时异常(<strong>RuntimeException</strong>)和编译时异常两大类<br><strong>运行时异常</strong>编译器不要求强制处理，是程序员应该避免其出现的异常，运行时异常可以不做处理，因为这类异常很普遍，若全部处理可能会对程序的可读性和运行效率吧产生影响<br><strong>编译时异常</strong>是编译器要求必须处理的异常</p>
+<h3 id="error-错误">Error(错误)</h3>
+<p>Java虚拟机无法解决的严重问题，Error是严重错误，程序会崩溃</p>
+<h3 id="exception">Exception</h3>
+<p>其他因编程错误或偶然的外在因素导致的一般性问题，可以使用针对性的代码进行处理<br>
+Exception分为运行时异常(<strong>RuntimeException</strong>)和编译时异常两大类<br>
+<strong>运行时异常</strong>编译器不要求强制处理，是程序员应该避免其出现的异常，运行时异常可以不做处理，因为这类异常很普遍，若全部处理可能会对程序的可读性和运行效率吧产生影响<br>
+<strong>编译时异常</strong>是编译器要求必须处理的异常</p>
 <hr>
-<h2 id="异常体系图-常用"><a href="#异常体系图-常用" class="headerlink" title="异常体系图(常用)"></a>异常体系图(常用)</h2><p>Error类和Exception类都是继承Throwable类</p>
+<h2 id="异常体系图-常用">异常体系图(常用)</h2>
+<p>Error类和Exception类都是继承Throwable类</p>
 <ol>
-<li><p>Error</p>
+<li>
+<p>Error</p>
 <ol>
 <li>VirtualMachineError</li>
 <li>StackOverflowError</li>
 <li>OutOfMemoryError</li>
 </ol>
 </li>
-<li><p>Exception</p>
+<li>
+<p>Exception</p>
 <ol>
-<li>IOException<br> 操作文件时发生的异常</li>
-<li>EOFException<br> 操作文件，到文件末尾，发生异常</li>
-<li>FileNotFoundException<br> 当操作一个不存在的文件时发生异常</li>
+<li>IOException<br>
+操作文件时发生的异常</li>
+<li>EOFException<br>
+操作文件，到文件末尾，发生异常</li>
+<li>FileNotFoundException<br>
+当操作一个不存在的文件时发生异常</li>
 <li>MalformedURLException</li>
 <li>UnknownHostException</li>
-<li>ClassNotFoundException<br> 加载类而该类不存在时发生异常</li>
+<li>ClassNotFoundException<br>
+加载类而该类不存在时发生异常</li>
 <li>CloneNotSupportedException</li>
-<li>RuntimeException<ol>
-<li><p>ArithmeticException<br> 数学运算异常，出现异常的运算条件时抛出该异常，如除数为0</p>
+<li>RuntimeException
+<ol>
+<li>
+<p>ArithmeticException<br>
+数学运算异常，出现异常的运算条件时抛出该异常，如除数为0</p>
 </li>
-<li><p>ArrayIndexOutOfBoundsException<br> 数组下标越界异常，用非法索引访问数组时抛出该异常</p>
+<li>
+<p>ArrayIndexOutOfBoundsException<br>
+数组下标越界异常，用非法索引访问数组时抛出该异常</p>
 </li>
-<li><p>ClassCastException<br> 类型转换异常，试图将对象强制转换为不是实例的子类时抛出该异常</p>
+<li>
+<p>ClassCastException<br>
+类型转换异常，试图将对象强制转换为不是实例的子类时抛出该异常</p>
 </li>
-<li><p>IllegalArgumentException</p>
+<li>
+<p>IllegalArgumentException</p>
 </li>
-<li><p>IllegalStateException</p>
+<li>
+<p>IllegalStateException</p>
 </li>
-<li><p>IndexOutOfBoundsException</p>
+<li>
+<p>IndexOutOfBoundsException</p>
 </li>
-<li><p>NoSuchElementException</p>
+<li>
+<p>NoSuchElementException</p>
 </li>
-<li><p>NullPointerException<br> 空指针异常，试图在需要对象的地方使用null时抛出该异常，如a.length</p>
+<li>
+<p>NullPointerException<br>
+空指针异常，试图在需要对象的地方使用null时抛出该异常，如a.length</p>
 </li>
-<li><p>NumberFormatException<br> 数字格式不正确异常，试图将字符串转换成一种数值类型，但该字符串不能转换为适当形式时抛出该异常，<strong>使用异常可以确保输入是满足条件的数字</strong></p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Scanner scanner = new Scanner(System.in);</span><br><span class="line">int num = 0;</span><br><span class="line">while(true)&#123;</span><br><span class="line">    System.out.println(&quot;请输入一个整数：&quot;);</span><br><span class="line">    try&#123;</span><br><span class="line">        num = Integer.parseInt(scanner.next());</span><br><span class="line">       break;</span><br><span class="line">    &#125;catch(NumberFormatException e)&#123;</span><br><span class="line">        System.out.print(&quot;你输入的不是一个整数，&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(&quot;你输入的整数值为&quot; + num);</span><br></pre></td></tr></table></figure></li>
+<li>
+<p>NumberFormatException<br>
+数字格式不正确异常，试图将字符串转换成一种数值类型，但该字符串不能转换为适当形式时抛出该异常，<strong>使用异常可以确保输入是满足条件的数字</strong></p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Scanner scanner = new Scanner(System.in);</span><br><span class="line">int num = 0;</span><br><span class="line">while(true)&#123;</span><br><span class="line">    System.out.println(&quot;请输入一个整数：&quot;);</span><br><span class="line">    try&#123;</span><br><span class="line">        num = Integer.parseInt(scanner.next());</span><br><span class="line">       break;</span><br><span class="line">    &#125;catch(NumberFormatException e)&#123;</span><br><span class="line">        System.out.print(&quot;你输入的不是一个整数，&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(&quot;你输入的整数值为&quot; + num);</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
 <hr>
-<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>当异常发生时对异常的处理方式</p>
-<h3 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try-catch-finally"></a>try-catch-finally</h3><p>程序员在代码中捕获发生的异常自行处理</p>
+<h2 id="异常处理">异常处理</h2>
+<p>当异常发生时对异常的处理方式</p>
+<h3 id="try-catch-finally">try-catch-finally</h3>
+<p>程序员在代码中捕获发生的异常自行处理</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">    //可疑代码</span><br><span class="line">    //将异常封装为Exception对象e传递给catch</span><br><span class="line">&#125;catch(Exception e)&#123;</span><br><span class="line">    //对异常进行处理</span><br><span class="line">&#125;finally&#123;</span><br><span class="line">    //没有finally也不会报错</span><br><span class="line">    //不管try代码块是否有异常都会执行finally</span><br><span class="line">    //通常将释放资源的代码放在finally中</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol>
 <li>如果发生异常，则try块异常后面的代码不会执行，直接进入catch块</li>
 <li>如果没有异常则不进入catch块</li>
 <li>如果希望不管是否发生异常都执行某段代码则使用finally</li>
-<li>可以存在多个catch语句以捕获不同的异常进行不同的处理，要求是父类异常在后，子类异常在前 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//发生异常时只会匹配一个catch</span><br><span class="line">try &#123;</span><br><span class="line">    Person person = new Person();</span><br><span class="line">    person = null;</span><br><span class="line">    System.out.println(person.getName());</span><br><span class="line">    int n1 = 10;</span><br><span class="line">    int n2 = 0;</span><br><span class="line">    int res = n1 / n2;</span><br><span class="line">&#125; catch (ArithmeticException e) &#123;</span><br><span class="line">    System.out.println(&quot;算数异常=&quot; + e.getMessage());</span><br><span class="line">&#125; catch (NullPointerException e) &#123;</span><br><span class="line">    System.out.println(&quot;空指针异常=&quot; + e.getMessage());    //只输出一个空指针异常</span><br><span class="line">&#125; catch (Exception e) &#123;</span><br><span class="line">    System.out.println(e.getMessage());</span><br><span class="line">&#125; finally &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>可以存在多个catch语句以捕获不同的异常进行不同的处理，要求是父类异常在后，子类异常在前 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//发生异常时只会匹配一个catch</span><br><span class="line">try &#123;</span><br><span class="line">    Person person = new Person();</span><br><span class="line">    person = null;</span><br><span class="line">    System.out.println(person.getName());</span><br><span class="line">    int n1 = 10;</span><br><span class="line">    int n2 = 0;</span><br><span class="line">    int res = n1 / n2;</span><br><span class="line">&#125; catch (ArithmeticException e) &#123;</span><br><span class="line">    System.out.println(&quot;算数异常=&quot; + e.getMessage());</span><br><span class="line">&#125; catch (NullPointerException e) &#123;</span><br><span class="line">    System.out.println(&quot;空指针异常=&quot; + e.getMessage());    //只输出一个空指针异常</span><br><span class="line">&#125; catch (Exception e) &#123;</span><br><span class="line">    System.out.println(e.getMessage());</span><br><span class="line">&#125; finally &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li>catch中的return如果是最后的返回值但finally中还有操作，返回值会保存在一个临时变量temp中再执行finally中的操作，最后再<strong>返回临时变量temp</strong></li>
 <li>可以使用try-finally，相当于没有捕获异常，如果有异常执行结束会直接崩掉</li>
 </ol>
-<h3 id="throws"><a href="#throws" class="headerlink" title="throws"></a>throws</h3><p>将发生的异常抛出，交给调用者(方法)来处理，最顶级的处理者为JVM(JVM直接使程序停止)</p>
+<h3 id="throws">throws</h3>
+<p>将发生的异常抛出，交给调用者(方法)来处理，最顶级的处理者为JVM(JVM直接使程序停止)</p>
 <ol>
 <li>对于编译异常，程序中必须处理，比如try-catch或者throws</li>
 <li>对于运行时异常，程序中如果没有处理默认使用throws处理</li>
 <li>子类重写父类的方法时，对抛出的异常规定：子类重写的方法抛出的异常要与父类抛出的异常一致或为父类抛出的异常的子类</li>
 <li>throws过程中如果有try-catch就相当于处理异常，可以不必throws</li>
 </ol>
-<h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><p>当程序出现某些错误信息没有在Throwable子类中描述处理时，自己设计异常类用于描述错误信息<br>自定义异常类名继承Exception(编译异常)或RuntimeException(运行异常)，一般继承RuntimeException</p>
-<h2 id="throw-throws"><a href="#throw-throws" class="headerlink" title="throw throws"></a>throw throws</h2><table>
+<h2 id="自定义异常">自定义异常</h2>
+<p>当程序出现某些错误信息没有在Throwable子类中描述处理时，自己设计异常类用于描述错误信息<br>
+自定义异常类名继承Exception(编译异常)或RuntimeException(运行异常)，一般继承RuntimeException</p>
+<h2 id="throw-throws">throw throws</h2>
+<table>
 <thead>
 <tr>
-<th align="left">&nbsp;</th>
-<th align="left">意义</th>
-<th align="left">位置</th>
-<th align="left">后面接</th>
+<th style="text-align:left"> </th>
+<th style="text-align:left">意义</th>
+<th style="text-align:left">位置</th>
+<th style="text-align:left">后面接</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">throws</td>
-<td align="left">异常处理的一种方式</td>
-<td align="left">方法声明处</td>
-<td align="left">异常类型</td>
+<tbody>
+<tr>
+<td style="text-align:left">throws</td>
+<td style="text-align:left">异常处理的一种方式</td>
+<td style="text-align:left">方法声明处</td>
+<td style="text-align:left">异常类型</td>
 </tr>
 <tr>
-<td align="left">throw</td>
-<td align="left">手动生成异常对象的关键字</td>
-<td align="left">方法体中</td>
-<td align="left">异常对象</td>
+<td style="text-align:left">throw</td>
+<td style="text-align:left">手动生成异常对象的关键字</td>
+<td style="text-align:left">方法体中</td>
+<td style="text-align:left">异常对象</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <hr>
-<h2 id="输出练习"><a href="#输出练习" class="headerlink" title="输出练习"></a>输出练习</h2><p>在try-catch-finally中，finally一定会在终止try-catch语句块前执行完，finally执行结束后才会执行try-catch的返回</p>
+<h2 id="输出练习">输出练习</h2>
+<p>在try-catch-finally中，finally一定会在终止try-catch语句块前执行完，finally执行结束后才会执行try-catch的返回</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class ReturnExceptionDemo &#123;</span><br><span class="line">    static void methodA()&#123;</span><br><span class="line">        try&#123;</span><br><span class="line">            System.out.println(&quot;1. 进入方法A&quot;);</span><br><span class="line">            throw new RuntimeException(&quot;3. 制造异常&quot;);</span><br><span class="line">        &#125;finally&#123;</span><br><span class="line">            System.out.println(&quot;2. 用A方法的finally&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    static void methodB()&#123;</span><br><span class="line">        try&#123;</span><br><span class="line">            System.out.println(&quot;4. 进入方法B&quot;);</span><br><span class="line">            return;</span><br><span class="line">        &#125;finally&#123;</span><br><span class="line">            System.out.println(&quot;5. 调用方法B的finally&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//主方法中</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        ReturnExceptionDemo.methodA();</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        System.out.println(e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">    ReturnExceptionDemo.methodB();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
@@ -567,9 +606,40 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
-
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+    
+ 
 <!-- busuanzi  -->
  
 <script src="/js/busuanzi-2.3.pure.min.js"></script>

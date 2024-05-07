@@ -43,7 +43,7 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
 
@@ -108,49 +108,60 @@
        
   <p>包装类、String、StringBuffer、StringBuilder的用法</p>
 <span id="more"></span>
-
-<h2 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h2><p>针对八种基本定义相应的引用类型就是包装类，可以调用类中的方法</p>
+<h2 id="包装类">包装类</h2>
+<p>针对八种基本定义相应的引用类型就是包装类，可以调用类中的方法</p>
 <p>Boolean和Character的父类是Object</p>
 <p>Byte、Short、Integer、Long、Float、Double的父类是Number</p>
 <p>jdk5前手动装箱和拆箱</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//手动装箱：基本类型 -&gt; 包装类型 的两种方法</span><br><span class="line">int i = 10;</span><br><span class="line">Integer i1 = new Integer(i);</span><br><span class="line">Integer i2 = Integer.valueOf(i);</span><br><span class="line">//手动拆箱：包装类型 -&gt; 基本类型</span><br><span class="line">int i3 = i1.intValue();</span><br></pre></td></tr></table></figure>
 <p>jdk5以后的自动装箱和拆箱</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int i = 10;</span><br><span class="line">//自动装箱</span><br><span class="line">Integer j = i;//底层调用的Integer.valueOf(i)</span><br><span class="line">//自动拆箱</span><br><span class="line">int k = j;//底层调用的是intValue()方法</span><br></pre></td></tr></table></figure>
-
-<h3 id="小测试"><a href="#小测试" class="headerlink" title="小测试"></a>小测试</h3><p>下面代码输出结果是什么</p>
+<h3 id="小测试">小测试</h3>
+<p>下面代码输出结果是什么</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object obj1 = true? new Integer(1): new Double(2.0);</span><br><span class="line">System.out.println(obj1);</span><br></pre></td></tr></table></figure>
 <p>三元运算符要看作一个整体，Double的精度最高要提升优先级，所以输出 1.0</p>
-<h3 id="包装类型和String类型的转换"><a href="#包装类型和String类型的转换" class="headerlink" title="包装类型和String类型的转换"></a>包装类型和String类型的转换</h3><h4 id="包装类-String"><a href="#包装类-String" class="headerlink" title="包装类 -&gt; String"></a>包装类 -&gt; String</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer i = 100;//自动装箱</span><br><span class="line">String str1 = i + &quot;&quot;;//方法1</span><br><span class="line">String str2 = i.toString();//方法2</span><br><span class="line">String str3 = String.valueOf(i);//方法3</span><br></pre></td></tr></table></figure>
-<h4 id="String-包装类"><a href="#String-包装类" class="headerlink" title="String -&gt; 包装类"></a>String -&gt; 包装类</h4><p>String str &#x3D; “1234”;</p>
-<p>Integer i1 &#x3D; Integer.parseInt(str);&#x2F;&#x2F;方法1用到了自动装箱</p>
-<p>Integer  i2 &#x3D; new Integer(str);&#x2F;&#x2F;方法2是构造器</p>
-<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><p>Integer.MIN_VALUE和Integer.MAX_VALUE返回类型的最小值和最大值</p>
+<h3 id="包装类型和string类型的转换">包装类型和String类型的转换</h3>
+<h4 id="包装类-string">包装类 -&gt; String</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer i = 100;//自动装箱</span><br><span class="line">String str1 = i + &quot;&quot;;//方法1</span><br><span class="line">String str2 = i.toString();//方法2</span><br><span class="line">String str3 = String.valueOf(i);//方法3</span><br></pre></td></tr></table></figure>
+<h4 id="string-包装类">String -&gt; 包装类</h4>
+<p>String str = “1234”;</p>
+<p>Integer i1 = Integer.parseInt(str);//方法1用到了自动装箱</p>
+<p>Integer  i2 = new Integer(str);//方法2是构造器</p>
+<h3 id="常用方法">常用方法</h3>
+<p>Integer.MIN_VALUE和Integer.MAX_VALUE返回类型的最小值和最大值</p>
 <p>Character.isDigit(‘a’)判断字符a是不是数字Character.isLetter(‘a’)判断字符a是不是字母</p>
 <p>Character.isUpperCase(‘a’)判断字符a是不是大写</p>
 <p>Character.isLowerCase(‘a’)判断字符a是不是小写</p>
 <p>Character.isWhitespace(‘a’)判断字符a是不是空格</p>
 <p>Character.toUpperCase(‘a’)转换为大写</p>
 <p>Character.toLowerCase(‘A’)转换为小写</p>
-<h3 id="Integer小测试"><a href="#Integer小测试" class="headerlink" title="Integer小测试"></a>Integer小测试</h3><ol>
-<li><p>下面两段代码的输出是什么，为什么</p>
+<h3 id="integer小测试">Integer小测试</h3>
+<ol>
+<li>下面两段代码的输出是什么，为什么</li>
+</ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Integer m = 1;</span><br><span class="line">Integer n = 1;</span><br><span class="line">System.out.println(m == n);</span><br><span class="line">Integer x = 128;</span><br><span class="line">Integer y = 128;</span><br><span class="line">System.out.println(x == y);</span><br></pre></td></tr></table></figure>
 <p>代码运行结果要依据于底层Integer.valueOf()方法，ctrl+b阅读源码得知当数据为-128 ~ 127时对象并不是新创建的，而是引用的同一cache数组中的对象，超出该范围的才是新建的对象，所以输出结果为TF</p>
-</li>
-<li><p>下面代码的输出结果是什么</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer i = 128;</span><br><span class="line">int j = 128;</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure>
-<p>只要有基本数据类型，&#x3D;&#x3D;就是判断值相等，所以是T</p>
-</li>
+<ol start="2">
+<li>下面代码的输出结果是什么</li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer i = 128;</span><br><span class="line">int j = 128;</span><br><span class="line">System.out.println(i == j);</span><br></pre></td></tr></table></figure>
+<p>只要有基本数据类型，==就是判断值相等，所以是T</p>
 <hr>
-<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>String对象用于保存字符串，字符串常量对象是用双引号括起来的字符序列，字符串的字符使用Unicode字符编码，一个字符(不区分字母汉字)占两个字节</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>继承了三个接口，CharSequence，Comparable(compareTo)，Serializable(序列化)</p>
-<h3 id="String创建的机制"><a href="#String创建的机制" class="headerlink" title="String创建的机制"></a>String创建的机制</h3><p>String<strong>直接赋值</strong><code>String str = &quot;hello&quot;</code>会先在常量池中寻找是否有要存储的字符串，有的话栈里的对象名会直接指向常量中的字符串地址，如果没有就会在常量池创建该字符串</p>
+<h2 id="string">String</h2>
+<p>String对象用于保存字符串，字符串常量对象是用双引号括起来的字符序列，字符串的字符使用Unicode字符编码，一个字符(不区分字母汉字)占两个字节</p>
+<h3 id="结构">结构</h3>
+<p>继承了三个接口，CharSequence，Comparable(compareTo)，Serializable(序列化)</p>
+<h3 id="string创建的机制">String创建的机制</h3>
+<p>String<strong>直接赋值</strong><code>String str = &quot;hello&quot;</code>会先在常量池中寻找是否有要存储的字符串，有的话栈里的对象名会直接指向常量中的字符串地址，如果没有就会在常量池创建该字符串</p>
 <p>String<strong>调用构造器</strong>创建<code>String str = new String(&quot;hello&quot;)</code>会在堆中创建一个由栈中对象名指向的对象，对象中的value数组会指向常量区中的字符串地址，如果常量池中有则直接指向，没有则需要创建</p>
-<h3 id="String特性"><a href="#String特性" class="headerlink" title="String特性"></a>String特性</h3><p>String是final类，底层代码的本质是一个字符串数组private final char value[];其中value是final类是指其<strong>地址不可修改</strong>，而不是内容，修改String对象的本质是先在常量池中寻找，没有找到就在常量池中建立一个新的字符串，然后让String对象指向新的字符串</p>
-<h4 id="常量相加看常量池，变量相加看的是堆"><a href="#常量相加看常量池，变量相加看的是堆" class="headerlink" title="常量相加看常量池，变量相加看的是堆"></a>常量相加看常量池，变量相加看的是堆</h4><p><code>String a = &quot;hel&quot; + &quot;lo&quot;;</code>优化等价<code>String a = &quot;hello&quot;;</code>编译器会判断创建的常量池对象是否有指向，</p>
+<h3 id="string特性">String特性</h3>
+<p>String是final类，底层代码的本质是一个字符串数组private final char value[];其中value是final类是指其<strong>地址不可修改</strong>，而不是内容，修改String对象的本质是先在常量池中寻找，没有找到就在常量池中建立一个新的字符串，然后让String对象指向新的字符串</p>
+<h4 id="常量相加看常量池-变量相加看的是堆">常量相加看常量池，变量相加看的是堆</h4>
+<p><code>String a = &quot;hel&quot; + &quot;lo&quot;;</code>优化等价<code>String a = &quot;hello&quot;;</code>编译器会判断创建的常量池对象是否有指向，</p>
 <p>区别于下面的创建方法</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String a = &quot;hel&quot;;</span><br><span class="line">String b = &quot;lo&quot;;</span><br><span class="line">String c = a + b;//区别在于最终c为指向堆中的String对象value[]，value指向的是常量池中的hello</span><br><span class="line">//过程为先创建一个StringBuilder sb = StringBuilder();</span><br><span class="line">//执行 sb.append(&quot;hel&quot;);</span><br><span class="line">// sb.append(&quot;lo&quot;);</span><br><span class="line">//String c = sb.toSting();</span><br></pre></td></tr></table></figure>
-<h3 id="String常用方法"><a href="#String常用方法" class="headerlink" title="String常用方法"></a>String常用方法</h3><p>equals 区分大小写判断内容是否相等</p>
+<h3 id="string常用方法">String常用方法</h3>
+<p>equals 区分大小写判断内容是否相等</p>
 <p>equalsIgnoreCase 忽略大小写判断内容是否相等</p>
 <p>length 获取字符个数，字符串长度</p>
 <p>indexOf 获取字符在字符串中第一次出现的索引，索引从0开始，没找到返回 -1</p>
@@ -165,32 +176,41 @@
 <p>compareTo 先逐位比较字符，完全相同返回0，不同就相减得正或负，如果前面部分都相同返回str1.len-str2,len</p>
 <p>toCharArray 将字符串转换为字符数组</p>
 <p>format <code>String info = String.format(&quot;我的名字是%s，年龄是%d&quot;, name, age)</code></p>
-<p>intern 会去常量池中寻找String对象的字符串，没找到就再创建，最终返回常量池的地址 </p>
-<h3 id="String的缺点"><a href="#String的缺点" class="headerlink" title="String的缺点"></a>String的缺点</h3><p>String类是保存字符串常量的，每次更新都需要<strong>重新开辟空间</strong>，效率比较低，因此设计了StringBuilder和StringBuffer来增强String的功能并提高效率</p>
+<p>intern 会去常量池中寻找String对象的字符串，没找到就再创建，最终返回常量池的地址</p>
+<h3 id="string的缺点">String的缺点</h3>
+<p>String类是保存字符串常量的，每次更新都需要<strong>重新开辟空间</strong>，效率比较低，因此设计了StringBuilder和StringBuffer来增强String的功能并提高效率</p>
 <hr>
-<h2 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h2><p>代表可变的字符序列，可以对字符串内容进行增删，很多方法和String相同，但StringBuffer是可变长度的，实质是父类中的一个<strong>存放在堆中</strong>的字符数组<code>char[] value;</code></p>
-<h3 id="结构-1"><a href="#结构-1" class="headerlink" title="结构"></a>结构</h3><p>StringBuffer是一个final类不能被继承，直接父类是AbstractStringBuilder，实现了Serializable，即StringBuffer的对象可以串行化(对象可以网络传输，也可以保存到文件)</p>
+<h2 id="stringbuffer">StringBuffer</h2>
+<p>代表可变的字符序列，可以对字符串内容进行增删，很多方法和String相同，但StringBuffer是可变长度的，实质是父类中的一个<strong>存放在堆中</strong>的字符数组<code>char[] value;</code></p>
+<h3 id="结构">结构</h3>
+<p>StringBuffer是一个final类不能被继承，直接父类是AbstractStringBuilder，实现了Serializable，即StringBuffer的对象可以串行化(对象可以网络传输，也可以保存到文件)</p>
 <p>无参构造器默认长度16，有参数+16</p>
-<h3 id="String和StringBuffer转换"><a href="#String和StringBuffer转换" class="headerlink" title="String和StringBuffer转换"></a>String和StringBuffer转换</h3><h4 id="String-StringBuffer"><a href="#String-StringBuffer" class="headerlink" title="String -&gt; StringBuffer"></a>String -&gt; StringBuffer</h4><p>String str &#x3D; “hello”</p>
-<p>StringBuffer sb1 &#x3D; new StringBuffer(str); &#x2F;&#x2F;构造器返回的才是对象，对str无影响</p>
-<p>StringBuffer sb2 &#x3D; new StringBuffer();</p>
-<p>sb2 &#x3D; sb2.append(str); &#x2F;&#x2F;构造空对象使用append方法</p>
-<h4 id="StringBuffer-String"><a href="#StringBuffer-String" class="headerlink" title="StringBuffer -&gt; String"></a>StringBuffer -&gt; String</h4><p>String s &#x3D; sb1.toString(); &#x2F;&#x2F;使用包内提供的toString方法</p>
-<p>String s1 &#x3D; new String(sb1) &#x2F;&#x2F;使用构造器</p>
-<h3 id="StringBuffer常用方法"><a href="#StringBuffer常用方法" class="headerlink" title="StringBuffer常用方法"></a>StringBuffer常用方法</h3><p>append 在后面追加字符串，直接修改源字符串</p>
+<h3 id="string和stringbuffer转换">String和StringBuffer转换</h3>
+<h4 id="string-stringbuffer">String -&gt; StringBuffer</h4>
+<p>String str = “hello”</p>
+<p>StringBuffer sb1 = new StringBuffer(str); //构造器返回的才是对象，对str无影响</p>
+<p>StringBuffer sb2 = new StringBuffer();</p>
+<p>sb2 = sb2.append(str); //构造空对象使用append方法</p>
+<h4 id="stringbuffer-string">StringBuffer -&gt; String</h4>
+<p>String s = sb1.toString(); //使用包内提供的toString方法</p>
+<p>String s1 = new String(sb1) //使用构造器</p>
+<h3 id="stringbuffer常用方法">StringBuffer常用方法</h3>
+<p>append 在后面追加字符串，直接修改源字符串</p>
 <p>delete 两个数删除左闭右开区间的字符</p>
 <p>replace 两个数字和字符串，左闭右开替换</p>
 <p>indexOf 查找指定的字串第一次出现的索引，如果找不到返回 -1</p>
 <p>insert 一个索引和一个字符串，将字符串插入后原索引位置的内容自动后移</p>
 <p>length 返回长度</p>
-<h3 id="StringBuffer测验-主要需要源代码理解"><a href="#StringBuffer测验-主要需要源代码理解" class="headerlink" title="StringBuffer测验(主要需要源代码理解)"></a>StringBuffer测验(主要需要源代码理解)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"><span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">sb.append(str);<span class="comment">//底层调用了父类的appendNull方法，空字符串是返回的是null四个字符的数组</span></span><br><span class="line">System.out.println(sb.length());<span class="comment">//4</span></span><br><span class="line"><span class="type">StringBuffer</span> <span class="variable">sb1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(str);<span class="comment">//构造器调用了super(str.length() + 16);</span></span><br><span class="line">System.out.println(sb1);<span class="comment">//所以会抛出NullPointerException</span></span><br></pre></td></tr></table></figure>
-
+<h3 id="stringbuffer测验-主要需要源代码理解">StringBuffer测验(主要需要源代码理解)</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"><span class="type">StringBuffer</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">sb.append(str);<span class="comment">//底层调用了父类的appendNull方法，空字符串是返回的是null四个字符的数组</span></span><br><span class="line">System.out.println(sb.length());<span class="comment">//4</span></span><br><span class="line"><span class="type">StringBuffer</span> <span class="variable">sb1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>(str);<span class="comment">//构造器调用了super(str.length() + 16);</span></span><br><span class="line">System.out.println(sb1);<span class="comment">//所以会抛出NullPointerException</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h2><p>可变的字符序列，结构与方法和StringBuffer一样，但是不能保证同步(StringBuilder不是线程安全)。</p>
+<h2 id="stringbuilder">StringBuilder</h2>
+<p>可变的字符序列，结构与方法和StringBuffer一样，但是不能保证同步(StringBuilder不是线程安全)。</p>
 <p>该类被设计用作StringBuffer的一个简易替换，<strong>用在字符串缓冲区被单个线程使用的时候</strong>。如果可以，优先采用该类，因为大多数实现中StringBuilder比StringBuffer要快</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<h2 id="总结">总结</h2>
+<ol>
 <li>String是不可变序列，效率低但是复用率高</li>
-<li>StringBuffer是可变字符序列，效率较高，线程安全 </li>
+<li>StringBuffer是可变字符序列，效率较高，线程安全</li>
 <li>StringBuilder是可变字符序列，效率最高但是线程不安全</li>
 <li>如果要对字符串做出大量修改不要使用String</li>
 </ol>
@@ -564,9 +584,40 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
-
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+    
+ 
 <!-- busuanzi  -->
  
 <script src="/js/busuanzi-2.3.pure.min.js"></script>

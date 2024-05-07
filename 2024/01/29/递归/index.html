@@ -43,7 +43,7 @@
           font-size: 1.6rem;
         }
       </style>
-    </head>
+    <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
   </html>
 </html>
 
@@ -106,31 +106,35 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>递归的机制以及三个经典例题</p>
+  <p>递归要注意公式、终结点并且递归不断接近终结点</p>
 <span id="more"></span>
-
-<h2 id="递归调用机制"><a href="#递归调用机制" class="headerlink" title="递归调用机制"></a>递归调用机制</h2><ol>
+<h2 id="递归调用机制">递归调用机制</h2>
+<ol>
 <li>执行一个方法时，就创建一个新的受保护的独立空间(栈空间)</li>
 <li>方法的局部变量是独立的，不会相互影响</li>
 <li>递归必须向退出递归的条件逼近 ，否则就会无限递归，出现StackOverflowError(栈溢出)</li>
 <li>当一个方法执行完毕或遇到return就会返回，谁调用就将结果返回给谁</li>
 </ol>
 <hr>
-<h2 id="经典例题"><a href="#经典例题" class="headerlink" title="经典例题"></a>经典例题</h2><h3 id="迷宫问题"><a href="#迷宫问题" class="headerlink" title="迷宫问题"></a>迷宫问题</h3><p>首先定义一简单的迷宫，1表示墙体，0表示通路</p>
+<h2 id="经典例题">经典例题</h2>
+<h3 id="迷宫问题">迷宫问题</h3>
+<p>首先定义一简单的迷宫，1表示墙体，0表示通路</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//先用二维数组定义一个迷宫</span><br><span class="line">        int[][] map = &#123;&#123;1, 1, 1, 1, 1, 1, 1, 1, 1, 1&#125;,</span><br><span class="line">                       &#123;1, 0, 0, 0, 0, 0, 0, 0, 0, 1&#125;,</span><br><span class="line">                       &#123;1, 0, 0, 0, 0, 0, 0, 0, 0, 1&#125;,</span><br><span class="line">                       &#123;1, 1, 1, 1, 1, 0, 0, 0, 0, 1&#125;,</span><br><span class="line">                       &#123;1, 0, 0, 0, 0, 0, 0, 0, 0, 1&#125;,</span><br><span class="line">                       &#123;1, 0, 0, 0, 0, 0, 0, 0, 0, 1&#125;,</span><br><span class="line">                       &#123;1, 0, 0, 0, 0, 0, 0, 0, 0, 1&#125;,</span><br><span class="line">                       &#123;1, 0, 0, 0, 0, 0, 0, 0, 0, 1&#125;,</span><br><span class="line">                       &#123;1, 1, 1, 1, 1, 1, 1, 1, 1, 1&#125;&#125;;</span><br></pre></td></tr></table></figure>
 <p>根据递归来定义寻路的方法，不同的寻路方法最后的结果也会不同，还可以设置初始位置和终点，定义了一个print方法方便输出二维数组</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">class AA&#123;</span><br><span class="line">    //规定1为障碍物，0为通路，2为走出迷宫的路径，3为死路</span><br><span class="line">    //设置布尔类型，如果能走通返回true，走不通返回false</span><br><span class="line">    //参数列表输入map和起始坐标(startX, startY)起始坐标(endX, endY)</span><br><span class="line">    //寻路策略：初步定为右 -&gt; 下 -&gt; 左 -&gt; 上</span><br><span class="line">    public boolean findWay(int[][] map, int startX, int startY, int endX, int endY)&#123;</span><br><span class="line">        if (map[endX][endY] == 2)&#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            if (map[startX][startY] == 0) &#123;</span><br><span class="line">                //如果是0，先假设他能走通</span><br><span class="line">                map[startX][startY] = 2;</span><br><span class="line">                //以右 -&gt; 下 -&gt; 左 -&gt; 上的顺序判断能不能走</span><br><span class="line">                if(findWay(map, startX, startY + 1, endX, endY)) &#123;//向右走判断</span><br><span class="line">                    return true;</span><br><span class="line">                &#125;else if(findWay(map, startX + 1, startY, endX, endY)) &#123;//向下走</span><br><span class="line">                    return true;</span><br><span class="line">                &#125; else if (findWay(map, startX, startY - 1, endX, endY)) &#123;//向左走</span><br><span class="line">                    return true;</span><br><span class="line">                &#125;else if (findWay(map, startX - 1, startY, endX, endY)) &#123;//向上走</span><br><span class="line">                    return true;</span><br><span class="line">                &#125;else &#123;</span><br><span class="line">                    map[startX][startY] = 3;</span><br><span class="line">                    return false;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;else &#123;//结果为123都不需要再走，直接返回false</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //打印二维数组的方法</span><br><span class="line">    public void print(int[][] map, int row, int col)&#123;</span><br><span class="line">        for(int i = 0; i &lt; row; i++)&#123;</span><br><span class="line">            for (int j = 0; j &lt; col; j++)&#123;</span><br><span class="line">                System.out.print(map[i][j] + &quot; &quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>设置的优先右和上所以显然这个map中会按照上右边框到达终点</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">========这是迷宫的路线========</span><br><span class="line">1 1 1 1 1 1 1 1 1 1 </span><br><span class="line">1 2 2 2 2 2 2 2 2 1 </span><br><span class="line">1 0 0 0 0 0 0 0 2 1 </span><br><span class="line">1 1 1 1 1 0 0 0 2 1 </span><br><span class="line">1 0 0 0 0 0 0 0 2 1 </span><br><span class="line">1 0 0 0 0 0 0 0 2 1 </span><br><span class="line">1 0 0 0 0 0 0 0 2 1 </span><br><span class="line">1 0 0 0 0 0 0 0 2 1 </span><br><span class="line">1 1 1 1 1 1 1 1 1 1 </span><br></pre></td></tr></table></figure>
-<p><strong>回溯现象</strong><br>如果在findWay方法中某一条路出现了全都走不通的现象，他就会回到上一个栈，再继续进行下一个方向</p>
+<p><strong>回溯现象</strong><br>
+如果在findWay方法中某一条路出现了全都走不通的现象，他就会回到上一个栈，再继续进行下一个方向</p>
 <hr>
-<h3 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h3><p><strong>背景</strong>：传说大梵天创造世界的时候做了三根金刚石柱子，在一根柱子上从下往上按照大小顺序摞着64片黄金圆盘。大梵天命令婆罗门把圆盘从下面开始按大小顺序重新摆放在另一根柱子上。并且规定，任何时候，在小圆盘上都不能放大圆盘，且在三根柱子之间一次只能移动一个圆盘。问应该如何操作？</p>
+<h3 id="汉诺塔问题">汉诺塔问题</h3>
+<p><strong>背景</strong>：传说大梵天创造世界的时候做了三根金刚石柱子，在一根柱子上从下往上按照大小顺序摞着64片黄金圆盘。大梵天命令婆罗门把圆盘从下面开始按大小顺序重新摆放在另一根柱子上。并且规定，任何时候，在小圆盘上都不能放大圆盘，且在三根柱子之间一次只能移动一个圆盘。问应该如何操作？</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class hanoi&#123;</span><br><span class="line">    //汉诺塔移动,num表示圆盘数，abc分别表示初始，经过和结果位置</span><br><span class="line">    public void move(int num, char a, char b, char c)&#123;</span><br><span class="line">        //如果只有一个圆盘的话，就可以直接a上的圆盘移动到c</span><br><span class="line">        if (num == 1) &#123;</span><br><span class="line">            System.out.println(a + &quot;-&gt;&quot; + c);</span><br><span class="line">        &#125;else &#123;//如果有1个以上就将1以上的部分看作一个整体，最后再移动最底下的大圆盘</span><br><span class="line">            //先将上面的num-1个圆盘从a经过c移动到b</span><br><span class="line">            move(num - 1, a, c, b);</span><br><span class="line">            //再将最后一个从a移动到c</span><br><span class="line">            System.out.println(a + &quot;-&gt;&quot; + c);</span><br><span class="line">            //最后把b上的再通过a移动到c即可</span><br><span class="line">            move(num - 1, b, a, c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>下面是输入3层的测试结果</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A-&gt;C</span><br><span class="line">A-&gt;B</span><br><span class="line">C-&gt;B</span><br><span class="line">A-&gt;C</span><br><span class="line">B-&gt;A</span><br><span class="line">B-&gt;C</span><br><span class="line">A-&gt;C</span><br></pre></td></tr></table></figure>
-
 <hr>
-<h3 id="八皇后问题"><a href="#八皇后问题" class="headerlink" title="八皇后问题"></a>八皇后问题</h3><p>回溯算法的典型案例，8x8的国际象棋上摆放8个皇后并使其中任意两个皇后不能同处于一行、一列或者同一斜线，问有几种摆法</p>
+<h3 id="八皇后问题">八皇后问题</h3>
+<p>回溯算法的典型案例，8x8的国际象棋上摆放8个皇后并使其中任意两个皇后不能同处于一行、一列或者同一斜线，问有几种摆法</p>
  
       <!-- reward -->
       
@@ -501,9 +505,40 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
-
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+    
+ 
 <!-- busuanzi  -->
  
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
