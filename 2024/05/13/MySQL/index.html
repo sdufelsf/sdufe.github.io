@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta name="description" content="L&#39;博客" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>MySQL |  Liu</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-MySQL"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  MySQL
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/05/13/MySQL/" class="article-date">
+  <time datetime="2024-05-13T01:49:20.000Z" itemprop="datePublished">2024-05-13</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">4.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">17 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>数据库是存储数据的仓库，MySQL是数据库管理系统，用于操纵和管理数据库的大型软件，SQL是操作关系型数据库的编程语言，定义了一套操作关系型数据库的统一标准</p>
+<span id="more"></span>
+<h1>基础篇</h1>
+<h2 id="数据模型">数据模型</h2>
+<p><strong>关系型数据库</strong>：建立在关系模型基础上，由多张相关连接的二维表组成的数据库</p>
+<p>关系型数据库的优点在于：使用表存储数据格式统一便于维护，使用SQL语言操作，标准统一使用方便</p>
+<h2 id="sql">SQL</h2>
+<h3 id="数据类型">数据类型</h3>
+<h4 id="数值类型">数值类型</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">大小</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">TINYINT</td>
+<td style="text-align:left">1 Bytes</td>
+<td style="text-align:left">小整数值</td>
+</tr>
+<tr>
+<td style="text-align:left">SMALLINT</td>
+<td style="text-align:left">2 Bytes</td>
+<td style="text-align:left">大整数值</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMINT</td>
+<td style="text-align:left">3 Bytes</td>
+<td style="text-align:left">大整数值</td>
+</tr>
+<tr>
+<td style="text-align:left">INT或INTEGER</td>
+<td style="text-align:left">4 Bytes</td>
+<td style="text-align:left">大整数值</td>
+</tr>
+<tr>
+<td style="text-align:left">BIGINT</td>
+<td style="text-align:left">8 Bytes</td>
+<td style="text-align:left">极大整数值</td>
+</tr>
+<tr>
+<td style="text-align:left">FLOAT</td>
+<td style="text-align:left">4 Bytes</td>
+<td style="text-align:left">单精度浮点数值</td>
+</tr>
+<tr>
+<td style="text-align:left">DOUBLE</td>
+<td style="text-align:left">8 Bytes   double(精度, 标度)</td>
+<td style="text-align:left">双精度浮点数值</td>
+</tr>
+<tr>
+<td style="text-align:left">DECIMAL</td>
+<td style="text-align:left">对DECIMAL(M,D) ，如果M&gt;D，为M+2否则为D+2</td>
+<td style="text-align:left">小数值</td>
+</tr>
+</tbody>
+</table>
+<h4 id="字符串类型">字符串类型</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">大小</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CHAR</td>
+<td style="text-align:left">0-255 bytes</td>
+<td style="text-align:left">定长字符串，性能更好</td>
+</tr>
+<tr>
+<td style="text-align:left">VARCHAR</td>
+<td style="text-align:left">0-65535 bytes</td>
+<td style="text-align:left">变长字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">TINYBLOB</td>
+<td style="text-align:left">0-255 bytes</td>
+<td style="text-align:left">不超过 255 个字符的二进制字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">TINYTEXT</td>
+<td style="text-align:left">0-255 bytes</td>
+<td style="text-align:left">短文本字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">BLOB</td>
+<td style="text-align:left">0-65 535 bytes</td>
+<td style="text-align:left">二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">TEXT</td>
+<td style="text-align:left">0-65 535 bytes</td>
+<td style="text-align:left">长文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMBLOB</td>
+<td style="text-align:left">0-16 777 215 bytes</td>
+<td style="text-align:left">二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMTEXT</td>
+<td style="text-align:left">0-16 777 215 bytes</td>
+<td style="text-align:left">中等长度文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">LONGBLOB</td>
+<td style="text-align:left">0-4 294 967 295 bytes</td>
+<td style="text-align:left">二进制形式的极大文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">LONGTEXT</td>
+<td style="text-align:left">0-4 294 967 295 bytes</td>
+<td style="text-align:left">极大文本数据</td>
+</tr>
+</tbody>
+</table>
+<h4 id="日期时间类型">日期时间类型</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">大小</th>
+<th style="text-align:left">范围</th>
+<th style="text-align:left">格式</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DATE</td>
+<td style="text-align:left">3B</td>
+<td style="text-align:left">1000-01-01/9999-12-31</td>
+<td style="text-align:left">YYYY-MM-DD</td>
+<td style="text-align:left">日期值</td>
+</tr>
+<tr>
+<td style="text-align:left">TIME</td>
+<td style="text-align:left">3B</td>
+<td style="text-align:left">‘-838:59:59’/‘838:59:59’</td>
+<td style="text-align:left">HH:MM:SS</td>
+<td style="text-align:left">时间值或持续时间</td>
+</tr>
+<tr>
+<td style="text-align:left">YEAR</td>
+<td style="text-align:left">1B</td>
+<td style="text-align:left">1901/2155</td>
+<td style="text-align:left">YYYY</td>
+<td style="text-align:left">年份值</td>
+</tr>
+<tr>
+<td style="text-align:left">DATETIME</td>
+<td style="text-align:left">8B</td>
+<td style="text-align:left">‘1000-01-01 00:00:00’ 到 ‘9999-12-31 23:59:59’</td>
+<td style="text-align:left">YYYY-MM-DD hh:mm:ss</td>
+<td style="text-align:left">混合日期和时间值</td>
+</tr>
+<tr>
+<td style="text-align:left">TIMESTAMP</td>
+<td style="text-align:left">4B</td>
+<td style="text-align:left">‘1970-01-01 00:00:01’ UTC 到 ‘2038-01-19 03:14:07’ UTC</td>
+<td style="text-align:left">YYYY-MM-DD hh:mm:ss</td>
+<td style="text-align:left">混合日期和时间值，时间戳</td>
+</tr>
+</tbody>
+</table>
+<h3 id="通用语法">通用语法</h3>
+<ol>
+<li>SQL语句可以单行或多行书写，以<strong>分号</strong>结尾，[…]为可选参数</li>
+<li>SQL语句可以使用空格或缩进来增强语句可读性</li>
+<li>MySQL数据库的SQL语句不区分大小写，<strong>关键字建议使用大写</strong></li>
+<li>注释：<br>
+1. 单行注释：-- 注释内容   或   # 注释内容(MySQL特有)<br>
+2.  多行注释： /* 注释内容 */</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>全称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDL</td>
+<td>Data Definition Language</td>
+<td>数据定义语言，用来定义数据库对象(数据库，表，字段)</td>
+</tr>
+<tr>
+<td>DML</td>
+<td>Data Manipulation Language</td>
+<td>数据操作语言，用来对数据库表中的数据进行增删改</td>
+</tr>
+<tr>
+<td>DQL</td>
+<td>Data Query Language</td>
+<td>数据查询语言，用来查询数据库中表的记录</td>
+</tr>
+<tr>
+<td>DCL</td>
+<td>Data Control Language</td>
+<td>数据控制语言，用来创建数据库用户、控制数据库的访问权限</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ddl">DDL</h3>
+<h4 id="数据库操作">数据库操作</h4>
+<ol>
+<li>查询所有数据库 <code>SHOW DATABASES;</code></li>
+<li>查询当前数据库 <code>SELECT DATABASES();</code></li>
+<li>创建 <code>CREATE DATABASE [IF NOT EXISTS] 数据库名 [DEFAULT CHARSET 字符集] [COLLATE 排序规则];</code></li>
+<li>删除 <code>DROP DATABASE [IF EXISTS] 数据库名;</code></li>
+<li>使用 <code>USE 数据库名;</code></li>
+</ol>
+<h4 id="表操作">表操作</h4>
+<ol>
+<li>
+<p>查询当前数据库所有表 <code>SHOW TABLES;</code></p>
+</li>
+<li>
+<p>查询表结构 <code>DESC 表名;</code></p>
+</li>
+<li>
+<p>查询指定表的建表语句 <code>SHOW CREATE TABLE 表名;</code></p>
+</li>
+<li>
+<p>创建表：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 表名(</span><br><span class="line">    字段1 字段1类型 [COMMENT 字段1注释],</span><br><span class="line">    字段2 字段2类型 [COMMENT 字段2注释],</span><br><span class="line">    ......</span><br><span class="line">    字段n 字段n类型 [COMMENT 字段n注释] --最后一行没有逗号</span><br><span class="line">)[COMMENT 表注释];</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改表：<br>
+1. 添加字段 <code>ALTER TABLE 表名 ADD 字段名 类型(长度) [COMMENT 注释] [约束];</code><br>
+2. modify修改数据类型 <code>ALTER TABLE 表名 MODIFY 字段名 新数据类型(长度);</code><br>
+3. <code>change</code>大改 <code>ALTER TABLE 表名 CHANGE 旧字段名 新字段名 新类型(长度) [COMMENT 注释] [约束];</code><br>
+4. 删除字段 <code>ALTER TABLE 表名 DROP 字段名;</code><br>
+5. 修改表名 <code>ALTER TABLE 表名 RENAME TO 新表名;</code><br>
+6. 删除表 <code>DROP TABLE [IF EXISTS] 表名;</code><br>
+7. 删除并重新创建指定表 <code>TRUNCATE TABLE 表名;</code></p>
+</li>
+</ol>
+<h3 id="dml">DML</h3>
+<h4 id="添加数据-insert">添加数据(INSERT)</h4>
+<ol>
+<li>给指定字段添加数据 <code>INSERT INTO 表名(字段名1,字段名2,...) VALUES(值1,值2,...);</code></li>
+<li>给所有字段添加数据 <code>INSERT INTO 表名 VALUES(值1,值2,...);</code></li>
+<li>批量添加数据：<br>
+1. <code>INSERT INTO 表名(字段名1,字段名2,...) VALUES(值1,值2,...),(值1,值2,...),...;</code><br>
+1.  <code>INSERT INTO 表名 VALUES(值1,值2,...),(值1,值2,...),...;</code></li>
+</ol>
+<h4 id="修改数据-update">修改数据(UPDATE)</h4>
+<p><code>UPDATE 表名 SET 字段名1=值1,字段名2=值2,...[WHERE 条件];</code> 不添加条件则修改整张表所有数据</p>
+<h4 id="删除数据-delete">删除数据(DELETE)</h4>
+<p><code>DELETE FROM 表名 [WHERE 条件];</code> 如果没有条件则删除整张表的所有数据，DELETE语句不能删除某一字段的值，可以用UPDATE修改为null</p>
+<h3 id="dql">DQL</h3>
+<h4 id="基本查询">基本查询</h4>
+<ol>
+<li>查询多个字段 <code>SELECT 字段1,字段2,字段3... FROM 表名;</code> 可以用 ***** 表示全部字段但是可读性差且效率低</li>
+<li>设置别名 <code>SELECT 字段1 [AS 别名1], 字段2 [AS 别名2]... FROM 表名;</code> <strong>as可以省略</strong></li>
+<li>去除重复记录 <code>SELECT DISTINCT 字段列表 FROM 表名;</code></li>
+</ol>
+<h4 id="条件查询-where">条件查询(WHERE)</h4>
+<p>基本语法为 <code>SELECT 字段列表 FROM 表名 WHERE 条件列表;</code></p>
+<table>
+<thead>
+<tr>
+<th>比较运算符</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>=</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>&lt;&gt; 或 !=</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>BETWEEN … AND …</td>
+<td>在某个范围内（含最小、最大值）</td>
+</tr>
+<tr>
+<td>IN(…)</td>
+<td>在in之后的列表中的值，多选一</td>
+</tr>
+<tr>
+<td>LIKE 占位符</td>
+<td>模糊匹配（_匹配单个字符，%匹配任意个字符）</td>
+</tr>
+<tr>
+<td>IS NULL</td>
+<td>是NULL</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>逻辑运算符</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AND 或 &amp;&amp;</td>
+<td>并且（多个条件同时成立）</td>
+</tr>
+<tr>
+<td>OR 或 ||</td>
+<td>或者（多个条件任意一个成立）</td>
+</tr>
+<tr>
+<td>NOT 或 !</td>
+<td>非，不是</td>
+</tr>
+</tbody>
+</table>
+<h4 id="聚合函数">聚合函数</h4>
+<p>将一列数据作为一个整体进行纵向计算，常用count统计数量，max最大值，min最小值，avg平均值，sum求和</p>
+<p>基本语法为 <code>SELECT 聚合函数(字段列表) FROM 表名;</code>  <strong>null值不参与所有聚合函数运算</strong></p>
+<h4 id="分组查询-group-by">分组查询(GROUP BY)</h4>
+<p>基本语法为 <code>SELECT 字段列表 FROM 表名 [WHERE 条件] GROUP BY 分组字段名 [HAVING 分组后过滤条件];</code></p>
+<p>where是分组之后进行过滤，不满足where条件不参与分组，<strong>having是分组后对结果进行过滤</strong>，where不能对聚合函数进行判断，having可以，执行顺序为 <strong>where &gt; 聚合函数 &gt; having</strong> 分组后一般查询聚合函数和分组字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 查询年龄小于45的员工，并根据工作地址分组，获取员工数量大于等于3的工作地址</span><br><span class="line">select workaddress, count(*) address_count from emp where age &lt; 45 group by workaddress having address_count &gt;= 3</span><br></pre></td></tr></table></figure>
+<h4 id="排序查询-order-by">排序查询(ORDER BY)</h4>
+<p>基本语法为 <code>SELECT 字段列表 FROM 表名 ORDER BY 字段1 排序方式1, 字段2 排序方式2...;</code></p>
+<p>排序方式只有 <strong>ASC升序(默认值)</strong> 和 <strong>DESC降序</strong>，如果多字段排序第一个字段值相同时才会根据第二字段排序</p>
+<h4 id="分页查询-limit">分页查询(LIMIT)</h4>
+<p>基本语法为 <code>SELECT 字段列表 FROM 表名 LIMIT 起始索引,查询记录数;</code></p>
+<p>起始索引从0开始，<code>起始索引 = (查询页码 - 1)* 每页显示记录数</code> 分页查询不同数据库的实现方式不同</p>
+<p>查询首页可以省略起始索引</p>
+<h3 id="dcl">DCL</h3>
+<h4 id="管理用户">管理用户</h4>
+<ol>
+<li>查询用户 <code>SELECT * FROM user;</code></li>
+<li>创建用户 <code>CREATE USER '用户名'@'主机名' IDENTIFIED BY '密码';</code></li>
+<li>修改用户密码 <code>ALTER USER '用户名'@'主机名' IDENTIFIED WITH mysql_native_password BY '新密码';</code></li>
+<li>删除用户 <code>DROP USER '用户名'@'主机名';</code></li>
+</ol>
+<h4 id="权限控制">权限控制</h4>
+<p>常用权限有ALL/ALL PRIVILEGES、SELECT、INSERT、UPDATE、DELETE、ALTER、DROP、CEEATE等，多个权限间用逗号分隔，授权时数据库名和表名都可以使用*进行通配代表所有</p>
+<ol>
+<li>查询权限 <code>SHOW GRANTS FOR '用户名'@'主机名';</code></li>
+<li>授予权限 <code>GRANT 权限列表 ON 数据库名.表名 TO '用户名'@'主机名';</code></li>
+<li>撤销权限 <code>REVOKE 权限列表 ON 数据库名.表名 FROM '用户名'@'主机名';</code></li>
+</ol>
+<h2 id="函数">函数</h2>
+<p>是指一段可以直接被另一端程序调用的程序或代码，基本语法为 <code>SELECT 函数(参数);</code></p>
+<h3 id="字符串函数">字符串函数</h3>
+<p>常用的有如下几个</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONCAT(s1, s2, … sn)</td>
+<td>字符串拼接，将s1, s2, … sn拼接成一个字符串</td>
+</tr>
+<tr>
+<td>LOWER(str)</td>
+<td>将字符串str全部转为小写</td>
+</tr>
+<tr>
+<td>UPPER(str)</td>
+<td>将字符串str全部转为大写</td>
+</tr>
+<tr>
+<td>LPAD(str, n, pad)</td>
+<td>左填充，用字符串pad对str的左边进行填充，达到n个字符串长度</td>
+</tr>
+<tr>
+<td>RPAD(str, n, pad)</td>
+<td>右填充，用字符串pad对str的右边进行填充，达到n个字符串长度</td>
+</tr>
+<tr>
+<td>TRIM(str)</td>
+<td>去掉字符串头部和尾部的空格</td>
+</tr>
+<tr>
+<td>SUBSTRING(str, start, len)</td>
+<td>返回字符串从start位置起的len个长度的字符串，<strong>索引从1开始</strong></td>
+</tr>
+<tr>
+<td>REPLACE(column, source, replace)</td>
+<td>替换字符串</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数值函数">数值函数</h3>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CEIL(x)</td>
+<td>向上取整</td>
+</tr>
+<tr>
+<td>FLOOR(x)</td>
+<td>向下取整</td>
+</tr>
+<tr>
+<td>MOD(x, y)</td>
+<td>返回x/y的模</td>
+</tr>
+<tr>
+<td>RAND()</td>
+<td>返回0~1内的随机数</td>
+</tr>
+<tr>
+<td>ROUND(x, y)</td>
+<td>求参数x的四舍五入值，保留y位小数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="日期函数">日期函数</h3>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CURDATE()</td>
+<td>返回当前日期</td>
+</tr>
+<tr>
+<td>CURTIME()</td>
+<td>返回当前时间</td>
+</tr>
+<tr>
+<td>NOW()</td>
+<td>返回当前日期和时间</td>
+</tr>
+<tr>
+<td>YEAR(date)</td>
+<td>获取指定date的年份</td>
+</tr>
+<tr>
+<td>MONTH(date)</td>
+<td>获取指定date的月份</td>
+</tr>
+<tr>
+<td>DAY(date)</td>
+<td>获取指定date的日期</td>
+</tr>
+<tr>
+<td>DATE_ADD(date, INTERVAL expr type)</td>
+<td>返回data在expr type后的时间值(如70 MONTH)</td>
+</tr>
+<tr>
+<td>DATEDIFF(date1, date2)</td>
+<td>返回起始时间date1<strong>减</strong>结束时间date2之间的天数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="流程函数">流程函数</h3>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IF(value, t, f)</td>
+<td>如果value为true，则返回t，否则返回f</td>
+</tr>
+<tr>
+<td>IFNULL(value1, value2)</td>
+<td>如果value1不为空返回value1否则返回value2</td>
+</tr>
+<tr>
+<td>CASE WHEN [val1] THEN [res1] … ELSE [default] END</td>
+<td>如果val1为true则返回res1否则返回default</td>
+</tr>
+<tr>
+<td>CASE [expr] WHEN [val1] THEN [res1] … ELSE [default] END</td>
+<td>如果expr为val1则返回res1否则返回default</td>
+</tr>
+</tbody>
+</table>
+<h2 id="约束">约束</h2>
+<p>约束是<strong>作用于表中字段上的规则</strong>，用于限制存储在表中的数据，可以在创建表或修改表的时候添加约束，能够保证数据库中数据的正确有效和完整性</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">约束</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">非空约束</td>
+<td style="text-align:center">限制该字段的数据不能为null</td>
+<td style="text-align:center">NOT NULL</td>
+</tr>
+<tr>
+<td style="text-align:center">唯一约束</td>
+<td style="text-align:center">保证该字段的所有数据都是唯一不重复的</td>
+<td style="text-align:center">UNIQUE</td>
+</tr>
+<tr>
+<td style="text-align:center">主键约束</td>
+<td style="text-align:center">主键是一行数据的唯一标识，要求非空且唯一</td>
+<td style="text-align:center">PRIMARY KEY</td>
+</tr>
+<tr>
+<td style="text-align:center">默认约束</td>
+<td style="text-align:center">保存数据时，如果未指定该字段的值，则采用默认值</td>
+<td style="text-align:center">DEFAULT</td>
+</tr>
+<tr>
+<td style="text-align:center">检查约束（8.0.16后）</td>
+<td style="text-align:center">保证字段值满足某一个条件</td>
+<td style="text-align:center">CHECK</td>
+</tr>
+<tr>
+<td style="text-align:center">外键约束</td>
+<td style="text-align:center">用来让两张表的数据之间建立连接，保证数据的一致性和完整性</td>
+<td style="text-align:center">FOREIGN KEY</td>
+</tr>
+</tbody>
+</table>
+<h3 id="使用示例">使用示例</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table user(</span><br><span class="line">	id int primary key auto_increment comment &#x27;主键&#x27;,</span><br><span class="line">	name varchar(10) not null unique comment &#x27;姓名&#x27;,</span><br><span class="line">	age int check(age &gt; 0 and age &lt; 120) comment &#x27;年龄&#x27;,</span><br><span class="line">	status char(1) default &#x27;1&#x27; comment &#x27;状态&#x27;,</span><br><span class="line">	gender char(1) comment &#x27;性别&#x27;</span><br><span class="line">) comment &#x27;用户表&#x27;;</span><br></pre></td></tr></table></figure>
+<h3 id="外键约束">外键约束</h3>
+<ol>
+<li>
+<p>添加外键</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 表名(</span><br><span class="line">	字段名 字段类型,</span><br><span class="line">	...</span><br><span class="line">	[CONSTRAINT] [外键名称] FOREIGN KEY (外键字段名) REFERENCES 主表(主表列名)</span><br><span class="line">);</span><br><span class="line">ALTER TABLE 表名 ADD CONSTRAINT 外键名称 FOREIGN KEY (外键字段名) REFERENCES 主表(主表列名);</span><br><span class="line"></span><br><span class="line">-- 例子</span><br><span class="line">alter table emp add constraint fk_emp_dept_id foreign key (dept_id) references dept(id);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>删除外键 <code>ALTER TABLE 表名 DROP FOREIGN KEY 外键名;</code></p>
+</li>
+<li>
+<p>删除/更新行为 <code>ALTER TABLE 表名 ADD CONSTRAINT 外键名称 FOREIGN KEY (外键字段) REFERENCES 主表名(主表字段名) ON UPDATE 行为 ON DELETE 行为;</code></p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>行为</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NO ACTION</td>
+<td>父表中删除/更新对应记录时，先检查该记录是否有对应外键，有则不允许删除/更新</td>
+</tr>
+<tr>
+<td>RESTRICT</td>
+<td>MySQL中与NO ACTION一致，都是默认的</td>
+</tr>
+<tr>
+<td>CASCADE</td>
+<td>父表中删除/更新对应记录时，如果检测有外键也删除/更新外键在子表中的记录</td>
+</tr>
+<tr>
+<td>SET NULL</td>
+<td>父表删除/更新记录时，如果检测有外键且要求外键允许为null则设置子表中该外键值为null</td>
+</tr>
+<tr>
+<td>SET DEFAULT</td>
+<td>父表有变更时，子表将外键设为一个默认值（Innodb不支持）</td>
+</tr>
+</tbody>
+</table>
+<p>RESTRICT约束动作是在删除或更新操作发生之前起作用的，而NO ACTION约束动作是在删除或更新操作时触发的</p>
+<h2 id="多表查询">多表查询</h2>
+<h3 id="多表关系">多表关系</h3>
+<h4 id="一对多-多对一">一对多(多对一)</h4>
+<p>案例：部门与员工的关系<br>
+关系：一个部门对应多个员工，一个员工对应一个部门<br>
+实现：在多的一方建立外键，指向一的一方的主键</p>
+<h4 id="多对多">多对多</h4>
+<p>案例：学生与课程的关系<br>
+关系：一个学生可以选多门课程，一门课程也可以供多个学生选修<br>
+实现：建立第三张中间表，中间表至少包含两个外键，分别关联两方主键</p>
+<h4 id="一对一">一对一</h4>
+<p>案例：用户与用户详情的关系<br>
+关系：一对一关系，多用于单表拆分，基础字段放在一张表中，其他详情字段放在另一张表中以提升操作效率<br>
+实现：在任意一方加入外键，关联另外一方的主键，并且设置外键为唯一的（UNIQUE）</p>
+<h3 id="多表查询概述">多表查询概述</h3>
+<p>合并查询会展示所有组合结果：<code>select * from employee, dept;</code></p>
+<p>笛卡尔积：两个集合A集合和B集合的所有组合情况（在多表查询时，需要消除无效的笛卡尔积）</p>
+<p>消除无效笛卡尔积：<code>select * from employee, dept where employee.dept = dept.id;</code></p>
+<h3 id="内连接查询">内连接查询</h3>
+<p>内连接查询的是两张表交集的部分</p>
+<p>隐式内连接： <code>SELECT 字段列表 FROM 表1, 表2 WHERE 条件 ...;</code></p>
+<p>显式内连接： <code>SELECT 字段列表 FROM 表1 [INNER] JOIN 表2 ON 连接条件 ...;</code></p>
+<p>相对而言，隐式连接好理解好书写，语法简单，但是显式连接可以减少字段的扫描，有更快的执行速度。这种速度优势在3张或更多表连接时比较明显</p>
+<h3 id="外连接查询">外连接查询</h3>
+<p>左外连接： <code>SELECT 字段列表 FROM 表1 LEFT [OUTER] JOIN 表2 ON 条件 ...;</code>相当于查询表1的所有数据，包含表1和表2交集部分数据</p>
+<p>右外连接： <code>SELECT 字段列表 FROM 表1 RIGHT [ OUTER ] JOIN 表2 ON 条件 ...;</code></p>
+<h3 id="自连接查询">自连接查询</h3>
+<p>当前表与自身的连接查询，自连接必须使用表别名，可以是内连接查询，也可以是外连接查询</p>
+<p><code>SELECT 字段列表 FROM 表A 别名A JOIN 表A 别名B ON 条件 ...;</code></p>
+<h3 id="联合查询">联合查询</h3>
+<p>union查询就是把多次查询的结果合并起来形成一个新的查询结果集</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段列表 FROM 表A ...</span><br><span class="line">UNION [ALL]</span><br><span class="line">SELECT 字段列表 FROM 表B ...</span><br></pre></td></tr></table></figure>
+<p>对于联合查询的多张表列数必须保持一致，字段类型 也需要保持一致</p>
+<p>union all会将查询后全部的数据直接合并到一起，union会对合并后的数据去重</p>
+<h3 id="子查询">子查询</h3>
+<p>SQL语句中嵌套SELECT语句称嵌套查询，又称子查询，子查询外部的语句可以是INSERT/UPDATE/SELECT任一个</p>
+<p>基础语法： <code>SELECT * FROM t1 WHERE column1 = ( SELECT column1 FROM t2);</code></p>
+<p>子查询位置可以分为WHERE之后，FROM之后和SELECT之后</p>
+<h4 id="标量子查询">标量子查询</h4>
+<p>子查询返回的结果是单个值（数字、字符串、日期等），常用操作符有：= &lt;&gt; &gt; &gt;= &lt; &lt;=</p>
+<h4 id="列子查询">列子查询</h4>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IN</td>
+<td>在指定的集合范围内，多选一</td>
+</tr>
+<tr>
+<td>NOT IN</td>
+<td>不在指定的集合范围内</td>
+</tr>
+<tr>
+<td>ANY</td>
+<td>子查询返回列表中，有任意一个满足即可</td>
+</tr>
+<tr>
+<td>SOME</td>
+<td>与ANY等同，使用SOME的地方都可以使用ANY</td>
+</tr>
+<tr>
+<td>ALL</td>
+<td>子查询返回列表的所有值都必须满足</td>
+</tr>
+</tbody>
+</table>
+<h4 id="行子查询">行子查询</h4>
+<p>行子查询返回的结果是一行，常用的操作符有：=, &lt;&gt;, IN, NOT IN</p>
+<h4 id="表子查询">表子查询</h4>
+<p>查询返回的结果是多行多列的，常用操作符为IN</p>
+<h2 id="事务">事务</h2>
+<p>事务是一组操作的集合，它是一个不可分割的工作单位，事务会把所有的操作作为一个整体一起向系统提交或撤销操作请求，即这些操作要么同时成功要么同时失败</p>
+<h3 id="事务操作">事务操作</h3>
+<ol>
+<li><code>SELECT @@AUTOCOMMIT;</code> 查看事务提交方式，默认为1， <code>SET @@AUTOCOMMIT=0;</code> 可以将当前对话改为手动提交，操作成功用 <code>COMMIT;</code> 提交，操作错误使用 <code>ROLLBACK</code> 进行回滚事务</li>
+<li>操作前 <code>START TRANSACTION</code> 或 <code>BEGIN TRANSACTION;</code>开启事务,操作成功用 <code>COMMIT;</code> 提交，操作错误使用 <code>ROLLBACK;</code> 进行回滚事务</li>
+</ol>
+<h3 id="事务四大特性">事务四大特性</h3>
+<ol>
+<li>原子性(Atomicity)：事务是不可分割的最小操作单元，要么全部成功，要么全部失败</li>
+<li>一致性(Consistency)：事务完成时，必须使所有的数据都保持一致状态</li>
+<li>隔离性(Isolation)：数据库系统提供的隔离机制，保证事务在不受外部并发操作影响的独立环境下运行</li>
+<li>持久性(Durability)：事务一旦提交或回滚，它对数据库中的数据的改变就是永久的</li>
+</ol>
+<h3 id="并发事务问题">并发事务问题</h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>脏读</td>
+<td>一个事务读到另一个事务还没提交的数据（自动提交）</td>
+</tr>
+<tr>
+<td>不可重复读</td>
+<td>一个事务先后读取同一条记录，但两次读取的数据不同（读取过程中有人修改）</td>
+</tr>
+<tr>
+<td>幻读</td>
+<td>一个事务按照条件查询数据时，没有对应的数据行，但是插入数据时，又发现数据已经存在</td>
+</tr>
+</tbody>
+</table>
+<h3 id="事务隔离级别">事务隔离级别</h3>
+<p>查看事务隔离级别： <code>SELECT @@TRANSACTION_ISOLATION;</code></p>
+<p>Serializable安全性最高性能最低; Read uncommitted性能最高数据安全性最差</p>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read uncommitted</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Read committed</td>
+<td>×</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Repeatable Read(默认)</td>
+<td>×</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Serializable</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+</tbody>
+</table>
+<p>设置事务隔离级别： <code>SET [SESSION|GLOBAL] TRANSACTION ISOLATION LEVEL READ UNCOMMITTED ;</code><br>
+SESSION 是会话级别，表示只针对当前会话有效，GLOBAL 表示对所有会话有效</p>
+<h1>进阶篇</h1>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/05/13/MySQL/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2024/05/20/JavaWeb/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            JavaWeb
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2024/05/09/%E4%BA%8C%E5%88%86%E7%B1%BB%E7%8C%AB/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">二分类猫</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2024
+        <i class="ri-heart-fill heart_icon"></i> John Doe
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer.svg" alt="Liu"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">摄影</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.css">
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/katex.min.js"></script>
+        <script src="https://cdn.staticfile.org/KaTeX/0.15.1/contrib/auto-render.min.js"></script>
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+ 
+<script src="/js/clickLove.js"></script>
+ 
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
